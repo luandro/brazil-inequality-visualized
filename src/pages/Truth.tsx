@@ -166,20 +166,20 @@ export default function Truth() {
               {multiMillionairePct > 0 && (
                 <div
                   className="bg-gradient-to-r from-yellow-500 to-yellow-300 flex items-center justify-center text-xs font-bold text-primary border-l-2 border-primary transition-all hover:brightness-110"
-                  style={{ width: `${Math.max(multiMillionairePct, 0.5)}%`, minWidth: '60px' }}
+                  style={{ width: `${multiMillionairePct}%` }}
                   title={`${multiMillionairePct.toFixed(3)}% - ${t('truth.sectionA.multiMillionaires')} (${wealth.millionaire_population.multi_millionaire_count_individuals?.toLocaleString()} people)`}
                 >
-                  <span className="truncate px-1">{multiMillionairePct < 0.1 ? `<0.1%` : `${multiMillionairePct.toFixed(2)}%`}</span>
+                  <span className="truncate px-1 text-[10px]">{multiMillionairePct < 0.1 ? `<0.1%` : `${multiMillionairePct.toFixed(2)}%`}</span>
                 </div>
               )}
 
               {/* Billionaires */}
               <div
                 className="bg-gradient-to-r from-purple-600 to-purple-400 flex items-center justify-center text-xs font-bold text-primary-foreground border-l-2 border-primary transition-all hover:brightness-110"
-                style={{ width: `${Math.max(billionairePct, 0.3)}%`, minWidth: '80px' }}
+                style={{ width: `${billionairePct}%` }}
                 title={`${billionairePct.toFixed(5)}% - ${t('truth.sectionA.billionaires')} (${wealth.billionaire_population.count_2025} people)`}
               >
-                <span className="truncate px-1">{wealth.billionaire_population.count_2025}</span>
+                <span className="truncate px-1 text-[10px]">{wealth.billionaire_population.count_2025}</span>
               </div>
             </div>
 
