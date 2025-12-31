@@ -134,6 +134,7 @@ export default function Truth() {
               />
             </div>
 
+            {/* Main accurate graph */}
             <div className="h-16 rounded-lg overflow-hidden flex border border-border">
               {/* Extreme Poverty */}
               <div
@@ -162,24 +163,78 @@ export default function Truth() {
                 {abovePovertyAdjusted.toFixed(1)}%
               </div>
 
-              {/* Multi-Millionaires */}
+              {/* Multi-Millionaires - barely visible */}
               {multiMillionairePct > 0 && (
                 <div
-                  className="bg-gradient-to-r from-yellow-500 to-yellow-300 flex items-center justify-center text-xs font-bold text-primary border-l-2 border-primary transition-all hover:brightness-110"
+                  className="bg-gradient-to-r from-yellow-500 to-yellow-300 border-l-2 border-yellow-600 transition-all hover:brightness-110"
                   style={{ width: `${multiMillionairePct}%` }}
                   title={`${multiMillionairePct.toFixed(3)}% - ${t('truth.sectionA.multiMillionaires')} (${wealth.millionaire_population.multi_millionaire_count_individuals?.toLocaleString()} people)`}
-                >
-                  <span className="truncate px-1 text-[10px]">{multiMillionairePct < 0.1 ? `<0.1%` : `${multiMillionairePct.toFixed(2)}%`}</span>
-                </div>
+                />
               )}
 
-              {/* Billionaires */}
+              {/* Billionaires - extremely tiny */}
               <div
-                className="bg-gradient-to-r from-purple-600 to-purple-400 flex items-center justify-center text-xs font-bold text-primary-foreground border-l-2 border-primary transition-all hover:brightness-110"
+                className="bg-gradient-to-r from-purple-600 to-purple-400 border-l-2 border-purple-700 transition-all hover:brightness-110"
                 style={{ width: `${billionairePct}%` }}
                 title={`${billionairePct.toFixed(5)}% - ${t('truth.sectionA.billionaires')} (${wealth.billionaire_population.count_2025} people)`}
-              >
-                <span className="truncate px-1 text-[10px]">{wealth.billionaire_population.count_2025}</span>
+              />
+            </div>
+
+            {/* Magnified inset showing ultra-wealth segments */}
+            <div className="mt-6 p-4 bg-muted/30 rounded-lg border border-border">
+              <div className="flex items-center justify-between mb-3">
+                <div className="flex items-center gap-2">
+                  <div className="w-6 h-6 rounded bg-muted flex items-center justify-center">
+                    <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v3m0 0v3m0-3h3m-3 0H7" />
+                    </svg>
+                  </div>
+                  <span className="text-sm font-medium">Ultra-Wealth Magnified (1000x scale)</span>
+                </div>
+                <span className="text-xs text-muted-foreground">Actual: 0.025% total</span>
+              </div>
+
+              <div className="h-12 rounded-lg overflow-hidden flex border border-border bg-background">
+                {/* Multi-Millionaires magnified */}
+                <div
+                  className="bg-gradient-to-r from-yellow-500 to-yellow-300 flex items-center justify-center text-xs font-bold text-primary border-r-2 border-yellow-600 transition-all hover:brightness-110"
+                  style={{ width: `${(multiMillionairePct / (multiMillionairePct + billionairePct)) * 100}%` }}
+                  title={`${multiMillionairePct.toFixed(3)}% - ${t('truth.sectionA.multiMillionaires')} (${wealth.millionaire_population.multi_millionaire_count_individuals?.toLocaleString()} people)`}
+                >
+                  <div className="flex flex-col items-center">
+                    <span className="text-[10px] font-semibold">{wealth.millionaire_population.multi_millionaire_count_individuals?.toLocaleString()}</span>
+                    <span className="text-[9px] opacity-80">people</span>
+                  </div>
+                </div>
+
+                {/* Billionaires magnified */}
+                <div
+                  className="bg-gradient-to-r from-purple-600 to-purple-400 flex items-center justify-center text-xs font-bold text-primary-foreground transition-all hover:brightness-110"
+                  style={{ width: `${(billionairePct / (multiMillionairePct + billionairePct)) * 100}%` }}
+                  title={`${billionairePct.toFixed(5)}% - ${t('truth.sectionA.billionaires')} (${wealth.billionaire_population.count_2025} people)`}
+                >
+                  <div className="flex flex-col items-center">
+                    <span className="text-[10px] font-semibold">{wealth.billionaire_population.count_2025}</span>
+                    <span className="text-[9px] opacity-80">people</span>
+                  </div>
+                </div>
+              </div>
+
+              <div className="grid grid-cols-2 gap-4 mt-3 text-xs">
+                <div className="flex items-center gap-2">
+                  <div className="w-3 h-3 rounded bg-gradient-to-r from-yellow-500 to-yellow-300 border border-yellow-600" />
+                  <div>
+                    <div className="font-medium">{t('truth.sectionA.multiMillionaires')}</div>
+                    <div className="text-muted-foreground">{multiMillionairePct.toFixed(3)}% of population</div>
+                  </div>
+                </div>
+                <div className="flex items-center gap-2">
+                  <div className="w-3 h-3 rounded bg-gradient-to-r from-purple-600 to-purple-400 border border-purple-700" />
+                  <div>
+                    <div className="font-medium">{t('truth.sectionA.billionaires')}</div>
+                    <div className="text-muted-foreground">{billionairePct.toFixed(5)}% of population</div>
+                  </div>
+                </div>
               </div>
             </div>
 
@@ -208,9 +263,13 @@ export default function Truth() {
             </div>
 
             {/* Insight Note */}
-            <div className="mt-4 p-3 bg-muted/50 rounded-lg text-xs text-muted-foreground">
-              <strong>Note:</strong> Ultra-wealth segments (multi-millionaires and billionaires) are visually enlarged for visibility.
-              Actual percentages: Multi-millionaires {multiMillionairePct.toFixed(3)}%, Billionaires {billionairePct.toFixed(5)}%.
+            <div className="mt-4 p-3 bg-accent/10 rounded-lg text-xs border-l-4 border-accent">
+              <p className="font-semibold mb-1">The Scale of Inequality</p>
+              <p className="text-muted-foreground">
+                Ultra-wealth segments are so small they're nearly invisible in the main graph (barely {multiMillionairePct.toFixed(3)}% combined).
+                The magnified view above shows their relative proportions to each other. This visualization demonstrates how extreme wealth concentration
+                is in Brazil—a tiny fraction of the population holds enormous wealth while millions live in poverty.
+              </p>
             </div>
           </div>
         </div>
