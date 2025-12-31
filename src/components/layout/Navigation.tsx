@@ -121,7 +121,7 @@ export function Navigation() {
                 <div className="h-px bg-border" />
 
                 <div className="px-4">
-                  <LanguageSwitcher />
+                  <LanguageSwitcher showLabel />
                 </div>
               </div>
             </SheetContent>

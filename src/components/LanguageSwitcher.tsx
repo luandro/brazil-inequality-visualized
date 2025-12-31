@@ -14,7 +14,7 @@ const languages = [
   { code: 'pt-BR', name: 'Portuguese (Brazil)', nativeName: 'PT-BR' },
 ];
 
-export function LanguageSwitcher() {
+export function LanguageSwitcher({ showLabel = false }: { showLabel?: boolean }) {
   const { i18n } = useTranslation();
   const currentLang = i18n.language;
 
@@ -29,7 +29,7 @@ export function LanguageSwitcher() {
       <DropdownMenuTrigger asChild>
         <Button variant="ghost" size="sm" className="gap-2" aria-label="Change language">
           <Languages className="h-4 w-4" />
-          <span className="hidden sm:inline">{currentLanguage.nativeName}</span>
+          <span className={showLabel ? "inline" : "hidden sm:inline"}>{currentLanguage.nativeName}</span>
         </Button>
       </DropdownMenuTrigger>
       <DropdownMenuContent align="end">
