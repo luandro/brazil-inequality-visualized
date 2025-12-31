@@ -10,12 +10,10 @@ export default defineConfig(({ mode }) => {
   const env = loadEnv(mode, process.cwd(), '');
 
   return {
-    // Set base path for GitHub Pages deployment
-    // In production, use VITE_BASE_PATH if set, otherwise use hardcoded repo name
-    // In development, use / for local dev server
-    base: mode === 'production'
-      ? (env.VITE_BASE_PATH || '/brazil-inequality-visualized/')
-      : '/',
+    // Set base path for deployment
+    // Defaults to '/' for most providers (Vercel, Netlify, custom domains)
+    // Set VITE_BASE_PATH for subpath deployments (e.g., GitHub Pages: /repo-name/)
+    base: env.VITE_BASE_PATH || '/',
 
     server: {
       host: "::",
