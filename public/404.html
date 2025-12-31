@@ -6,7 +6,7 @@
   <script>
     // SPA 404 redirect for GitHub Pages
     // When a user visits /truth directly (not via navigation), GitHub Pages returns 404
-    // This script redirects to the root with the route in the hash so React Router can handle it
+    // This script redirects to index.html with the route in the hash so React Router can handle it
     (function() {
       var pathname = window.location.pathname;
       var search = window.location.search;
@@ -15,23 +15,21 @@
       // Get segments of the path
       var segments = pathname.split('/').filter(function(s) { return s.length > 0; });
 
-      // Determine base path (repository name if present)
-      var basePath = '';
-      var routePath = pathname;
-
-      // If we have a repository name in the path, extract it
-      if (segments.length > 0) {
-        // Check if first segment is the repository name
-        // For repo at /brazil-inequality-visualized/route
-        // segments[0] would be 'brazil-inequality-visualized'
-        basePath = '/' + segments[0];
-        routePath = '/' + segments.slice(1).join('/');
-      } else {
-        routePath = '/';
+      // If the path is just the repository name (e.g., /brazil-inequality-visualized/),
+      // it's not actually a 404 - just redirect to root
+      if (segments.length <= 1) {
+        // This is the repository root or an invalid path
+        window.location.replace(window.location.origin + pathname + '#' + hash);
+        return;
       }
 
-      // Redirect to the base path + '/#' + the route we want
-      // This preserves the route in the hash for React Router
+      // Extract repository name and route
+      // segments[0] = repository name (e.g., 'brazil-inequality-visualized')
+      // segments[1+] = the actual route (e.g., 'truth', 'wealth/pie-charts')
+      var basePath = '/' + segments[0];
+      var routePath = '/' + segments.slice(1).join('/');
+
+      // Redirect to the base path with the route in the hash
       var redirectUrl = window.location.origin + basePath + '/#' + routePath + search + hash;
       window.location.replace(redirectUrl);
     })();
