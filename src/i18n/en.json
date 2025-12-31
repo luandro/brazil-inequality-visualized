@@ -33,9 +33,20 @@
       "livingInPoverty": "Living in poverty",
       "inExtremePoverty": "In extreme poverty",
       "incomeGini": "Income Gini coefficient",
+      "ultraWealthy": "Ultra-wealthy",
       "povertyTooltip": "Percentage of population living below the $6.85/day poverty line (2017 PPP)",
       "extremePovertyTooltip": "Percentage living below $2.15/day extreme poverty line (2017 PPP)",
-      "giniTooltip": "Gini coefficient measures income inequality from 0 (perfect equality) to 1 (maximum inequality)"
+      "giniTooltip": "Gini coefficient measures income inequality from 0 (perfect equality) to 1 (maximum inequality)",
+      "ultraWealthyTooltip": "Individuals with net worth exceeding $1M USD, including 69 billionaires with $1B+ net worth"
+    },
+    "wealthConcentration": {
+      "title": "Wealth Concentration",
+      "description": "Just 0.2% of Brazilians hold nearly half of all wealth",
+      "ultraWealthy": "Ultra-wealthy (0.2%)",
+      "everyone": "Everyone else (99.8%)",
+      "viewDetails": "View Details",
+      "tooltipWealth": "Hold {{percent}}% of wealth",
+      "tooltipPopulation": "{{count}} people"
     },
     "socialPrograms": {
       "title": "The Impact of Social Programs",

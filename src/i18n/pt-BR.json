@@ -33,9 +33,20 @@
       "livingInPoverty": "Vivendo na pobreza",
       "inExtremePoverty": "Na pobreza extrema",
       "incomeGini": "Coeficiente de Gini de renda",
+      "ultraWealthy": "Ultra-ricos",
       "povertyTooltip": "Porcentagem da população vivendo abaixo da linha de pobreza de $6,85/dia (PPA 2017)",
       "extremePovertyTooltip": "Porcentagem vivendo abaixo da linha de pobreza extrema de $2,15/dia (PPA 2017)",
-      "giniTooltip": "O coeficiente de Gini mede a desigualdade de renda de 0 (igualdade perfeita) a 1 (desigualdade máxima)"
+      "giniTooltip": "O coeficiente de Gini mede a desigualdade de renda de 0 (igualdade perfeita) a 1 (desigualdade máxima)",
+      "ultraWealthyTooltip": "Indivíduos com patrimônio líquido superior a $1M USD, incluindo 69 bilionários com patrimônio de $1B+"
+    },
+    "wealthConcentration": {
+      "title": "Concentração de Riqueza",
+      "description": "Apenas 0,2% dos brasileiros detêm quase metade de toda riqueza",
+      "ultraWealthy": "Ultra-ricos (0,2%)",
+      "everyone": "Todos os demais (99,8%)",
+      "viewDetails": "Ver Detalhes",
+      "tooltipWealth": "Detêm {{percent}}% da riqueza",
+      "tooltipPopulation": "{{count}} pessoas"
     },
     "socialPrograms": {
       "title": "O Impacto dos Programas Sociais",

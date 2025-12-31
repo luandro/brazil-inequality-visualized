@@ -12,6 +12,7 @@ interface KPICardProps {
   definition?: string;
   variant?: 'default' | 'insight' | 'deficit' | 'neutral';
   size?: 'sm' | 'md' | 'lg';
+  formatCompact?: boolean;
 }
 
 export function KPICard({
@@ -24,6 +25,7 @@ export function KPICard({
   definition,
   variant = 'default',
   size = 'md',
+  formatCompact = false,
 }: KPICardProps) {
   const [displayValue, setDisplayValue] = useState(0);
   const ref = useRef<HTMLDivElement>(null);
@@ -69,6 +71,18 @@ export function KPICard({
     lg: 'text-4xl md:text-5xl lg:text-6xl',
   };
 
+  const formatNumber = (num: number): string => {
+    if (!formatCompact) return num.toFixed(decimals);
+
+    if (num >= 1000000) {
+      return (num / 1000000).toFixed(1) + 'M';
+    }
+    if (num >= 1000) {
+      return (num / 1000).toFixed(0) + 'K';
+    }
+    return num.toFixed(decimals);
+  };
+
   return (
     <motion.div
       ref={ref}
@@ -81,12 +95,12 @@ export function KPICard({
         <div className="flex-1">
           <div className={`font-bold tabular-nums ${sizeStyles[size]} ${variantStyles[variant]}`}>
             {prefix}
-            {displayValue.toFixed(decimals)}
+            {formatNumber(displayValue)}
             {suffix}
           </div>
           <p className="text-muted-foreground mt-2 text-sm md:text-base">{label}</p>
         </div>
-        <SourceDrawer sourceIds={sourceIds} title={label} definition={definition} />
+        <SourceDrawer sourceIds={sourceIds} title={label} definition={definition} showLabel={false} />
       </div>
     </motion.div>
   );

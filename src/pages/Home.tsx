@@ -5,7 +5,9 @@ import { Button } from '@/components/ui/button';
 import { useData } from '@/context/DataContext';
 import { KPICard } from '@/components/ui/KPICard';
 import { ComparisonBar } from '@/components/charts/ComparisonBar';
+import { WealthConcentrationPie } from '@/components/charts/WealthConcentrationPie';
 import { Layout } from '@/components/layout/Layout';
+import { SourceDrawer } from '@/components/ui/SourceDrawer';
 import { useTranslation } from 'react-i18next';
 
 export default function Home() {
@@ -113,7 +115,7 @@ export default function Home() {
             </p>
           </motion.div>
 
-          <div className="grid md:grid-cols-3 gap-6">
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
             <KPICard
               value={poverty.official_key_statistics.poverty_rate_percentage}
               label={t('home.keyStats.livingInPoverty')}
@@ -143,7 +145,52 @@ export default function Home() {
               variant="neutral"
               size="lg"
             />
+            <KPICard
+              value={wealth.millionaire_population.count_individuals}
+              label={t('home.keyStats.ultraWealthy')}
+              decimals={0}
+              sourceIds={wealth.millionaire_population.source_ids}
+              definition={t('home.keyStats.ultraWealthyTooltip')}
+              variant="surplus"
+              size="lg"
+              formatCompact={true}
+            />
           </div>
+
+          {/* Wealth Concentration Chart */}
+          <motion.div
+            className="mt-12 max-w-3xl mx-auto"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: prefersReducedMotion ? 0 : 0.5 }}
+            viewport={{ once: true }}
+          >
+            <h3 className="text-2xl font-semibold mb-2 text-center">
+              {t('home.wealthConcentration.title')}
+            </h3>
+            <p className="text-muted-foreground text-center mb-8">
+              {t('home.wealthConcentration.description')}
+            </p>
+
+            <WealthConcentrationPie
+              millionaireCount={wealth.millionaire_population.count_individuals}
+              totalPopulation={data.metadata.population_total_millions * 1000000}
+              wealthShare={wealth.millionaire_population.estimated_wealth_share_percentage}
+            />
+
+            <div className="flex justify-between items-center mt-6 flex-wrap gap-4">
+              <SourceDrawer
+                sourceIds={wealth.millionaire_population.source_ids}
+                title={t('home.wealthConcentration.title')}
+              />
+              <Button asChild variant="link" className="gap-2">
+                <Link to="/wealth">
+                  {t('home.wealthConcentration.viewDetails')}
+                  <ArrowRight className="w-4 h-4" />
+                </Link>
+              </Button>
+            </div>
+          </motion.div>
         </div>
       </section>
 

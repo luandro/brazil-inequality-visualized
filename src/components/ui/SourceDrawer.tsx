@@ -15,9 +15,10 @@ interface SourceDrawerProps {
   sourceIds: string[];
   title?: string;
   definition?: string;
+  showLabel?: boolean;
 }
 
-export function SourceDrawer({ sourceIds, title, definition }: SourceDrawerProps) {
+export function SourceDrawer({ sourceIds, title, definition, showLabel = true }: SourceDrawerProps) {
   const { t } = useTranslation();
   const { getSources, data } = useData();
   const sources = getSources(sourceIds);
@@ -29,10 +30,10 @@ export function SourceDrawer({ sourceIds, title, definition }: SourceDrawerProps
           variant="ghost"
           size="sm"
           className="h-7 px-2 text-muted-foreground hover:text-secondary"
-          aria-label={t('common.viewSources')}
+          aria-label={title ? `${title} - ${t('common.viewSources')}` : t('common.viewSources')}
         >
           <Info className="w-4 h-4" />
-          <span className="ml-1 text-xs">{t('common.sources')}</span>
+          {showLabel && <span className="ml-1 text-xs">{t('common.sources')}</span>}
         </Button>
       </SheetTrigger>
       <SheetContent className="overflow-y-auto">
