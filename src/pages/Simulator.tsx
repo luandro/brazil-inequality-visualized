@@ -85,7 +85,7 @@ export default function Simulator() {
                 <Label className="mb-2 block">{t('simulator.controls.taxBase')}</Label>
                 <div className="flex gap-2">
                   {(['millionaires', 'billionaires'] as const).map(opt => (
-                    <button key={opt} onClick={() => setTaxBase(opt)} className={`px-4 py-2 rounded-lg text-sm font-medium transition-colors ${taxBase === opt ? 'bg-secondary text-primary' : 'bg-muted hover:bg-muted/80'}`}>{opt.charAt(0).toUpperCase() + opt.slice(1)}</button>
+                    <button key={opt} onClick={() => setTaxBase(opt)} className={`px-4 py-2 rounded-lg text-sm font-medium transition-colors ${taxBase === opt ? 'bg-secondary text-primary' : 'bg-muted hover:bg-muted/80'}`}>{t(`simulator.controls.${opt}`)}</button>
                   ))}
                 </div>
               </div>

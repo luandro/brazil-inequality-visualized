@@ -11,7 +11,12 @@
     "deprecated": "Descontinuados"
   },
   "app": {
-    "subtitle": "Verdade → Escolhas → Consequências"
+    "title": "O Custo da Desigualdade",
+    "subtitle": "Entendendo pobreza, riqueza e escolhas no Brasil",
+    "footer": {
+      "dataSourced": "Dados provenientes de estatísticas oficiais do governo brasileiro e organizações internacionais. Todas as figuras são validadas e possuem fontes.",
+      "lastUpdated": "Última atualização:"
+    }
   },
   "home": {
     "hero": {
@@ -82,7 +87,9 @@
       "extremePovertyLine": "Linha de Pobreza Extrema",
       "povertyLine": "Linha de Pobreza",
       "extremePovertyLineDesc": "Linha internacional de pobreza extrema do Banco Mundial (PPA 2017)",
-      "povertyLineDesc": "Linha de pobreza para país de renda média-alta (PPA 2017)"
+      "povertyLineDesc": "Linha de pobreza para país de renda média-alta (PPA 2017)",
+      "perDayPPP": "/dia PPA",
+      "perMonth": "/mês"
     },
     "sectionC": {
       "title": "C. Impacto da Rede de Proteção",
@@ -249,7 +256,9 @@
       "allocation": "Alocação (deve somar 100%)",
       "povertyGap": "Gap de Pobreza: {{percent}}%",
       "services": "Serviços: {{percent}}%",
-      "regionalFund": "Fundo Regional: {{percent}}%"
+      "regionalFund": "Fundo Regional: {{percent}}%",
+      "millionaires": "Milionários",
+      "billionaires": "Bilionários"
     },
     "results": {
       "title": "Resultados Simulados",
@@ -274,6 +283,7 @@
     "description": "Catálogo completo de fontes e informações de qualidade de dados.",
     "lastUpdated": "Última atualização: {{date}}",
     "dataCurrency": "Atualidade dos Dados",
+    "dataCurrencyText": "Os dados refletem estatísticas de 2023-2024 com exceções notadas",
     "sourceCatalog": {
       "title": "Catálogo de Fontes",
       "id": "ID: {{id}}"
@@ -309,8 +319,23 @@
     "extremePovertyRate": "Taxa de Pobreza Extrema",
     "povertyRateLabel": "Taxa de pobreza:",
     "populationLabel": "População:",
+    "povertyLabel": "Pobreza:",
+    "extremeLabel": "Extrema:",
     "regionalPovertyDesc": "As taxas de pobreza regionais mostram a porcentagem da população vivendo abaixo da linha de pobreza em cada grande região brasileira.",
-    "racialPovertyDesc": "A distribuição racial da pobreza usa categorias raciais do censo brasileiro (cor ou raça). As categorias incluem Branco, Preto, Pardo e grupos indígenas."
+    "racialPovertyDesc": "A distribuição racial da pobreza usa categorias raciais do censo brasileiro (cor ou raça). As categorias incluem Branco, Negro, Pardo e grupos indígenas.",
+    "regions": {
+      "northeast": "Nordeste",
+      "north": "Norte",
+      "centralWest": "Centro-Oeste",
+      "southeast": "Sudeste",
+      "south": "Sul"
+    },
+    "racialGroups": {
+      "white": "Branco",
+      "black": "Negro",
+      "mixed": "Pardo",
+      "indigenous": "Indígena"
+    }
   },
   "notFound": {
     "title": "404",

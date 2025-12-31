@@ -17,7 +17,7 @@ export default function Methodology() {
         <div className="flex gap-4 text-sm text-muted-foreground">
           <span>{t('methodology.lastUpdated', { date: data.metadata.last_updated })}</span>
           <span>•</span>
-          <span>{data.metadata.data_currency}</span>
+          <span>{t('methodology.dataCurrencyText')}</span>
         </div>
       </div></section>
 

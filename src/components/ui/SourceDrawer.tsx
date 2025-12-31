@@ -97,7 +97,7 @@ export function SourceDrawer({ sourceIds, title, definition }: SourceDrawerProps
                 {t('methodology.dataCurrency')}
               </h4>
               <p className="text-sm text-muted-foreground">
-                {data.metadata.data_currency}
+                {t('methodology.dataCurrencyText')}
               </p>
               <p className="text-xs text-muted-foreground/70 mt-1">
                 {t('methodology.lastUpdated', { date: data.metadata.last_updated })}

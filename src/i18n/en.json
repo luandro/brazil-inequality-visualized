@@ -11,7 +11,12 @@
     "deprecated": "Deprecated"
   },
   "app": {
-    "subtitle": "Truth → Choices → Consequences"
+    "title": "The Cost of Inequality",
+    "subtitle": "Understanding poverty, wealth, and choices in Brazil",
+    "footer": {
+      "dataSourced": "Data sourced from official Brazilian government statistics and international organizations. All figures are validated and sourced.",
+      "lastUpdated": "Last updated:"
+    }
   },
   "home": {
     "hero": {
@@ -82,7 +87,9 @@
       "extremePovertyLine": "Extreme Poverty Line",
       "povertyLine": "Poverty Line",
       "extremePovertyLineDesc": "World Bank international extreme poverty line (2017 PPP)",
-      "povertyLineDesc": "Upper-middle-income country poverty line (2017 PPP)"
+      "povertyLineDesc": "Upper-middle-income country poverty line (2017 PPP)",
+      "perDayPPP": "/day PPP",
+      "perMonth": "/month"
     },
     "sectionC": {
       "title": "C. Safety Net Impact",
@@ -249,7 +256,9 @@
       "allocation": "Allocation (must sum to 100%)",
       "povertyGap": "Poverty Gap: {{percent}}%",
       "services": "Services: {{percent}}%",
-      "regionalFund": "Regional Fund: {{percent}}%"
+      "regionalFund": "Regional Fund: {{percent}}%",
+      "millionaires": "Millionaires",
+      "billionaires": "Billionaires"
     },
     "results": {
       "title": "Simulated Results",
@@ -274,6 +283,7 @@
     "description": "Complete source catalog and data quality information.",
     "lastUpdated": "Last updated: {{date}}",
     "dataCurrency": "Data Currency",
+    "dataCurrencyText": "Data reflects 2023-2024 statistics with noted exceptions",
     "sourceCatalog": {
       "title": "Source Catalog",
       "id": "ID: {{id}}"
@@ -309,8 +319,23 @@
     "extremePovertyRate": "Extreme Poverty Rate",
     "povertyRateLabel": "Poverty rate:",
     "populationLabel": "Population:",
+    "povertyLabel": "Poverty:",
+    "extremeLabel": "Extreme:",
     "regionalPovertyDesc": "Regional poverty rates show the percentage of population living below the poverty line in each major Brazilian region.",
-    "racialPovertyDesc": "Racial distribution of poverty uses Brazilian census racial categories (cor ou raça). Categories include White (Branco), Black (Preto), Mixed (Pardo), and Indigenous groups."
+    "racialPovertyDesc": "Racial distribution of poverty uses Brazilian census racial categories (cor ou raça). Categories include White, Black, Mixed, and Indigenous groups.",
+    "regions": {
+      "northeast": "Northeast",
+      "north": "North",
+      "centralWest": "Central-West",
+      "southeast": "Southeast",
+      "south": "South"
+    },
+    "racialGroups": {
+      "white": "White",
+      "black": "Black",
+      "mixed": "Mixed",
+      "indigenous": "Indigenous"
+    }
   },
   "notFound": {
     "title": "404",

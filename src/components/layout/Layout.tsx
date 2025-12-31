@@ -1,6 +1,7 @@
 import { ReactNode } from 'react';
 import { motion } from 'framer-motion';
 import { Navigation } from './Navigation';
+import { useTranslation } from 'react-i18next';
 
 interface LayoutProps {
   children: ReactNode;
@@ -19,6 +20,8 @@ const pageTransition = {
 };
 
 export function Layout({ children }: LayoutProps) {
+  const { t, i18n } = useTranslation();
+
   return (
     <div className="min-h-screen bg-background">
       <Navigation />
@@ -36,11 +39,10 @@ export function Layout({ children }: LayoutProps) {
         <div className="container-wide py-8">
           <div className="flex flex-col md:flex-row items-center justify-between gap-4">
             <p className="text-caption text-center md:text-left">
-              Data sourced from official Brazilian government statistics and international organizations.
-              All figures are validated and sourced.
+              {t('app.footer.dataSourced')}
             </p>
             <p className="text-caption">
-              Last updated: {new Date().toLocaleDateString('en-US', { month: 'long', year: 'numeric' })}
+              {t('app.footer.lastUpdated')} {new Date().toLocaleDateString(i18n.language, { month: 'long', year: 'numeric' })}
             </p>
           </div>
         </div>

@@ -25,8 +25,17 @@ export function RegionalChart({ data, title }: RegionalChartProps) {
   const sortedData = [...data].sort((a, b) => b.poverty_rate_percentage - a.poverty_rate_percentage);
   const allSourceIds = [...new Set(data.flatMap(d => d.source_ids))];
 
+  // Map region names to translation keys
+  const regionKeyMap: Record<string, string> = {
+    'Northeast': 'charts.regions.northeast',
+    'North': 'charts.regions.north',
+    'Central-West': 'charts.regions.centralWest',
+    'Southeast': 'charts.regions.southeast',
+    'South': 'charts.regions.south',
+  };
+
   const chartData = sortedData.map(item => ({
-    name: item.region,
+    name: t(regionKeyMap[item.region] || item.region),
     rate: item.poverty_rate_percentage,
     population: item.population_millions,
   }));

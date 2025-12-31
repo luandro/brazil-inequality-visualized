@@ -12,9 +12,17 @@ export function RacialChart({ data, title }: RacialChartProps) {
   const { t } = useTranslation();
   const allSourceIds = [...new Set(data.flatMap(d => d.source_ids))];
 
+  // Map racial groups to translation keys
+  const racialGroupKeyMap: Record<string, string> = {
+    'White (Branco)': 'charts.racialGroups.white',
+    'Black (Preto)': 'charts.racialGroups.black',
+    'Mixed (Pardo)': 'charts.racialGroups.mixed',
+    'Indigenous': 'charts.racialGroups.indigenous',
+  };
+
   const chartData = data.map(item => ({
-    name: item.group.split(' ')[0], // Use short name for chart
-    fullName: item.group,
+    name: t(racialGroupKeyMap[item.group] || item.group.split(' ')[0]), // Use short name for chart
+    fullName: t(racialGroupKeyMap[item.group] || item.group),
     poverty: item.poverty_rate_percentage,
     extreme: item.extreme_poverty_rate_percentage,
   }));
@@ -26,7 +34,7 @@ export function RacialChart({ data, title }: RacialChartProps) {
         <SourceDrawer
           sourceIds={allSourceIds}
           title={title}
-          definition="Racial distribution of poverty uses Brazilian census racial categories (cor ou raça). Categories include White (Branco), Black (Preto), Mixed (Pardo), and Indigenous groups."
+          definition={t('charts.racialPovertyDesc')}
         />
       </div>
 
@@ -53,11 +61,11 @@ export function RacialChart({ data, title }: RacialChartProps) {
                       <p className="font-semibold">{data.fullName}</p>
                       <p className="text-sm mt-2">
                         <span className="inline-block w-3 h-3 rounded mr-2" style={{ backgroundColor: 'hsl(355, 80%, 56%)' }} />
-                        Poverty: <span className="font-medium">{data.poverty.toFixed(1)}%</span>
+                        {t('charts.povertyLabel')} <span className="font-medium">{data.poverty.toFixed(1)}%</span>
                       </p>
                       <p className="text-sm">
                         <span className="inline-block w-3 h-3 rounded mr-2" style={{ backgroundColor: 'hsl(355, 80%, 75%)' }} />
-                        Extreme: <span className="font-medium">{data.extreme.toFixed(1)}%</span>
+                        {t('charts.extremeLabel')} <span className="font-medium">{data.extreme.toFixed(1)}%</span>
                       </p>
                     </div>
                   );

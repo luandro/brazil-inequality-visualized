@@ -13,6 +13,23 @@ export default function Poverty() {
   const prefersReducedMotion = useReducedMotion();
   const { t } = useTranslation();
 
+  // Map racial groups to translation keys
+  const racialGroupKeyMap: Record<string, string> = {
+    'White (Branco)': 'charts.racialGroups.white',
+    'Black (Preto)': 'charts.racialGroups.black',
+    'Mixed (Pardo)': 'charts.racialGroups.mixed',
+    'Indigenous': 'charts.racialGroups.indigenous',
+  };
+
+  // Map region names to translation keys
+  const regionKeyMap: Record<string, string> = {
+    'Northeast': 'charts.regions.northeast',
+    'North': 'charts.regions.north',
+    'Central-West': 'charts.regions.centralWest',
+    'Southeast': 'charts.regions.southeast',
+    'South': 'charts.regions.south',
+  };
+
   if (isLoading) {
     return (
       <Layout>
@@ -224,7 +241,7 @@ export default function Poverty() {
                       .sort((a, b) => b.poverty_rate_percentage - a.poverty_rate_percentage)
                       .map((region) => (
                         <tr key={region.region} className="border-b border-border/50 hover:bg-muted/30 transition-colors">
-                          <td className="py-3 px-4 font-medium">{region.region}</td>
+                          <td className="py-3 px-4 font-medium">{t(regionKeyMap[region.region] || region.region)}</td>
                           <td className="py-3 px-4 text-right">
                             <span className={region.poverty_rate_percentage > 30 ? 'text-destructive' : 'text-foreground'}>
                               {region.poverty_rate_percentage.toFixed(1)}%
@@ -267,8 +284,8 @@ export default function Poverty() {
               {poverty.racial_distribution.map((group) => (
                 <div key={group.group} className="glass-card p-4">
                   <div className="flex items-start justify-between">
-                    <h4 className="font-medium">{group.group}</h4>
-                    <SourceDrawer sourceIds={group.source_ids} title={group.group} />
+                    <h4 className="font-medium">{t(racialGroupKeyMap[group.group] || group.group)}</h4>
+                    <SourceDrawer sourceIds={group.source_ids} title={t(racialGroupKeyMap[group.group] || group.group)} />
                   </div>
                   <div className="mt-3 space-y-2">
                     <div className="flex justify-between">
