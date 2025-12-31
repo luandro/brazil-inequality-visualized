@@ -27,13 +27,12 @@ export function Navigation() {
       <nav className="container-wide">
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
-          <Link to="/" className="flex items-center gap-2 group">
-            <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-secondary to-cyan-400 flex items-center justify-center">
-              <span className="text-primary font-bold text-sm">T</span>
-            </div>
-            <span className="font-semibold text-foreground hidden sm:block">
-              {t('app.subtitle')}
-            </span>
+          <Link to="/" className="flex items-center gap-2 group" aria-label={t('app.subtitle')}>
+            <img
+              src="/logo-64.png"
+              alt="The Cost of Inequality Logo"
+              className="w-8 h-8 rounded-lg object-contain"
+            />
           </Link>
 
           {/* Desktop Navigation */}
@@ -79,9 +78,11 @@ export function Navigation() {
                   onClick={() => setIsOpen(false)}
                   className="flex items-center gap-2 px-4 py-3 rounded-lg hover:bg-muted transition-colors"
                 >
-                  <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-secondary to-cyan-400 flex items-center justify-center">
-                    <span className="text-primary font-bold text-sm">T</span>
-                  </div>
+                  <img
+                    src="/logo-64.png"
+                    alt="The Cost of Inequality Logo"
+                    className="w-8 h-8 rounded-lg object-contain"
+                  />
                   <span className="font-semibold">{t('nav.home')}</span>
                 </Link>
                 
