@@ -79,7 +79,9 @@
       "populationDistribution": "Distribuição da População",
       "extremePoverty": "Pobreza extrema",
       "povertyNonExtreme": "Pobreza (não-extrema)",
-      "abovePovertyLine": "Acima da linha de pobreza"
+      "abovePovertyLine": "Acima da linha de pobreza",
+      "multiMillionaires": "Multi-milionários ($10M+)",
+      "billionaires": "Bilionários ($1B+)"
     },
     "sectionB": {
       "title": "B. Linhas de Pobreza",
