@@ -1,6 +1,7 @@
 import { BarChart, Bar, XAxis, YAxis, Tooltip, ResponsiveContainer, Legend } from 'recharts';
 import { RacialPoverty } from '@/schema';
 import { SourceDrawer } from '@/components/ui/SourceDrawer';
+import { useTranslation } from 'react-i18next';
 
 interface RacialChartProps {
   data: RacialPoverty[];
@@ -8,6 +9,7 @@ interface RacialChartProps {
 }
 
 export function RacialChart({ data, title }: RacialChartProps) {
+  const { t } = useTranslation();
   const allSourceIds = [...new Set(data.flatMap(d => d.source_ids))];
 
   const chartData = data.map(item => ({
@@ -66,7 +68,7 @@ export function RacialChart({ data, title }: RacialChartProps) {
             <Legend
               formatter={(value) => (
                 <span className="text-sm text-muted-foreground">
-                  {value === 'poverty' ? 'Poverty Rate' : 'Extreme Poverty Rate'}
+                  {value === 'poverty' ? t('charts.povertyRate') : t('charts.extremePovertyRate')}
                 </span>
               )}
             />

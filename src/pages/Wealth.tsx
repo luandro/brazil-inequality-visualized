@@ -4,10 +4,12 @@ import { useData } from '@/context/DataContext';
 import { KPICard } from '@/components/ui/KPICard';
 import { SourceDrawer } from '@/components/ui/SourceDrawer';
 import { AlertTriangle, Info, TrendingUp, Users, Coins } from 'lucide-react';
+import { useTranslation } from 'react-i18next';
 
 export default function Wealth() {
   const { data, isLoading, error } = useData();
   const prefersReducedMotion = useReducedMotion();
+  const { t } = useTranslation();
 
   if (isLoading) {
     return (
@@ -25,7 +27,7 @@ export default function Wealth() {
         <div className="min-h-[60vh] flex items-center justify-center">
           <div className="glass-card p-8 text-center">
             <AlertTriangle className="w-12 h-12 text-destructive mx-auto mb-4" />
-            <p className="text-destructive">{error || 'Failed to load data'}</p>
+            <p className="text-destructive">{error || t('common.failedToLoad')}</p>
           </div>
         </div>
       </Layout>
@@ -44,9 +46,9 @@ export default function Wealth() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: prefersReducedMotion ? 0 : 0.5 }}
           >
-            <h1 className="text-display mb-4">Wealth Concentration</h1>
+            <h1 className="text-display mb-4">{t('wealth.title')}</h1>
             <p className="text-body-lg text-muted-foreground max-w-3xl">
-              Analysis of wealth distribution in Brazil, including millionaire and billionaire populations.
+              {t('wealth.description')}
             </p>
           </motion.div>
         </div>
@@ -61,7 +63,7 @@ export default function Wealth() {
                 <Info className="w-5 h-5 text-accent" />
               </div>
               <div>
-                <h3 className="font-semibold mb-2">Measurement Notes</h3>
+                <h3 className="font-semibold mb-2">{t('wealth.measurementNotes')}</h3>
                 <p className="text-muted-foreground">{wealth.measurement_notes}</p>
               </div>
             </div>
@@ -79,25 +81,25 @@ export default function Wealth() {
             viewport={{ once: true }}
             className="mb-8"
           >
-            <h2 className="section-header">Wealth Inequality</h2>
+            <h2 className="section-header">{t('wealth.wealthInequality.title')}</h2>
           </motion.div>
 
           <div className="glass-card p-8 max-w-md">
             <div className="text-center">
               <p className="text-6xl font-bold text-destructive mb-2">{wealth.wealth_gini_coefficient.toFixed(2)}</p>
-              <p className="text-lg font-medium mb-4">Wealth Gini Coefficient</p>
+              <p className="text-lg font-medium mb-4">{t('wealth.wealthInequality.wealthGini')}</p>
               <div className="w-full h-3 bg-muted rounded-full overflow-hidden">
-                <div 
-                  className="h-full bg-gradient-to-r from-secondary via-accent to-destructive" 
+                <div
+                  className="h-full bg-gradient-to-r from-secondary via-accent to-destructive"
                   style={{ width: `${wealth.wealth_gini_coefficient * 100}%` }}
                 />
               </div>
               <div className="flex justify-between text-xs text-muted-foreground mt-2">
-                <span>0 (Equal)</span>
-                <span>1 (Unequal)</span>
+                <span>{t('wealth.wealthInequality.equal')}</span>
+                <span>{t('wealth.wealthInequality.unequal')}</span>
               </div>
               <p className="text-sm text-muted-foreground mt-4">
-                Wealth inequality is significantly higher than income inequality (Gini: 0.518)
+                {t('wealth.wealthInequality.comparison', { gini: 0.518 })}
               </p>
             </div>
           </div>
@@ -114,50 +116,53 @@ export default function Wealth() {
             viewport={{ once: true }}
             className="mb-8"
           >
-            <h2 className="section-header">Millionaire Population</h2>
+            <h2 className="section-header">{t('wealth.millionairePopulation.title')}</h2>
             <p className="text-muted-foreground">
-              Individuals with net worth exceeding ${wealth.millionaire_population.threshold_usd.toLocaleString()} USD.
+              {t('wealth.millionairePopulation.description', { threshold: wealth.millionaire_population.threshold_usd.toLocaleString() })}
             </p>
           </motion.div>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
             <KPICard
               value={wealth.millionaire_population.count_individuals / 1000}
-              label="Total Millionaires"
+              label={t('wealth.millionairePopulation.totalMillionaires')}
               suffix="K"
               decimals={0}
               sourceIds={wealth.millionaire_population.source_ids}
-              definition={`Individuals with net worth over $${(wealth.millionaire_population.threshold_usd / 1000000).toFixed(0)} million USD`}
+              definition={t('wealth.millionairePopulation.individualsAbove', { threshold: (wealth.millionaire_population.threshold_usd / 1000000).toFixed(0) })}
               variant="neutral"
             />
             <KPICard
               value={wealth.millionaire_population.percentage_of_population}
-              label="Share of Population"
+              label={t('wealth.millionairePopulation.shareOfPopulation')}
               suffix="%"
               decimals={1}
               sourceIds={wealth.millionaire_population.source_ids}
-              definition="Millionaires as percentage of total Brazilian population"
+              definition={t('wealth.millionairePopulation.millionairePercentage')}
               variant="neutral"
             />
             <KPICard
               value={wealth.millionaire_population.estimated_wealth_share_percentage}
-              label="Wealth Share"
+              label={t('wealth.millionairePopulation.wealthShare')}
               suffix="%"
               decimals={1}
               sourceIds={wealth.millionaire_population.source_ids}
-              definition="Share of total national wealth held by millionaires"
+              definition={t('wealth.millionairePopulation.wealthHeldByMillionaires')}
               variant="deficit"
             />
             <div className="glass-card p-6">
               <div className="flex items-start justify-between mb-4">
-                <h4 className="font-medium">Concentration Ratio</h4>
-                <SourceDrawer sourceIds={wealth.millionaire_population.source_ids} title="Wealth Concentration" />
+                <h4 className="font-medium">{t('wealth.millionairePopulation.concentrationRatio')}</h4>
+                <SourceDrawer sourceIds={wealth.millionaire_population.source_ids} title={t('wealth.millionairePopulation.title')} />
               </div>
               <p className="text-3xl font-bold text-destructive">
                 {(wealth.millionaire_population.estimated_wealth_share_percentage / wealth.millionaire_population.percentage_of_population).toFixed(0)}x
               </p>
               <p className="text-sm text-muted-foreground mt-2">
-                {wealth.millionaire_population.percentage_of_population}% of the population holds {wealth.millionaire_population.estimated_wealth_share_percentage}% of wealth
+                {t('wealth.millionairePopulation.populationHolds', {
+                  percent: wealth.millionaire_population.percentage_of_population,
+                  wealth: wealth.millionaire_population.estimated_wealth_share_percentage
+                })}
               </p>
             </div>
           </div>
@@ -174,14 +179,14 @@ export default function Wealth() {
             viewport={{ once: true }}
             className="mb-8"
           >
-            <h2 className="section-header">Billionaire Population</h2>
+            <h2 className="section-header">{t('wealth.billionairePopulation.title')}</h2>
           </motion.div>
 
           <div className="grid lg:grid-cols-2 gap-6">
             <div className="glass-card p-8">
               <div className="flex items-start justify-between mb-6">
-                <h3 className="font-semibold text-lg">Billionaire Count Trend</h3>
-                <SourceDrawer sourceIds={wealth.billionaire_population.source_ids} title="Billionaire Data" />
+                <h3 className="font-semibold text-lg">{t('wealth.billionairePopulation.countTrend')}</h3>
+                <SourceDrawer sourceIds={wealth.billionaire_population.source_ids} title={t('wealth.billionairePopulation.dataTitle')} />
               </div>
               
               <div className="grid grid-cols-2 gap-8 mb-6">
@@ -204,18 +209,17 @@ export default function Wealth() {
               <div className="p-4 bg-secondary/10 rounded-lg flex items-center gap-3">
                 <TrendingUp className="w-5 h-5 text-secondary" />
                 <span>
-                  <span className="font-semibold text-secondary">
-                    +{((wealth.billionaire_population.count_2025 - wealth.billionaire_population.count_2024) / wealth.billionaire_population.count_2024 * 100).toFixed(1)}%
-                  </span>
-                  <span className="text-muted-foreground ml-2">year-over-year increase</span>
+                  {t('wealth.billionairePopulation.yearOverYear', {
+                    percent: ((wealth.billionaire_population.count_2025 - wealth.billionaire_population.count_2024) / wealth.billionaire_population.count_2024 * 100).toFixed(1)
+                  })}
                 </span>
               </div>
             </div>
 
             <div className="glass-card p-8">
               <div className="flex items-start justify-between mb-6">
-                <h3 className="font-semibold text-lg">Additional Notes</h3>
-                <SourceDrawer sourceIds={wealth.billionaire_population.source_ids} title="Billionaire Notes" />
+                <h3 className="font-semibold text-lg">{t('wealth.billionairePopulation.additionalNotes')}</h3>
+                <SourceDrawer sourceIds={wealth.billionaire_population.source_ids} title={t('wealth.billionairePopulation.dataTitle')} />
               </div>
               
               <p className="text-muted-foreground mb-6">{wealth.billionaire_population.notes}</p>
@@ -223,9 +227,7 @@ export default function Wealth() {
               <div className="p-4 bg-muted/50 rounded-lg">
                 <h4 className="font-medium mb-2">Context</h4>
                 <p className="text-sm text-muted-foreground">
-                  Brazil ranks among the top 10 countries by billionaire count globally. 
-                  The combined wealth of Brazilian billionaires exceeds the annual income 
-                  of the poorest 50% of the population.
+                  {t('wealth.billionairePopulation.context')}
                 </p>
               </div>
             </div>
@@ -237,33 +239,32 @@ export default function Wealth() {
       <section className="py-12 bg-muted/30">
         <div className="container-wide">
           <div className="glass-card p-8 text-center">
-            <h3 className="font-semibold text-lg mb-8">The Wealth Gap Visualized</h3>
+            <h3 className="font-semibold text-lg mb-8">{t('wealth.wealthGapVisualized.title')}</h3>
             
             <div className="flex items-end justify-center gap-8 h-48 mb-6">
               <div className="text-center">
-                <div 
+                <div
                   className="w-16 bg-gradient-to-t from-destructive to-red-400 rounded-t-lg mx-auto mb-2"
                   style={{ height: `${wealth.millionaire_population.estimated_wealth_share_percentage * 3}px` }}
                 />
                 <p className="font-bold">{wealth.millionaire_population.estimated_wealth_share_percentage}%</p>
-                <p className="text-xs text-muted-foreground">Wealth held by</p>
-                <p className="text-xs text-muted-foreground">millionaires</p>
+                <p className="text-xs text-muted-foreground">{t('wealth.wealthGapVisualized.wealthHeldBy')}</p>
+                <p className="text-xs text-muted-foreground">{t('wealth.wealthGapVisualized.millionaires')}</p>
               </div>
-              
+
               <div className="text-center">
-                <div 
+                <div
                   className="w-16 bg-gradient-to-t from-secondary to-cyan-400 rounded-t-lg mx-auto mb-2"
                   style={{ height: `${(100 - wealth.millionaire_population.estimated_wealth_share_percentage) * 3}px` }}
                 />
                 <p className="font-bold">{(100 - wealth.millionaire_population.estimated_wealth_share_percentage).toFixed(1)}%</p>
-                <p className="text-xs text-muted-foreground">Wealth held by</p>
-                <p className="text-xs text-muted-foreground">everyone else</p>
+                <p className="text-xs text-muted-foreground">{t('wealth.wealthGapVisualized.wealthHeldBy')}</p>
+                <p className="text-xs text-muted-foreground">{t('wealth.wealthGapVisualized.everyoneElse')}</p>
               </div>
             </div>
 
             <p className="text-sm text-muted-foreground max-w-lg mx-auto">
-              Just {wealth.millionaire_population.percentage_of_population}% of Brazilians (millionaires) 
-              control nearly half of all wealth, while 99.8% of the population shares the remaining half.
+              {t('wealth.wealthGapVisualized.description', { percent: wealth.millionaire_population.percentage_of_population })}
             </p>
           </div>
         </div>

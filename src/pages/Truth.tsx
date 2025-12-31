@@ -7,8 +7,10 @@ import { RegionalChart } from '@/components/charts/RegionalChart';
 import { RacialChart } from '@/components/charts/RacialChart';
 import { SourceDrawer } from '@/components/ui/SourceDrawer';
 import { AlertTriangle } from 'lucide-react';
+import { useTranslation } from 'react-i18next';
 
 export default function Truth() {
+  const { t } = useTranslation();
   const { data, isLoading, error } = useData();
   const prefersReducedMotion = useReducedMotion();
 
@@ -28,7 +30,7 @@ export default function Truth() {
         <div className="min-h-[60vh] flex items-center justify-center">
           <div className="glass-card p-8 text-center">
             <AlertTriangle className="w-12 h-12 text-destructive mx-auto mb-4" />
-            <p className="text-destructive">{error || 'Failed to load data'}</p>
+            <p className="text-destructive">{error || t('common.failedToLoad')}</p>
           </div>
         </div>
       </Layout>
@@ -47,10 +49,9 @@ export default function Truth() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: prefersReducedMotion ? 0 : 0.5 }}
           >
-            <h1 className="text-display mb-4">Reality Dashboard</h1>
+            <h1 className="text-display mb-4">{t('truth.title')}</h1>
             <p className="text-body-lg text-muted-foreground max-w-3xl">
-              A comprehensive view of Brazil's inequality through verified data. Every metric
-              is sourced from official government statistics and international organizations.
+              {t('truth.description')}
             </p>
           </motion.div>
         </div>
@@ -66,43 +67,43 @@ export default function Truth() {
             viewport={{ once: true }}
             className="mb-8"
           >
-            <h2 className="section-header">A. Poverty at a Glance</h2>
+            <h2 className="section-header">{t('truth.sectionA.title')}</h2>
             <p className="text-muted-foreground">
-              Key indicators showing the current state of poverty in Brazil.
+              {t('truth.sectionA.description')}
             </p>
           </motion.div>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
             <KPICard
               value={poverty.official_key_statistics.poverty_rate_percentage}
-              label="Poverty Rate"
+              label={t('truth.sectionA.povertyRate')}
               suffix="%"
               sourceIds={poverty.official_key_statistics.source_ids}
-              definition="Share of population living below $6.85/day (2017 PPP)"
+              definition={t('truth.sectionA.povertyRateDesc')}
               variant="deficit"
             />
             <KPICard
               value={poverty.official_key_statistics.poverty_population_millions}
-              label="People in Poverty"
+              label={t('truth.sectionA.peopleInPoverty')}
               suffix="M"
               sourceIds={poverty.official_key_statistics.source_ids}
-              definition="Total number of Brazilians living below the poverty line"
+              definition={t('truth.sectionA.peopleInPovertyDesc')}
               variant="deficit"
             />
             <KPICard
               value={poverty.official_key_statistics.extreme_poverty_rate_percentage}
-              label="Extreme Poverty Rate"
+              label={t('truth.sectionA.extremePovertyRate')}
               suffix="%"
               sourceIds={poverty.official_key_statistics.source_ids}
-              definition="Share living below $2.15/day (2017 PPP)"
+              definition={t('truth.sectionA.extremePovertyRateDesc')}
               variant="deficit"
             />
             <KPICard
               value={poverty.official_key_statistics.gini_coefficient}
-              label="Income Gini"
+              label={t('truth.sectionA.incomeGini')}
               decimals={3}
               sourceIds={poverty.official_key_statistics.source_ids}
-              definition="0 = perfect equality, 1 = maximum inequality"
+              definition={t('truth.sectionA.incomeGiniDesc')}
               variant="neutral"
             />
           </div>
@@ -110,8 +111,8 @@ export default function Truth() {
           {/* Stacked visualization */}
           <div className="glass-card p-6">
             <div className="flex items-start justify-between mb-4">
-              <h3 className="font-semibold">Population Distribution</h3>
-              <SourceDrawer sourceIds={poverty.official_key_statistics.source_ids} title="Population Distribution" />
+              <h3 className="font-semibold">{t('truth.sectionA.populationDistribution')}</h3>
+              <SourceDrawer sourceIds={poverty.official_key_statistics.source_ids} title={t('truth.sectionA.populationDistribution')} />
             </div>
             <div className="h-12 rounded-lg overflow-hidden flex">
               <div
@@ -133,9 +134,9 @@ export default function Truth() {
               </div>
             </div>
             <div className="flex justify-between mt-3 text-sm text-muted-foreground">
-              <span>Extreme poverty</span>
-              <span>Poverty (non-extreme)</span>
-              <span>Above poverty line</span>
+              <span>{t('truth.sectionA.extremePoverty')}</span>
+              <span>{t('truth.sectionA.povertyNonExtreme')}</span>
+              <span>{t('truth.sectionA.abovePovertyLine')}</span>
             </div>
           </div>
         </div>
@@ -151,17 +152,17 @@ export default function Truth() {
             viewport={{ once: true }}
             className="mb-8"
           >
-            <h2 className="section-header">B. Poverty Lines</h2>
+            <h2 className="section-header">{t('truth.sectionB.title')}</h2>
             <p className="text-muted-foreground">
-              International thresholds used to measure poverty in Brazil.
+              {t('truth.sectionB.description')}
             </p>
           </motion.div>
 
           <div className="grid sm:grid-cols-2 gap-6">
             <div className="glass-card p-6">
               <div className="flex items-start justify-between mb-4">
-                <h3 className="font-semibold text-destructive">Extreme Poverty Line</h3>
-                <SourceDrawer sourceIds={poverty.poverty_lines.source_ids} title="Poverty Lines" />
+                <h3 className="font-semibold text-destructive">{t('truth.sectionB.extremePovertyLine')}</h3>
+                <SourceDrawer sourceIds={poverty.poverty_lines.source_ids} title={t('truth.sectionB.title')} />
               </div>
               <div className="flex flex-wrap gap-3">
                 <span className="chip-deficit">
@@ -172,14 +173,14 @@ export default function Truth() {
                 </span>
               </div>
               <p className="text-sm text-muted-foreground mt-4">
-                World Bank international extreme poverty line (2017 PPP)
+                {t('truth.sectionB.extremePovertyLineDesc')}
               </p>
             </div>
 
             <div className="glass-card p-6">
               <div className="flex items-start justify-between mb-4">
-                <h3 className="font-semibold text-accent">Poverty Line</h3>
-                <SourceDrawer sourceIds={poverty.poverty_lines.source_ids} title="Poverty Lines" />
+                <h3 className="font-semibold text-accent">{t('truth.sectionB.povertyLine')}</h3>
+                <SourceDrawer sourceIds={poverty.poverty_lines.source_ids} title={t('truth.sectionB.title')} />
               </div>
               <div className="flex flex-wrap gap-3">
                 <span className="chip-neutral">
@@ -190,7 +191,7 @@ export default function Truth() {
                 </span>
               </div>
               <p className="text-sm text-muted-foreground mt-4">
-                Upper-middle-income country poverty line (2017 PPP)
+                {t('truth.sectionB.povertyLineDesc')}
               </p>
             </div>
           </div>
@@ -207,26 +208,26 @@ export default function Truth() {
             viewport={{ once: true }}
             className="mb-8"
           >
-            <h2 className="section-header">C. Safety Net Impact</h2>
+            <h2 className="section-header">{t('truth.sectionC.title')}</h2>
             <p className="text-muted-foreground">
-              Counterfactual analysis: What would poverty look like without social programs?
+              {t('truth.sectionC.description')}
             </p>
           </motion.div>
 
           <div className="grid lg:grid-cols-2 gap-6">
             <ComparisonBar
-              title="Poverty Rate: With vs Without Safety Net"
-              beforeLabel="Without social programs"
+              title={t('truth.sectionC.povertyRateChart')}
+              beforeLabel={t('truth.sectionC.withoutPrograms')}
               beforeValue={poverty.social_programs_counterfactuals.poverty_rate_without_programs_percentage}
-              afterLabel="Current (with programs)"
+              afterLabel={t('truth.sectionC.current')}
               afterValue={poverty.official_key_statistics.poverty_rate_percentage}
               sourceIds={poverty.social_programs_counterfactuals.source_ids}
             />
             <ComparisonBar
-              title="Extreme Poverty: With vs Without Safety Net"
-              beforeLabel="Without social programs"
+              title={t('truth.sectionC.extremePovertyChart')}
+              beforeLabel={t('truth.sectionC.withoutPrograms')}
               beforeValue={poverty.social_programs_counterfactuals.extreme_poverty_rate_without_programs_percentage}
-              afterLabel="Current (with programs)"
+              afterLabel={t('truth.sectionC.current')}
               afterValue={poverty.official_key_statistics.extreme_poverty_rate_percentage}
               sourceIds={poverty.social_programs_counterfactuals.source_ids}
             />
@@ -244,13 +245,13 @@ export default function Truth() {
             viewport={{ once: true }}
             className="mb-8"
           >
-            <h2 className="section-header">D. Regional Inequality</h2>
+            <h2 className="section-header">{t('truth.sectionD.title')}</h2>
             <p className="text-muted-foreground">
-              Poverty varies dramatically across Brazil's five major regions.
+              {t('truth.sectionD.description')}
             </p>
           </motion.div>
 
-          <RegionalChart data={poverty.regional_distribution} title="Poverty Rate by Region" />
+          <RegionalChart data={poverty.regional_distribution} title={t('truth.sectionD.chartTitle')} />
         </div>
       </section>
 
@@ -264,13 +265,13 @@ export default function Truth() {
             viewport={{ once: true }}
             className="mb-8"
           >
-            <h2 className="section-header">E. Racial Inequality</h2>
+            <h2 className="section-header">{t('truth.sectionE.title')}</h2>
             <p className="text-muted-foreground">
-              Poverty rates differ significantly across racial groups in Brazil.
+              {t('truth.sectionE.description')}
             </p>
           </motion.div>
 
-          <RacialChart data={poverty.racial_distribution} title="Poverty Rates by Racial Group" />
+          <RacialChart data={poverty.racial_distribution} title={t('truth.sectionE.chartTitle')} />
         </div>
       </section>
     </Layout>

@@ -4,18 +4,21 @@ import { Menu, X, BarChart3, Users, Briefcase, Coins, Calculator, BookOpen, Data
 import { useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet';
+import { LanguageSwitcher } from '@/components/LanguageSwitcher';
+import { useTranslation } from 'react-i18next';
 
 const navItems = [
-  { path: '/truth', label: 'Reality', icon: BarChart3 },
-  { path: '/poverty', label: 'Poverty', icon: Users },
-  { path: '/labor', label: 'Labor', icon: Briefcase },
-  { path: '/wealth', label: 'Wealth', icon: Coins },
-  { path: '/simulator', label: 'Simulator', icon: Calculator },
-  { path: '/methodology', label: 'Methodology', icon: BookOpen },
-  { path: '/data', label: 'Data Explorer', icon: Database },
+  { path: '/truth', labelKey: 'nav.truth', icon: BarChart3 },
+  { path: '/poverty', labelKey: 'nav.poverty', icon: Users },
+  { path: '/labor', labelKey: 'nav.labor', icon: Briefcase },
+  { path: '/wealth', labelKey: 'nav.wealth', icon: Coins },
+  { path: '/simulator', labelKey: 'nav.simulator', icon: Calculator },
+  { path: '/methodology', labelKey: 'nav.methodology', icon: BookOpen },
+  { path: '/data', labelKey: 'nav.dataExplorer', icon: Database },
 ];
 
 export function Navigation() {
+  const { t } = useTranslation();
   const location = useLocation();
   const [isOpen, setIsOpen] = useState(false);
 
@@ -29,7 +32,7 @@ export function Navigation() {
               <span className="text-primary font-bold text-sm">T</span>
             </div>
             <span className="font-semibold text-foreground hidden sm:block">
-              Truth → Choices → Consequences
+              {t('app.subtitle')}
             </span>
           </Link>
 
@@ -49,7 +52,7 @@ export function Navigation() {
                   }`}
                 >
                   <Icon className="w-4 h-4" />
-                  {item.label}
+                  {t(item.labelKey)}
                   {isActive && (
                     <motion.div
                       layoutId="nav-indicator"
@@ -59,12 +62,13 @@ export function Navigation() {
                 </Link>
               );
             })}
+            <LanguageSwitcher />
           </div>
 
           {/* Mobile Navigation */}
           <Sheet open={isOpen} onOpenChange={setIsOpen}>
             <SheetTrigger asChild className="lg:hidden">
-              <Button variant="ghost" size="icon" aria-label="Open menu">
+              <Button variant="ghost" size="icon" aria-label={t('common.openMenu')}>
                 <Menu className="w-5 h-5" />
               </Button>
             </SheetTrigger>
@@ -78,7 +82,7 @@ export function Navigation() {
                   <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-secondary to-cyan-400 flex items-center justify-center">
                     <span className="text-primary font-bold text-sm">T</span>
                   </div>
-                  <span className="font-semibold">Home</span>
+                  <span className="font-semibold">{t('nav.home')}</span>
                 </Link>
                 
                 <div className="h-px bg-border" />
@@ -98,7 +102,7 @@ export function Navigation() {
                       }`}
                     >
                       <Icon className="w-5 h-5" />
-                      <span className="font-medium">{item.label}</span>
+                      <span className="font-medium">{t(item.labelKey)}</span>
                     </Link>
                   );
                 })}
@@ -111,8 +115,14 @@ export function Navigation() {
                   className="flex items-center gap-3 px-4 py-3 rounded-lg hover:bg-muted text-muted-foreground"
                 >
                   <Archive className="w-5 h-5" />
-                  <span className="font-medium">Deprecated</span>
+                  <span className="font-medium">{t('nav.deprecated')}</span>
                 </Link>
+
+                <div className="h-px bg-border" />
+
+                <div className="px-4">
+                  <LanguageSwitcher />
+                </div>
               </div>
             </SheetContent>
           </Sheet>

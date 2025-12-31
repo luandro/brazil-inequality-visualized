@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { Layout } from '@/components/layout/Layout';
 import { useData } from '@/context/DataContext';
 import { ChevronRight, ChevronDown, AlertTriangle, Database } from 'lucide-react';
+import { useTranslation } from 'react-i18next';
 
 function TreeNode({ name, value, path }: { name: string; value: unknown; path: string }) {
   const [expanded, setExpanded] = useState(false);
@@ -24,6 +25,7 @@ function TreeNode({ name, value, path }: { name: string; value: unknown; path: s
 }
 
 export default function DataExplorer() {
+  const { t } = useTranslation();
   const { data, isLoading, error } = useData();
   if (isLoading) return <Layout><div className="min-h-[60vh] flex items-center justify-center"><div className="w-12 h-12 border-4 border-secondary border-t-transparent rounded-full animate-spin" /></div></Layout>;
   if (error || !data) return <Layout><div className="min-h-[60vh] flex items-center justify-center"><div className="glass-card p-8"><AlertTriangle className="w-12 h-12 text-destructive mx-auto mb-4" /><p>{error}</p></div></div></Layout>;
@@ -31,8 +33,8 @@ export default function DataExplorer() {
   return (
     <Layout>
       <section className="py-12 md:py-20"><div className="container-wide">
-        <h1 className="text-display mb-4 flex items-center gap-3"><Database className="w-10 h-10" /> Data Explorer</h1>
-        <p className="text-body-lg text-muted-foreground max-w-3xl">Full tree view of the validated dataset. Every field in the JSON is exposed here.</p>
+        <h1 className="text-display mb-4 flex items-center gap-3"><Database className="w-10 h-10" /> {t('dataExplorer.title')}</h1>
+        <p className="text-body-lg text-muted-foreground max-w-3xl">{t('dataExplorer.description')}</p>
       </div></section>
       <section className="py-8"><div className="container-wide">
         <div className="glass-card p-6 font-mono text-sm overflow-auto max-h-[70vh]">

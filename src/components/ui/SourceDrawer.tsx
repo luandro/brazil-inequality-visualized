@@ -9,6 +9,7 @@ import {
 } from '@/components/ui/sheet';
 import { Button } from '@/components/ui/button';
 import { useData } from '@/context/DataContext';
+import { useTranslation } from 'react-i18next';
 
 interface SourceDrawerProps {
   sourceIds: string[];
@@ -16,7 +17,8 @@ interface SourceDrawerProps {
   definition?: string;
 }
 
-export function SourceDrawer({ sourceIds, title = 'Sources', definition }: SourceDrawerProps) {
+export function SourceDrawer({ sourceIds, title, definition }: SourceDrawerProps) {
+  const { t } = useTranslation();
   const { getSources, data } = useData();
   const sources = getSources(sourceIds);
 
@@ -27,29 +29,29 @@ export function SourceDrawer({ sourceIds, title = 'Sources', definition }: Sourc
           variant="ghost"
           size="sm"
           className="h-7 px-2 text-muted-foreground hover:text-secondary"
-          aria-label="View sources"
+          aria-label={t('common.viewSources')}
         >
           <Info className="w-4 h-4" />
-          <span className="ml-1 text-xs">Sources</span>
+          <span className="ml-1 text-xs">{t('common.sources')}</span>
         </Button>
       </SheetTrigger>
       <SheetContent className="overflow-y-auto">
         <SheetHeader>
-          <SheetTitle>{title}</SheetTitle>
+          <SheetTitle>{title || t('common.sources')}</SheetTitle>
           {definition && (
             <SheetDescription className="text-left">
               {definition}
             </SheetDescription>
           )}
         </SheetHeader>
-        
+
         <div className="mt-6 space-y-4">
           <h4 className="text-sm font-semibold text-muted-foreground uppercase tracking-wider">
-            Data Sources
+            {t('methodology.sourceCatalog.title')}
           </h4>
-          
+
           {sources.length === 0 ? (
-            <p className="text-sm text-muted-foreground">No sources found for IDs: {sourceIds.join(', ')}</p>
+            <p className="text-sm text-muted-foreground">{t('common.noSourcesFound', { ids: sourceIds.join(', ') })}</p>
           ) : (
             <div className="space-y-4">
               {sources.map((source, index) => (
@@ -82,7 +84,7 @@ export function SourceDrawer({ sourceIds, title = 'Sources', definition }: Sourc
                     </p>
                   )}
                   <p className="text-xs text-muted-foreground/70 mt-2 font-mono">
-                    ID: {sourceIds[index]}
+                    {t('methodology.sourceCatalog.id', { id: sourceIds[index] })}
                   </p>
                 </div>
               ))}
@@ -92,13 +94,13 @@ export function SourceDrawer({ sourceIds, title = 'Sources', definition }: Sourc
           {data && (
             <div className="mt-6 pt-4 border-t border-border">
               <h4 className="text-sm font-semibold text-muted-foreground uppercase tracking-wider mb-2">
-                Data Currency
+                {t('methodology.dataCurrency')}
               </h4>
               <p className="text-sm text-muted-foreground">
                 {data.metadata.data_currency}
               </p>
               <p className="text-xs text-muted-foreground/70 mt-1">
-                Last updated: {data.metadata.last_updated}
+                {t('methodology.lastUpdated', { date: data.metadata.last_updated })}
               </p>
             </div>
           )}

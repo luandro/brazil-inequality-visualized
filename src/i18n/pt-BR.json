@@ -1,0 +1,320 @@
+{
+  "nav": {
+    "home": "Início",
+    "truth": "Realidade",
+    "poverty": "Pobreza",
+    "labor": "Trabalho",
+    "wealth": "Riqueza",
+    "simulator": "Simulador",
+    "methodology": "Metodologia",
+    "dataExplorer": "Explorador de Dados",
+    "deprecated": "Descontinuados"
+  },
+  "app": {
+    "subtitle": "Verdade → Escolhas → Consequências"
+  },
+  "home": {
+    "hero": {
+      "truth": "Verdade",
+      "choices": "Escolhas",
+      "consequences": "Consequências",
+      "description": "Entendendo a desigualdade do Brasil através de dados validados. Cada número é fontado, cada simulação claramente rotulada. Tome decisões informadas baseadas na verdade.",
+      "exploreReality": "Explorar Realidade",
+      "runSimulations": "Executar Simulações"
+    },
+    "keyStats": {
+      "title": "Brasil em Visão Geral",
+      "description": "Três números que definem o desafio da desigualdade do Brasil. Cada figura é validada contra fontes oficiais.",
+      "livingInPoverty": "Vivendo na pobreza",
+      "inExtremePoverty": "Na pobreza extrema",
+      "incomeGini": "Coeficiente de Gini de renda",
+      "povertyTooltip": "Porcentagem da população vivendo abaixo da linha de pobreza de $6,85/dia (PPA 2017)",
+      "extremePovertyTooltip": "Porcentagem vivendo abaixo da linha de pobreza extrema de $2,15/dia (PPA 2017)",
+      "giniTooltip": "O coeficiente de Gini mede a desigualdade de renda de 0 (igualdade perfeita) a 1 (desigualdade máxima)"
+    },
+    "socialPrograms": {
+      "title": "O Impacto dos Programas Sociais",
+      "description": "Como seria o Brasil sem sua rede de proteção social? Compare a realidade com e sem programas como o Bolsa Família.",
+      "povertyRateComparison": "Comparação da Taxa de Pobreza",
+      "withoutPrograms": "Sem programas sociais",
+      "withPrograms": "Com programas sociais (atual)",
+      "extremePovertyComparison": "Comparação da Pobreza Extrema"
+    },
+    "exploreData": {
+      "title": "Explore os Dados",
+      "description": "Mergulhe mais fundo em aspectos específicos do panorama da desigualdade do Brasil.",
+      "poverty": "Pobreza",
+      "povertyDesc": "Distribuição regional e racial",
+      "labor": "Mercado de Trabalho",
+      "laborDesc": "Emprego e informalidade",
+      "wealth": "Riqueza",
+      "wealthDesc": "Concentração no topo",
+      "simulator": "Simulador",
+      "simulatorDesc": "Modele impactos de políticas"
+    },
+    "verifiedData": {
+      "title": "Dados Verificados",
+      "description": "Cada estatística neste aplicativo é validada contra fontes oficiais. Clique no botão \"Fontes\" em qualquer métrica para ver suas origens."
+    }
+  },
+  "truth": {
+    "title": "Painel de Realidade",
+    "description": "Uma visão abrangente da desigualdade do Brasil através de dados verificados. Cada métrica é proveniente de estatísticas governamentais oficiais e organizações internacionais.",
+    "sectionA": {
+      "title": "A. Pobreza em Visão Geral",
+      "description": "Indicadores chave mostrando o estado atual da pobreza no Brasil.",
+      "povertyRate": "Taxa de Pobreza",
+      "peopleInPoverty": "Pessoas em Pobreza",
+      "extremePovertyRate": "Taxa de Pobreza Extrema",
+      "incomeGini": "Gini de Renda",
+      "povertyRateDesc": "Parcela da população vivendo abaixo de $6,85/dia (PPA 2017)",
+      "peopleInPovertyDesc": "Número total de brasileiros vivendo abaixo da linha de pobreza",
+      "extremePovertyRateDesc": "Parcela vivendo abaixo de $2,15/dia (PPA 2017)",
+      "incomeGiniDesc": "0 = igualdade perfeita, 1 = desigualdade máxima",
+      "populationDistribution": "Distribuição da População",
+      "extremePoverty": "Pobreza extrema",
+      "povertyNonExtreme": "Pobreza (não-extrema)",
+      "abovePovertyLine": "Acima da linha de pobreza"
+    },
+    "sectionB": {
+      "title": "B. Linhas de Pobreza",
+      "description": "Limites internacionais usados para medir a pobreza no Brasil.",
+      "extremePovertyLine": "Linha de Pobreza Extrema",
+      "povertyLine": "Linha de Pobreza",
+      "extremePovertyLineDesc": "Linha internacional de pobreza extrema do Banco Mundial (PPA 2017)",
+      "povertyLineDesc": "Linha de pobreza para país de renda média-alta (PPA 2017)"
+    },
+    "sectionC": {
+      "title": "C. Impacto da Rede de Proteção",
+      "description": "Análise contrafactual: Como seria a pobreza sem programas sociais?",
+      "povertyRateChart": "Taxa de Pobreza: Com vs Sem Rede de Proteção",
+      "withoutPrograms": "Sem programas sociais",
+      "current": "Atual (com programas)",
+      "extremePovertyChart": "Pobreza Extrema: Com vs Sem Rede de Proteção"
+    },
+    "sectionD": {
+      "title": "D. Desigualdade Regional",
+      "description": "A pobreza varia dramaticamente entre as cinco grandes regiões do Brasil.",
+      "chartTitle": "Taxa de Pobreza por Região"
+    },
+    "sectionE": {
+      "title": "E. Desigualdade Racial",
+      "description": "As taxas de pobreza diferem significativamente entre grupos raciais no Brasil.",
+      "chartTitle": "Taxas de Pobreza por Grupo Racial"
+    }
+  },
+  "poverty": {
+    "title": "Análise da Pobreza",
+    "description": "Um mergulho profundo nas estatísticas de pobreza do Brasil, incluindo metodologia de medição, disparidades regionais e distribuição racial.",
+    "measurementBasis": "Base de Medição",
+    "keyStatistics": {
+      "title": "Estatísticas Chave Oficiais",
+      "povertyRate": "Taxa de Pobreza",
+      "inPovertyMillions": "Em Pobreza (milhões)",
+      "extremePoverty": "Pobreza Extrema",
+      "extremePoorMillions": "Pobres Extremos (milhões)",
+      "giniCoefficient": "Coeficiente de Gini"
+    },
+    "povertyLines": {
+      "title": "Linhas de Pobreza (PPA)",
+      "description": "Limites internacionais de pobreza ajustados por Paridade de Poder de Compra.",
+      "extremePoverty": "Pobreza Extrema",
+      "poverty": "Pobreza",
+      "dailyUSD": "Diário (USD PPA)",
+      "monthlyBRL": "Mensal (BRL)"
+    },
+    "regionalDistribution": {
+      "title": "Distribuição Regional",
+      "description": "As taxas de pobreza variam significativamente entre as cinco grandes regiões do Brasil.",
+      "chartTitle": "Taxa de Pobreza por Região",
+      "detailsTitle": "Detalhes Regionais",
+      "region": "Região",
+      "povertyRate": "Taxa de Pobreza",
+      "population": "População"
+    },
+    "racialDistribution": {
+      "title": "Distribuição Racial",
+      "description": "Taxas de pobreza e pobreza extrema entre grupos raciais no Brasil.",
+      "chartTitle": "Pobreza por Grupo Racial",
+      "poverty": "Pobreza",
+      "extreme": "Extrema"
+    }
+  },
+  "labor": {
+    "title": "Mercado de Trabalho",
+    "description": "Emprego, informalidade e a relação entre trabalho e pobreza no Brasil.",
+    "keyInsight": {
+      "title": "Percepção Chave: Trabalho Não Garante Fuga da Pobreza",
+      "description": "{{percent}}% dos brasileiros empregados ainda vivem abaixo da linha de pobreza. Alta informalidade ({{informality}}%) significa milhões trabalhando sem proteções trabalhistas ou renda estável."
+    },
+    "dataTitle": "Dados do Mercado de Trabalho",
+    "employmentOverview": {
+      "title": "Visão Geral do Emprego",
+      "employedPopulation": "População Empregada",
+      "million": "Milhão",
+      "employedPopulationDesc": "Número total de indivíduos empregados no Brasil",
+      "employmentRate": "Taxa de Emprego",
+      "employmentRateDesc": "Porcentagem da população em idade ativa que está empregada",
+      "unemploymentRate": "Taxa de Desemprego",
+      "unemploymentRateDesc": "Porcentagem da força de trabalho que está desempregada"
+    },
+    "laborChallenges": {
+      "title": "Desafios do Mercado de Trabalho",
+      "informalityRate": "Taxa de Informalidade",
+      "informalityRateDesc": "Porcentagem de trabalhadores no emprego informal sem proteções legais",
+      "workingPoor": "Trabalhadores Pobres",
+      "workingPoorDesc": "Indivíduos empregados ainda vivendo abaixo da linha de pobreza",
+      "monthlyIncomeMass": "Massa de Renda Mensal",
+      "totalMonthlyIncome": "Renda mensal total do trabalho no Brasil (bilhões de BRL)"
+    },
+    "minimumWage": {
+      "title": "Salário Mínimo",
+      "evolutionChart": "Evolução do Salário Mínimo",
+      "populationImpact": "Impacto na População",
+      "braziliansAffected": "Brasileiros afetados por mudanças no salário mínimo",
+      "includesIndexed": "Inclui trabalhadores ganhando salário mínimo e aqueles com benefícios indexados a ele",
+      "increase": "Aumento:",
+      "effectiveDate": "Data de vigência:"
+    },
+    "atAGlance": {
+      "title": "Mercado de Trabalho em Visão Geral",
+      "employed": "Empregados",
+      "unemployed": "Desempregados",
+      "informal": "Informais",
+      "minWage2025": "Sal. Mín. 2025"
+    }
+  },
+  "wealth": {
+    "title": "Concentração de Riqueza",
+    "description": "Análise da distribuição de riqueza no Brasil, incluindo populações de milionários e bilionários.",
+    "measurementNotes": "Notas de Medição",
+    "wealthInequality": {
+      "title": "Desigualdade de Riqueza",
+      "wealthGini": "Coeficiente de Gini de Riqueza",
+      "equal": "0 (Igual)",
+      "unequal": "1 (Desigual)",
+      "comparison": "A desigualdade de riqueza é significativamente maior que a desigualdade de renda (Gini: {{gini}})"
+    },
+    "millionairePopulation": {
+      "title": "População de Milionários",
+      "description": "Indivíduos com patrimônio líquido superior a ${{threshold}} USD.",
+      "totalMillionaires": "Total de Milionários",
+      "individualsAbove": "Indivíduos com patrimônio líquido acima de ${{threshold}} milhões USD",
+      "shareOfPopulation": "Parcela da População",
+      "millionairePercentage": "Milionários como porcentagem da população total brasileira",
+      "wealthShare": "Parcela da Riqueza",
+      "wealthHeldByMillionaires": "Parcela da riqueza nacional total detida por milionários",
+      "concentrationRatio": "Razão de Concentração",
+      "populationHolds": "{{percent}}% da população detém {{wealth}}% da riqueza"
+    },
+    "billionairePopulation": {
+      "title": "População de Bilionários",
+      "countTrend": "Tendência do Número de Bilionários",
+      "dataTitle": "Dados de Bilionários",
+      "additionalNotes": "Notas Adicionais",
+      "yearOverYear": "+{{percent}}% aumento ano a ano",
+      "contextTitle": "Contexto Global",
+      "context": "O Brasil está entre os top 10 países por número de bilionários globalmente. A riqueza combinada dos bilionários brasileiros excede a renda anual dos 50% mais pobres da população."
+    },
+    "wealthGapVisualized": {
+      "title": "O Abismo de Riqueza Visualizado",
+      "wealthHeldBy": "Riqueza detida por",
+      "millionaires": "milionários",
+      "everyoneElse": "todos os demais",
+      "description": "Apenas {{percent}}% dos brasileiros (milionários) controlam quase metade de toda riqueza, enquanto 99,8% da população compartilha a metade restante."
+    }
+  },
+  "simulator": {
+    "title": "Simulador de Políticas",
+    "description": "Modele cenários hipotéticos de tributação de riqueza. <strong>Todas as saídas são simulações simplificadas, não previsões.</strong>",
+    "disclaimer": {
+      "title": "Aviso de Simulação:",
+      "text": "Esses cálculos usam premissas simplificadas e são apenas para fins educacionais. Resultados reais de políticas dependem de muitos fatores não modelados aqui."
+    },
+    "baseline": {
+      "title": "Linha de Base Oficial (Âncoras)",
+      "dataTitle": "Dados de Linha de Base",
+      "povertyLine": "Linha de Pobreza:",
+      "povertyRate": "Taxa de Pobreza:",
+      "inPoverty": "Em Pobreza:",
+      "millionaires": "Milionários:"
+    },
+    "controls": {
+      "title": "Controles de Simulação",
+      "taxBase": "Base Tributável",
+      "taxRate": "Alíquota: {{rate}}%",
+      "complianceRate": "Taxa de Conformidade: {{rate}}%",
+      "adminCost": "Custo Administrativo: {{cost}}%",
+      "horizon": "Horizonte: {{years}} anos",
+      "allocation": "Alocação (deve somar 100%)",
+      "povertyGap": "Gap de Pobreza: {{percent}}%",
+      "services": "Serviços: {{percent}}%",
+      "regionalFund": "Fundo Regional: {{percent}}%"
+    },
+    "results": {
+      "title": "Resultados Simulados",
+      "annualRevenue": "Receita Anual (simulada)",
+      "totalOverYears": "Total em {{years}} anos",
+      "povertyGapCovered": "Gap de Pobreza Coberto (simplificado)",
+      "estPeopleLifted": "Est. Pessoas Tiradas (modelo proporcional)",
+      "assumptions": "⚠️ Premissas: Riqueza média de milionários $2,5M, bilionários $2,5B. Modelo linear de gap de pobreza. Nenhuma resposta comportamental modelada."
+    }
+  },
+  "dataExplorer": {
+    "title": "Explorador de Dados",
+    "description": "Visão completa em árvore do dataset validado. Cada campo do JSON é exposto aqui."
+  },
+  "deprecated": {
+    "title": "Campos Descontinuados",
+    "fieldName": "Nome do Campo",
+    "reasonRemoved": "Motivo da Remoção"
+  },
+  "methodology": {
+    "title": "Metodologia e Fontes",
+    "description": "Catálogo completo de fontes e informações de qualidade de dados.",
+    "lastUpdated": "Última atualização: {{date}}",
+    "dataCurrency": "Atualidade dos Dados",
+    "sourceCatalog": {
+      "title": "Catálogo de Fontes",
+      "id": "ID: {{id}}"
+    },
+    "dataQuality": {
+      "title": "Qualidade dos Dados",
+      "reliabilityRatings": "Classificações de Confiabilidade",
+      "officialData": "Dados Oficiais",
+      "wealthEstimates": "Estimativas de Riqueza",
+      "knownLimitations": "Limitações Conhecidas"
+    }
+  },
+  "common": {
+    "sources": "Fontes",
+    "viewSources": "Ver fontes",
+    "openMenu": "Abrir menu",
+    "close": "Fechar",
+    "learnMore": "Saiba Mais",
+    "loading": "Carregando dataset...",
+    "dataValidationError": "Erro de Validação de Dados",
+    "dataValidationErrorDesc": "O dataset falhou na validação do esquema Zod. Por favor, verifique o formato dos dados.",
+    "failedToLoad": "Falha ao carregar dados",
+    "noSourcesFound": "Nenhuma fonte encontrada para IDs: {{ids}}",
+    "reduction": "Redução: {{value}}",
+    "percentagePoints": "pontos percentuais",
+    "decrease": "{{percent}}% de redução"
+  },
+  "charts": {
+    "high": "Alta (>35%)",
+    "medium": "Média (20-35%)",
+    "low": "Baixa (<20%)",
+    "povertyRate": "Taxa de Pobreza",
+    "extremePovertyRate": "Taxa de Pobreza Extrema",
+    "povertyRateLabel": "Taxa de pobreza:",
+    "populationLabel": "População:",
+    "regionalPovertyDesc": "As taxas de pobreza regionais mostram a porcentagem da população vivendo abaixo da linha de pobreza em cada grande região brasileira.",
+    "racialPovertyDesc": "A distribuição racial da pobreza usa categorias raciais do censo brasileiro (cor ou raça). As categorias incluem Branco, Preto, Pardo e grupos indígenas."
+  },
+  "notFound": {
+    "title": "404",
+    "message": "Ops! Página não encontrada",
+    "returnHome": "Voltar ao Início"
+  }
+}

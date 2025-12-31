@@ -1,6 +1,7 @@
 import { BarChart, Bar, XAxis, YAxis, Tooltip, ResponsiveContainer, Cell } from 'recharts';
 import { RegionalPoverty } from '@/schema';
 import { SourceDrawer } from '@/components/ui/SourceDrawer';
+import { useTranslation } from 'react-i18next';
 
 interface RegionalChartProps {
   data: RegionalPoverty[];
@@ -20,6 +21,7 @@ function getColor(rate: number) {
 }
 
 export function RegionalChart({ data, title }: RegionalChartProps) {
+  const { t } = useTranslation();
   const sortedData = [...data].sort((a, b) => b.poverty_rate_percentage - a.poverty_rate_percentage);
   const allSourceIds = [...new Set(data.flatMap(d => d.source_ids))];
 
@@ -66,10 +68,10 @@ export function RegionalChart({ data, title }: RegionalChartProps) {
                     <div className="bg-card border border-border rounded-lg p-3 shadow-lg">
                       <p className="font-semibold">{data.name}</p>
                       <p className="text-sm text-muted-foreground mt-1">
-                        Poverty rate: <span className="font-medium text-foreground">{data.rate.toFixed(1)}%</span>
+                        {t('charts.povertyRateLabel')} <span className="font-medium text-foreground">{data.rate.toFixed(1)}%</span>
                       </p>
                       <p className="text-sm text-muted-foreground">
-                        Population: <span className="font-medium text-foreground">{data.population.toFixed(1)}M</span>
+                        {t('charts.populationLabel')} <span className="font-medium text-foreground">{data.population.toFixed(1)}M</span>
                       </p>
                     </div>
                   );
@@ -89,15 +91,15 @@ export function RegionalChart({ data, title }: RegionalChartProps) {
       <div className="mt-4 flex items-center gap-4 text-xs text-muted-foreground">
         <div className="flex items-center gap-1">
           <div className="w-3 h-3 rounded" style={{ backgroundColor: COLORS.high }} />
-          <span>High (&gt;35%)</span>
+          <span>{t('charts.high')}</span>
         </div>
         <div className="flex items-center gap-1">
           <div className="w-3 h-3 rounded" style={{ backgroundColor: COLORS.medium }} />
-          <span>Medium (20-35%)</span>
+          <span>{t('charts.medium')}</span>
         </div>
         <div className="flex items-center gap-1">
           <div className="w-3 h-3 rounded" style={{ backgroundColor: COLORS.low }} />
-          <span>Low (&lt;20%)</span>
+          <span>{t('charts.low')}</span>
         </div>
       </div>
     </div>

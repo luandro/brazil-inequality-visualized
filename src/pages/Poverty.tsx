@@ -6,10 +6,12 @@ import { RegionalChart } from '@/components/charts/RegionalChart';
 import { RacialChart } from '@/components/charts/RacialChart';
 import { SourceDrawer } from '@/components/ui/SourceDrawer';
 import { AlertTriangle, Info } from 'lucide-react';
+import { useTranslation } from 'react-i18next';
 
 export default function Poverty() {
   const { data, isLoading, error } = useData();
   const prefersReducedMotion = useReducedMotion();
+  const { t } = useTranslation();
 
   if (isLoading) {
     return (
@@ -27,7 +29,7 @@ export default function Poverty() {
         <div className="min-h-[60vh] flex items-center justify-center">
           <div className="glass-card p-8 text-center">
             <AlertTriangle className="w-12 h-12 text-destructive mx-auto mb-4" />
-            <p className="text-destructive">{error || 'Failed to load data'}</p>
+            <p className="text-destructive">{error || t('common.failedToLoad')}</p>
           </div>
         </div>
       </Layout>
@@ -46,10 +48,9 @@ export default function Poverty() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: prefersReducedMotion ? 0 : 0.5 }}
           >
-            <h1 className="text-display mb-4">Poverty Analysis</h1>
+            <h1 className="text-display mb-4">{t('poverty.title')}</h1>
             <p className="text-body-lg text-muted-foreground max-w-3xl">
-              Deep dive into Brazil's poverty statistics, including measurement methodology,
-              regional disparities, and racial distribution.
+              {t('poverty.description')}
             </p>
           </motion.div>
         </div>
@@ -64,7 +65,7 @@ export default function Poverty() {
                 <Info className="w-5 h-5 text-secondary" />
               </div>
               <div>
-                <h3 className="font-semibold mb-2">Measurement Basis</h3>
+                <h3 className="font-semibold mb-2">{t('poverty.measurementBasis')}</h3>
                 <p className="text-muted-foreground">{poverty.measurement_basis}</p>
               </div>
             </div>
@@ -82,41 +83,41 @@ export default function Poverty() {
             viewport={{ once: true }}
             className="mb-8"
           >
-            <h2 className="section-header">Official Key Statistics</h2>
+            <h2 className="section-header">{t('poverty.keyStatistics.title')}</h2>
           </motion.div>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-5 gap-6">
             <KPICard
               value={poverty.official_key_statistics.poverty_rate_percentage}
-              label="Poverty Rate"
+              label={t('poverty.keyStatistics.povertyRate')}
               suffix="%"
               sourceIds={poverty.official_key_statistics.source_ids}
               variant="deficit"
             />
             <KPICard
               value={poverty.official_key_statistics.poverty_population_millions}
-              label="In Poverty (millions)"
+              label={t('poverty.keyStatistics.inPovertyMillions')}
               suffix="M"
               sourceIds={poverty.official_key_statistics.source_ids}
               variant="deficit"
             />
             <KPICard
               value={poverty.official_key_statistics.extreme_poverty_rate_percentage}
-              label="Extreme Poverty"
+              label={t('poverty.keyStatistics.extremePoverty')}
               suffix="%"
               sourceIds={poverty.official_key_statistics.source_ids}
               variant="deficit"
             />
             <KPICard
               value={poverty.official_key_statistics.extreme_poverty_population_millions}
-              label="Extreme Poor (millions)"
+              label={t('poverty.keyStatistics.extremePoorMillions')}
               suffix="M"
               sourceIds={poverty.official_key_statistics.source_ids}
               variant="deficit"
             />
             <KPICard
               value={poverty.official_key_statistics.gini_coefficient}
-              label="Gini Coefficient"
+              label={t('poverty.keyStatistics.giniCoefficient')}
               decimals={3}
               sourceIds={poverty.official_key_statistics.source_ids}
               variant="neutral"
@@ -135,27 +136,27 @@ export default function Poverty() {
             viewport={{ once: true }}
             className="mb-8"
           >
-            <h2 className="section-header">Poverty Lines (PPP)</h2>
+            <h2 className="section-header">{t('poverty.povertyLines.title')}</h2>
             <p className="text-muted-foreground">
-              International poverty thresholds adjusted for Purchasing Power Parity.
+              {t('poverty.povertyLines.description')}
             </p>
           </motion.div>
 
           <div className="grid md:grid-cols-2 gap-6">
             <div className="glass-card p-6">
               <div className="flex items-start justify-between">
-                <h3 className="font-semibold text-lg text-destructive mb-4">Extreme Poverty</h3>
-                <SourceDrawer sourceIds={poverty.poverty_lines.source_ids} title="Poverty Lines" />
+                <h3 className="font-semibold text-lg text-destructive mb-4">{t('poverty.povertyLines.extremePoverty')}</h3>
+                <SourceDrawer sourceIds={poverty.poverty_lines.source_ids} title={t('poverty.povertyLines.title')} />
               </div>
               <div className="space-y-4">
                 <div className="flex justify-between items-center p-4 bg-destructive/5 rounded-lg">
-                  <span className="text-muted-foreground">Daily (USD PPP)</span>
+                  <span className="text-muted-foreground">{t('poverty.povertyLines.dailyUSD')}</span>
                   <span className="text-xl font-bold text-destructive">
                     ${poverty.poverty_lines.extreme_poverty_daily_usd_ppp.toFixed(2)}
                   </span>
                 </div>
                 <div className="flex justify-between items-center p-4 bg-destructive/5 rounded-lg">
-                  <span className="text-muted-foreground">Monthly (BRL)</span>
+                  <span className="text-muted-foreground">{t('poverty.povertyLines.monthlyBRL')}</span>
                   <span className="text-xl font-bold text-destructive">
                     R${poverty.poverty_lines.extreme_poverty_monthly_brl}
                   </span>
@@ -165,18 +166,18 @@ export default function Poverty() {
 
             <div className="glass-card p-6">
               <div className="flex items-start justify-between">
-                <h3 className="font-semibold text-lg text-accent mb-4">Poverty</h3>
-                <SourceDrawer sourceIds={poverty.poverty_lines.source_ids} title="Poverty Lines" />
+                <h3 className="font-semibold text-lg text-accent mb-4">{t('poverty.povertyLines.poverty')}</h3>
+                <SourceDrawer sourceIds={poverty.poverty_lines.source_ids} title={t('poverty.povertyLines.title')} />
               </div>
               <div className="space-y-4">
                 <div className="flex justify-between items-center p-4 bg-accent/5 rounded-lg">
-                  <span className="text-muted-foreground">Daily (USD PPP)</span>
+                  <span className="text-muted-foreground">{t('poverty.povertyLines.dailyUSD')}</span>
                   <span className="text-xl font-bold text-accent">
                     ${poverty.poverty_lines.poverty_daily_usd_ppp.toFixed(2)}
                   </span>
                 </div>
                 <div className="flex justify-between items-center p-4 bg-accent/5 rounded-lg">
-                  <span className="text-muted-foreground">Monthly (BRL)</span>
+                  <span className="text-muted-foreground">{t('poverty.povertyLines.monthlyBRL')}</span>
                   <span className="text-xl font-bold text-accent">
                     R${poverty.poverty_lines.poverty_monthly_brl}
                   </span>
@@ -197,25 +198,25 @@ export default function Poverty() {
             viewport={{ once: true }}
             className="mb-8"
           >
-            <h2 className="section-header">Regional Distribution</h2>
+            <h2 className="section-header">{t('poverty.regionalDistribution.title')}</h2>
             <p className="text-muted-foreground">
-              Poverty rates vary significantly across Brazil's five major regions.
+              {t('poverty.regionalDistribution.description')}
             </p>
           </motion.div>
 
           <div className="grid lg:grid-cols-2 gap-6">
-            <RegionalChart data={poverty.regional_distribution} title="Poverty Rate by Region" />
+            <RegionalChart data={poverty.regional_distribution} title={t('poverty.regionalDistribution.chartTitle')} />
 
             {/* Regional Table */}
             <div className="glass-card p-6">
-              <h3 className="font-semibold mb-4">Regional Details</h3>
+              <h3 className="font-semibold mb-4">{t('poverty.regionalDistribution.detailsTitle')}</h3>
               <div className="overflow-x-auto">
                 <table className="w-full">
                   <thead>
                     <tr className="border-b border-border">
-                      <th className="text-left py-3 px-4 font-medium text-muted-foreground">Region</th>
-                      <th className="text-right py-3 px-4 font-medium text-muted-foreground">Poverty Rate</th>
-                      <th className="text-right py-3 px-4 font-medium text-muted-foreground">Population</th>
+                      <th className="text-left py-3 px-4 font-medium text-muted-foreground">{t('poverty.regionalDistribution.region')}</th>
+                      <th className="text-right py-3 px-4 font-medium text-muted-foreground">{t('poverty.regionalDistribution.povertyRate')}</th>
+                      <th className="text-right py-3 px-4 font-medium text-muted-foreground">{t('poverty.regionalDistribution.population')}</th>
                     </tr>
                   </thead>
                   <tbody>
@@ -252,14 +253,14 @@ export default function Poverty() {
             viewport={{ once: true }}
             className="mb-8"
           >
-            <h2 className="section-header">Racial Distribution</h2>
+            <h2 className="section-header">{t('poverty.racialDistribution.title')}</h2>
             <p className="text-muted-foreground">
-              Poverty and extreme poverty rates across racial groups in Brazil.
+              {t('poverty.racialDistribution.description')}
             </p>
           </motion.div>
 
           <div className="grid lg:grid-cols-2 gap-6">
-            <RacialChart data={poverty.racial_distribution} title="Poverty by Racial Group" />
+            <RacialChart data={poverty.racial_distribution} title={t('poverty.racialDistribution.chartTitle')} />
 
             {/* Racial Cards */}
             <div className="grid sm:grid-cols-2 gap-4">
@@ -271,11 +272,11 @@ export default function Poverty() {
                   </div>
                   <div className="mt-3 space-y-2">
                     <div className="flex justify-between">
-                      <span className="text-sm text-muted-foreground">Poverty</span>
+                      <span className="text-sm text-muted-foreground">{t('poverty.racialDistribution.poverty')}</span>
                       <span className="font-semibold text-destructive">{group.poverty_rate_percentage}%</span>
                     </div>
                     <div className="flex justify-between">
-                      <span className="text-sm text-muted-foreground">Extreme</span>
+                      <span className="text-sm text-muted-foreground">{t('poverty.racialDistribution.extreme')}</span>
                       <span className="font-semibold text-destructive/70">{group.extreme_poverty_rate_percentage}%</span>
                     </div>
                   </div>

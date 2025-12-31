@@ -6,8 +6,10 @@ import { useData } from '@/context/DataContext';
 import { KPICard } from '@/components/ui/KPICard';
 import { ComparisonBar } from '@/components/charts/ComparisonBar';
 import { Layout } from '@/components/layout/Layout';
+import { useTranslation } from 'react-i18next';
 
 export default function Home() {
+  const { t } = useTranslation();
   const { data, isLoading, error } = useData();
   const prefersReducedMotion = useReducedMotion();
 
@@ -17,7 +19,7 @@ export default function Home() {
         <div className="min-h-[80vh] flex items-center justify-center">
           <div className="text-center">
             <div className="w-12 h-12 border-4 border-secondary border-t-transparent rounded-full animate-spin mx-auto mb-4" />
-            <p className="text-muted-foreground">Loading dataset...</p>
+            <p className="text-muted-foreground">{t('common.loading')}</p>
           </div>
         </div>
       </Layout>
@@ -32,9 +34,9 @@ export default function Home() {
             <div className="w-16 h-16 rounded-full bg-destructive/10 flex items-center justify-center mx-auto mb-4">
               <TrendingDown className="w-8 h-8 text-destructive" />
             </div>
-            <h1 className="text-2xl font-bold mb-2">Data Validation Error</h1>
+            <h1 className="text-2xl font-bold mb-2">{t('common.dataValidationError')}</h1>
             <p className="text-muted-foreground mb-4">
-              The dataset failed Zod schema validation. Please check the data format.
+              {t('common.dataValidationErrorDesc')}
             </p>
             <pre className="text-left text-xs bg-muted p-4 rounded-lg overflow-auto max-h-48 text-destructive">
               {error}
@@ -63,30 +65,29 @@ export default function Home() {
             className="max-w-4xl"
           >
             <h1 className="text-hero mb-6">
-              <span className="text-foreground">Truth</span>
+              <span className="text-foreground">{t('home.hero.truth')}</span>
               <span className="text-secondary mx-4">→</span>
-              <span className="text-foreground">Choices</span>
+              <span className="text-foreground">{t('home.hero.choices')}</span>
               <span className="text-secondary mx-4">→</span>
-              <span className="text-foreground">Consequences</span>
+              <span className="text-foreground">{t('home.hero.consequences')}</span>
             </h1>
-            
+
             <p className="text-body-lg text-muted-foreground max-w-2xl mb-10">
-              Understanding Brazil's inequality through validated data. Every number is sourced,
-              every simulation clearly labeled. Make informed choices based on truth.
+              {t('home.hero.description')}
             </p>
 
             <div className="flex flex-wrap gap-4">
               <Button asChild size="lg" className="gap-2">
                 <Link to="/truth">
                   <BarChart3 className="w-5 h-5" />
-                  Explore Reality
+                  {t('home.hero.exploreReality')}
                   <ArrowRight className="w-4 h-4" />
                 </Link>
               </Button>
               <Button asChild variant="outline" size="lg" className="gap-2">
                 <Link to="/simulator">
                   <Calculator className="w-5 h-5" />
-                  Run Simulations
+                  {t('home.hero.runSimulations')}
                 </Link>
               </Button>
             </div>
@@ -104,40 +105,39 @@ export default function Home() {
             viewport={{ once: true }}
             className="mb-12"
           >
-            <h2 className="section-header">Brazil at a Glance</h2>
+            <h2 className="section-header">{t('home.keyStats.title')}</h2>
             <p className="text-muted-foreground max-w-2xl">
-              Three numbers that define Brazil's inequality challenge. Each figure is validated
-              against official sources.
+              {t('home.keyStats.description')}
             </p>
           </motion.div>
 
           <div className="grid md:grid-cols-3 gap-6">
             <KPICard
               value={poverty.official_key_statistics.poverty_rate_percentage}
-              label="Living in poverty"
+              label={t('home.keyStats.livingInPoverty')}
               suffix="%"
               decimals={1}
               sourceIds={poverty.official_key_statistics.source_ids}
-              definition="Percentage of population living below the $6.85/day poverty line (2017 PPP)"
+              definition={t('home.keyStats.povertyTooltip')}
               variant="deficit"
               size="lg"
             />
             <KPICard
               value={poverty.official_key_statistics.extreme_poverty_rate_percentage}
-              label="In extreme poverty"
+              label={t('home.keyStats.inExtremePoverty')}
               suffix="%"
               decimals={1}
               sourceIds={poverty.official_key_statistics.source_ids}
-              definition="Percentage living below $2.15/day extreme poverty line (2017 PPP)"
+              definition={t('home.keyStats.extremePovertyTooltip')}
               variant="deficit"
               size="lg"
             />
             <KPICard
               value={poverty.official_key_statistics.gini_coefficient}
-              label="Income Gini coefficient"
+              label={t('home.keyStats.incomeGini')}
               decimals={3}
               sourceIds={poverty.official_key_statistics.source_ids}
-              definition="Gini coefficient measures income inequality from 0 (perfect equality) to 1 (maximum inequality)"
+              definition={t('home.keyStats.giniTooltip')}
               variant="neutral"
               size="lg"
             />
@@ -155,27 +155,26 @@ export default function Home() {
             viewport={{ once: true }}
             className="mb-12"
           >
-            <h2 className="section-header">The Impact of Social Programs</h2>
+            <h2 className="section-header">{t('home.socialPrograms.title')}</h2>
             <p className="text-muted-foreground max-w-2xl">
-              What would Brazil look like without its social safety net? Compare the reality
-              with and without programs like Bolsa Família.
+              {t('home.socialPrograms.description')}
             </p>
           </motion.div>
 
           <div className="grid lg:grid-cols-2 gap-6">
             <ComparisonBar
-              title="Poverty Rate Comparison"
-              beforeLabel="Without social programs"
+              title={t('home.socialPrograms.povertyRateComparison')}
+              beforeLabel={t('home.socialPrograms.withoutPrograms')}
               beforeValue={poverty.social_programs_counterfactuals.poverty_rate_without_programs_percentage}
-              afterLabel="With social programs (current)"
+              afterLabel={t('home.socialPrograms.withPrograms')}
               afterValue={poverty.official_key_statistics.poverty_rate_percentage}
               sourceIds={poverty.social_programs_counterfactuals.source_ids}
             />
             <ComparisonBar
-              title="Extreme Poverty Rate Comparison"
-              beforeLabel="Without social programs"
+              title={t('home.socialPrograms.extremePovertyComparison')}
+              beforeLabel={t('home.socialPrograms.withoutPrograms')}
               beforeValue={poverty.social_programs_counterfactuals.extreme_poverty_rate_without_programs_percentage}
-              afterLabel="With social programs (current)"
+              afterLabel={t('home.socialPrograms.withPrograms')}
               afterValue={poverty.official_key_statistics.extreme_poverty_rate_percentage}
               sourceIds={poverty.social_programs_counterfactuals.source_ids}
             />
@@ -193,9 +192,9 @@ export default function Home() {
             viewport={{ once: true }}
             className="mb-12"
           >
-            <h2 className="section-header">Explore the Data</h2>
+            <h2 className="section-header">{t('home.exploreData.title')}</h2>
             <p className="text-muted-foreground max-w-2xl">
-              Dive deeper into specific aspects of Brazil's inequality landscape.
+              {t('home.exploreData.description')}
             </p>
           </motion.div>
 
@@ -204,29 +203,29 @@ export default function Home() {
               {
                 to: '/poverty',
                 icon: Users,
-                title: 'Poverty',
-                desc: 'Regional and racial distribution',
+                titleKey: 'home.exploreData.poverty',
+                descKey: 'home.exploreData.povertyDesc',
                 stat: `${poverty.official_key_statistics.poverty_population_millions.toFixed(1)}M people`,
               },
               {
                 to: '/labor',
                 icon: Users,
-                title: 'Labor Market',
-                desc: 'Employment and informality',
+                titleKey: 'home.exploreData.labor',
+                descKey: 'home.exploreData.laborDesc',
                 stat: `${labor_market.informality_rate_percentage.toFixed(1)}% informal`,
               },
               {
                 to: '/wealth',
                 icon: Coins,
-                title: 'Wealth',
-                desc: 'Concentration at the top',
+                titleKey: 'home.exploreData.wealth',
+                descKey: 'home.exploreData.wealthDesc',
                 stat: `${wealth.millionaire_population.count_individuals.toLocaleString()} millionaires`,
               },
               {
                 to: '/simulator',
                 icon: Calculator,
-                title: 'Simulator',
-                desc: 'Model policy impacts',
+                titleKey: 'home.exploreData.simulator',
+                descKey: 'home.exploreData.simulatorDesc',
                 stat: 'Interactive tool',
               },
             ].map((item, index) => (
@@ -242,8 +241,8 @@ export default function Home() {
                   className="glass-card-hover p-6 block group h-full"
                 >
                   <item.icon className="w-8 h-8 text-secondary mb-4 group-hover:scale-110 transition-transform" />
-                  <h3 className="font-semibold text-lg mb-1">{item.title}</h3>
-                  <p className="text-sm text-muted-foreground mb-3">{item.desc}</p>
+                  <h3 className="font-semibold text-lg mb-1">{t(item.titleKey)}</h3>
+                  <p className="text-sm text-muted-foreground mb-3">{t(item.descKey)}</p>
                   <p className="text-secondary font-medium">{item.stat}</p>
                 </Link>
               </motion.div>
@@ -259,10 +258,9 @@ export default function Home() {
             <div className="w-16 h-16 rounded-full bg-secondary/10 flex items-center justify-center mx-auto mb-4">
               <BarChart3 className="w-8 h-8 text-secondary" />
             </div>
-            <h3 className="text-xl font-semibold mb-2">Verified Data</h3>
+            <h3 className="text-xl font-semibold mb-2">{t('home.verifiedData.title')}</h3>
             <p className="text-muted-foreground mb-4">
-              Every statistic in this application is validated against official sources.
-              Click the "Sources" button on any metric to see its origins.
+              {t('home.verifiedData.description')}
             </p>
             <div className="flex flex-wrap justify-center gap-2">
               <span className="chip-insight">IBGE</span>

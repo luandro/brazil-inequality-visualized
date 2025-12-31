@@ -4,10 +4,12 @@ import { useData } from '@/context/DataContext';
 import { KPICard } from '@/components/ui/KPICard';
 import { SourceDrawer } from '@/components/ui/SourceDrawer';
 import { AlertTriangle, AlertCircle, Briefcase, TrendingUp, Users, DollarSign } from 'lucide-react';
+import { useTranslation } from 'react-i18next';
 
 export default function Labor() {
   const { data, isLoading, error } = useData();
   const prefersReducedMotion = useReducedMotion();
+  const { t, i18n } = useTranslation();
 
   if (isLoading) {
     return (
@@ -25,7 +27,7 @@ export default function Labor() {
         <div className="min-h-[60vh] flex items-center justify-center">
           <div className="glass-card p-8 text-center">
             <AlertTriangle className="w-12 h-12 text-destructive mx-auto mb-4" />
-            <p className="text-destructive">{error || 'Failed to load data'}</p>
+            <p className="text-destructive">{error || t('common.failedToLoad')}</p>
           </div>
         </div>
       </Layout>
@@ -44,9 +46,9 @@ export default function Labor() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: prefersReducedMotion ? 0 : 0.5 }}
           >
-            <h1 className="text-display mb-4">Labor Market</h1>
+            <h1 className="text-display mb-4">{t('labor.title')}</h1>
             <p className="text-body-lg text-muted-foreground max-w-3xl">
-              Employment, informality, and the relationship between work and poverty in Brazil.
+              {t('labor.description')}
             </p>
           </motion.div>
         </div>
@@ -61,14 +63,15 @@ export default function Labor() {
                 <AlertCircle className="w-5 h-5 text-accent" />
               </div>
               <div>
-                <h3 className="font-semibold mb-2">Key Insight: Work Doesn't Guarantee Escape from Poverty</h3>
+                <h3 className="font-semibold mb-2">{t('labor.keyInsight.title')}</h3>
                 <p className="text-muted-foreground">
-                  <span className="font-semibold text-destructive">{labor_market.working_poor_percentage_of_employed}%</span> of employed 
-                  Brazilians still live below the poverty line. High informality ({labor_market.informality_rate_percentage}%) 
-                  means millions work without labor protections or stable income.
+                  {t('labor.keyInsight.description', {
+                    percent: labor_market.working_poor_percentage_of_employed,
+                    informality: labor_market.informality_rate_percentage
+                  })}
                 </p>
               </div>
-              <SourceDrawer sourceIds={labor_market.source_ids} title="Labor Market Data" />
+              <SourceDrawer sourceIds={labor_market.source_ids} title={t('labor.dataTitle')} />
             </div>
           </div>
         </div>
@@ -84,35 +87,35 @@ export default function Labor() {
             viewport={{ once: true }}
             className="mb-8"
           >
-            <h2 className="section-header">Employment Overview</h2>
+            <h2 className="section-header">{t('labor.employmentOverview.title')}</h2>
           </motion.div>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
             <KPICard
               value={labor_market.employed_population_millions}
-              label="Employed Population"
-              suffix=" million"
+              label={t('labor.employmentOverview.employedPopulation')}
+              suffix={` ${t('labor.employmentOverview.million')}`}
               decimals={1}
               sourceIds={labor_market.source_ids}
-              definition="Total number of employed individuals in Brazil"
+              definition={t('labor.employmentOverview.employedPopulationDesc')}
               variant="insight"
             />
             <KPICard
               value={labor_market.employment_rate_percentage}
-              label="Employment Rate"
+              label={t('labor.employmentOverview.employmentRate')}
               suffix="%"
               decimals={1}
               sourceIds={labor_market.source_ids}
-              definition="Percentage of working-age population that is employed"
+              definition={t('labor.employmentOverview.employmentRateDesc')}
               variant="insight"
             />
             <KPICard
               value={labor_market.unemployment_rate_percentage}
-              label="Unemployment Rate"
+              label={t('labor.employmentOverview.unemploymentRate')}
               suffix="%"
               decimals={1}
               sourceIds={labor_market.source_ids}
-              definition="Percentage of labor force that is unemployed"
+              definition={t('labor.employmentOverview.unemploymentRateDesc')}
               variant="neutral"
             />
           </div>
@@ -129,36 +132,36 @@ export default function Labor() {
             viewport={{ once: true }}
             className="mb-8"
           >
-            <h2 className="section-header">Labor Market Challenges</h2>
+            <h2 className="section-header">{t('labor.laborChallenges.title')}</h2>
           </motion.div>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
             <KPICard
               value={labor_market.informality_rate_percentage}
-              label="Informality Rate"
+              label={t('labor.laborChallenges.informalityRate')}
               suffix="%"
               decimals={1}
               sourceIds={labor_market.source_ids}
-              definition="Percentage of workers in informal employment without legal protections"
+              definition={t('labor.laborChallenges.informalityRateDesc')}
               variant="deficit"
             />
             <KPICard
               value={labor_market.working_poor_percentage_of_employed}
-              label="Working Poor"
+              label={t('labor.laborChallenges.workingPoor')}
               suffix="%"
               decimals={1}
               sourceIds={labor_market.source_ids}
-              definition="Employed individuals still living below the poverty line"
+              definition={t('labor.laborChallenges.workingPoorDesc')}
               variant="deficit"
             />
             <KPICard
               value={labor_market.income_mass_monthly_brl_billions}
-              label="Monthly Income Mass"
+              label={t('labor.laborChallenges.monthlyIncomeMass')}
               prefix="R$ "
               suffix="B"
               decimals={1}
               sourceIds={labor_market.source_ids}
-              definition="Total monthly labor income in Brazil (billions of BRL)"
+              definition={t('labor.laborChallenges.totalMonthlyIncome')}
               variant="insight"
             />
           </div>
@@ -175,14 +178,14 @@ export default function Labor() {
             viewport={{ once: true }}
             className="mb-8"
           >
-            <h2 className="section-header">Minimum Wage</h2>
+            <h2 className="section-header">{t('labor.minimumWage.title')}</h2>
           </motion.div>
 
           <div className="grid lg:grid-cols-2 gap-6">
             <div className="glass-card p-6">
               <div className="flex items-start justify-between mb-6">
-                <h3 className="font-semibold text-lg">Minimum Wage Evolution</h3>
-                <SourceDrawer sourceIds={minimum_wage.source_ids} title="Minimum Wage" />
+                <h3 className="font-semibold text-lg">{t('labor.minimumWage.evolutionChart')}</h3>
+                <SourceDrawer sourceIds={minimum_wage.source_ids} title={t('labor.minimumWage.title')} />
               </div>
               
               <div className="grid grid-cols-2 gap-4 mb-6">
@@ -199,23 +202,23 @@ export default function Labor() {
               <div className="flex items-center gap-2 text-sm text-muted-foreground">
                 <TrendingUp className="w-4 h-4 text-secondary" />
                 <span>
-                  Increase: R$ {(minimum_wage.wage_2025_brl - minimum_wage.wage_2024_brl).toLocaleString()} 
+                  {t('labor.minimumWage.increase')} R$ {(minimum_wage.wage_2025_brl - minimum_wage.wage_2024_brl).toLocaleString()}
                   ({(((minimum_wage.wage_2025_brl - minimum_wage.wage_2024_brl) / minimum_wage.wage_2024_brl) * 100).toFixed(1)}%)
                 </span>
               </div>
               <p className="text-sm text-muted-foreground mt-2">
-                Effective date: {new Date(minimum_wage.effective_date_2025).toLocaleDateString('en-US', { 
-                  year: 'numeric', 
-                  month: 'long', 
-                  day: 'numeric' 
+                {t('labor.minimumWage.effectiveDate')} {new Date(minimum_wage.effective_date_2025).toLocaleDateString(i18n.language, {
+                  year: 'numeric',
+                  month: 'long',
+                  day: 'numeric'
                 })}
               </p>
             </div>
 
             <div className="glass-card p-6">
               <div className="flex items-start justify-between mb-6">
-                <h3 className="font-semibold text-lg">Population Impact</h3>
-                <SourceDrawer sourceIds={minimum_wage.source_ids} title="Minimum Wage Impact" />
+                <h3 className="font-semibold text-lg">{t('labor.minimumWage.populationImpact')}</h3>
+                <SourceDrawer sourceIds={minimum_wage.source_ids} title={t('labor.minimumWage.title')} />
               </div>
               
               <div className="text-center py-8">
@@ -226,13 +229,13 @@ export default function Labor() {
                   {minimum_wage.population_affected_millions.toFixed(1)}M
                 </p>
                 <p className="text-muted-foreground">
-                  Brazilians affected by minimum wage changes
+                  {t('labor.minimumWage.braziliansAffected')}
                 </p>
               </div>
-              
+
               <div className="border-t border-border pt-4 mt-4">
                 <p className="text-sm text-muted-foreground text-center">
-                  Includes workers earning minimum wage and those with benefits indexed to it
+                  {t('labor.minimumWage.includesIndexed')}
                 </p>
               </div>
             </div>
@@ -244,27 +247,27 @@ export default function Labor() {
       <section className="py-12 bg-muted/30">
         <div className="container-wide">
           <div className="glass-card p-8">
-            <h3 className="font-semibold text-lg mb-6 text-center">Labor Market at a Glance</h3>
+            <h3 className="font-semibold text-lg mb-6 text-center">{t('labor.atAGlance.title')}</h3>
             <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
               <div className="text-center">
                 <Briefcase className="w-8 h-8 text-secondary mx-auto mb-2" />
                 <p className="text-2xl font-bold">{labor_market.employed_population_millions}M</p>
-                <p className="text-sm text-muted-foreground">Employed</p>
+                <p className="text-sm text-muted-foreground">{t('labor.atAGlance.employed')}</p>
               </div>
               <div className="text-center">
                 <Users className="w-8 h-8 text-accent mx-auto mb-2" />
                 <p className="text-2xl font-bold">{labor_market.unemployment_rate_percentage}%</p>
-                <p className="text-sm text-muted-foreground">Unemployed</p>
+                <p className="text-sm text-muted-foreground">{t('labor.atAGlance.unemployed')}</p>
               </div>
               <div className="text-center">
                 <AlertCircle className="w-8 h-8 text-destructive mx-auto mb-2" />
                 <p className="text-2xl font-bold">{labor_market.informality_rate_percentage}%</p>
-                <p className="text-sm text-muted-foreground">Informal</p>
+                <p className="text-sm text-muted-foreground">{t('labor.atAGlance.informal')}</p>
               </div>
               <div className="text-center">
                 <DollarSign className="w-8 h-8 text-secondary mx-auto mb-2" />
                 <p className="text-2xl font-bold">R${minimum_wage.wage_2025_brl}</p>
-                <p className="text-sm text-muted-foreground">Min Wage 2025</p>
+                <p className="text-sm text-muted-foreground">{t('labor.atAGlance.minWage2025')}</p>
               </div>
             </div>
           </div>

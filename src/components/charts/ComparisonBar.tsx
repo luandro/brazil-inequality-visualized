@@ -1,6 +1,7 @@
 import { motion, useInView, useReducedMotion } from 'framer-motion';
 import { useRef } from 'react';
 import { SourceDrawer } from '@/components/ui/SourceDrawer';
+import { useTranslation } from 'react-i18next';
 
 interface ComparisonBarProps {
   beforeLabel: string;
@@ -24,6 +25,7 @@ export function ComparisonBar({
   const ref = useRef<HTMLDivElement>(null);
   const isInView = useInView(ref, { once: true, margin: '-50px' });
   const prefersReducedMotion = useReducedMotion();
+  const { t } = useTranslation();
   
   const maxValue = Math.max(beforeValue, afterValue);
   const reduction = beforeValue - afterValue;
@@ -72,9 +74,9 @@ export function ComparisonBar({
 
       <div className="mt-4 pt-4 border-t border-border/50">
         <p className="text-sm">
-          <span className="text-muted-foreground">Reduction: </span>
-          <span className="font-semibold text-secondary">{reduction.toFixed(1)} percentage points</span>
-          <span className="text-muted-foreground"> ({reductionPercent}% decrease)</span>
+          <span className="text-muted-foreground">{t('common.reduction', { value: reduction.toFixed(1) })} </span>
+          <span className="font-semibold text-secondary">{t('common.percentagePoints')}</span>
+          <span className="text-muted-foreground"> ({t('common.decrease', { percent: reductionPercent })})</span>
         </p>
       </div>
     </div>

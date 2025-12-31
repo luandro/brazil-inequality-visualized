@@ -1,0 +1,320 @@
+{
+  "nav": {
+    "home": "Home",
+    "truth": "Reality",
+    "poverty": "Poverty",
+    "labor": "Labor",
+    "wealth": "Wealth",
+    "simulator": "Simulator",
+    "methodology": "Methodology",
+    "dataExplorer": "Data Explorer",
+    "deprecated": "Deprecated"
+  },
+  "app": {
+    "subtitle": "Truth → Choices → Consequences"
+  },
+  "home": {
+    "hero": {
+      "truth": "Truth",
+      "choices": "Choices",
+      "consequences": "Consequences",
+      "description": "Understanding Brazil's inequality through validated data. Every number is sourced, every simulation clearly labeled. Make informed choices based truth.",
+      "exploreReality": "Explore Reality",
+      "runSimulations": "Run Simulations"
+    },
+    "keyStats": {
+      "title": "Brazil at a Glance",
+      "description": "Three numbers that define Brazil's inequality challenge. Each figure is validated against official sources.",
+      "livingInPoverty": "Living in poverty",
+      "inExtremePoverty": "In extreme poverty",
+      "incomeGini": "Income Gini coefficient",
+      "povertyTooltip": "Percentage of population living below the $6.85/day poverty line (2017 PPP)",
+      "extremePovertyTooltip": "Percentage living below $2.15/day extreme poverty line (2017 PPP)",
+      "giniTooltip": "Gini coefficient measures income inequality from 0 (perfect equality) to 1 (maximum inequality)"
+    },
+    "socialPrograms": {
+      "title": "The Impact of Social Programs",
+      "description": "What would Brazil look like without its social safety net? Compare the reality with and without programs like Bolsa Família.",
+      "povertyRateComparison": "Poverty Rate Comparison",
+      "withoutPrograms": "Without social programs",
+      "withPrograms": "With social programs (current)",
+      "extremePovertyComparison": "Extreme Poverty Rate Comparison"
+    },
+    "exploreData": {
+      "title": "Explore the Data",
+      "description": "Dive deeper into specific aspects of Brazil's inequality landscape.",
+      "poverty": "Poverty",
+      "povertyDesc": "Regional and racial distribution",
+      "labor": "Labor Market",
+      "laborDesc": "Employment and informality",
+      "wealth": "Wealth",
+      "wealthDesc": "Concentration at the top",
+      "simulator": "Simulator",
+      "simulatorDesc": "Model policy impacts"
+    },
+    "verifiedData": {
+      "title": "Verified Data",
+      "description": "Every statistic in this application is validated against official sources. Click the \"Sources\" button on any metric to see its origins."
+    }
+  },
+  "truth": {
+    "title": "Reality Dashboard",
+    "description": "A comprehensive view of Brazil's inequality through verified data. Every metric is sourced from official government statistics and international organizations.",
+    "sectionA": {
+      "title": "A. Poverty at a Glance",
+      "description": "Key indicators showing the current state of poverty in Brazil.",
+      "povertyRate": "Poverty Rate",
+      "peopleInPoverty": "People in Poverty",
+      "extremePovertyRate": "Extreme Poverty Rate",
+      "incomeGini": "Income Gini",
+      "povertyRateDesc": "Share of population living below $6.85/day (2017 PPP)",
+      "peopleInPovertyDesc": "Total number of Brazilians living below the poverty line",
+      "extremePovertyRateDesc": "Share living below $2.15/day (2017 PPP)",
+      "incomeGiniDesc": "0 = perfect equality, 1 = maximum inequality",
+      "populationDistribution": "Population Distribution",
+      "extremePoverty": "Extreme poverty",
+      "povertyNonExtreme": "Poverty (non-extreme)",
+      "abovePovertyLine": "Above poverty line"
+    },
+    "sectionB": {
+      "title": "B. Poverty Lines",
+      "description": "International thresholds used to measure poverty in Brazil.",
+      "extremePovertyLine": "Extreme Poverty Line",
+      "povertyLine": "Poverty Line",
+      "extremePovertyLineDesc": "World Bank international extreme poverty line (2017 PPP)",
+      "povertyLineDesc": "Upper-middle-income country poverty line (2017 PPP)"
+    },
+    "sectionC": {
+      "title": "C. Safety Net Impact",
+      "description": "Counterfactual analysis: What would poverty look like without social programs?",
+      "povertyRateChart": "Poverty Rate: With vs Without Safety Net",
+      "withoutPrograms": "Without social programs",
+      "current": "Current (with programs)",
+      "extremePovertyChart": "Extreme Poverty: With vs Without Safety Net"
+    },
+    "sectionD": {
+      "title": "D. Regional Inequality",
+      "description": "Poverty varies dramatically across Brazil's five major regions.",
+      "chartTitle": "Poverty Rate by Region"
+    },
+    "sectionE": {
+      "title": "E. Racial Inequality",
+      "description": "Poverty rates differ significantly across racial groups in Brazil.",
+      "chartTitle": "Poverty Rates by Racial Group"
+    }
+  },
+  "poverty": {
+    "title": "Poverty Analysis",
+    "description": "Deep dive into Brazil's poverty statistics, including measurement methodology, regional disparities, and racial distribution.",
+    "measurementBasis": "Measurement Basis",
+    "keyStatistics": {
+      "title": "Official Key Statistics",
+      "povertyRate": "Poverty Rate",
+      "inPovertyMillions": "In Poverty (millions)",
+      "extremePoverty": "Extreme Poverty",
+      "extremePoorMillions": "Extreme Poor (millions)",
+      "giniCoefficient": "Gini Coefficient"
+    },
+    "povertyLines": {
+      "title": "Poverty Lines (PPP)",
+      "description": "International poverty thresholds adjusted for Purchasing Power Parity.",
+      "extremePoverty": "Extreme Poverty",
+      "poverty": "Poverty",
+      "dailyUSD": "Daily (USD PPP)",
+      "monthlyBRL": "Monthly (BRL)"
+    },
+    "regionalDistribution": {
+      "title": "Regional Distribution",
+      "description": "Poverty rates vary significantly across Brazil's five major regions.",
+      "chartTitle": "Poverty Rate by Region",
+      "detailsTitle": "Regional Details",
+      "region": "Region",
+      "povertyRate": "Poverty Rate",
+      "population": "Population"
+    },
+    "racialDistribution": {
+      "title": "Racial Distribution",
+      "description": "Poverty and extreme poverty rates across racial groups in Brazil.",
+      "chartTitle": "Poverty by Racial Group",
+      "poverty": "Poverty",
+      "extreme": "Extreme"
+    }
+  },
+  "labor": {
+    "title": "Labor Market",
+    "description": "Employment, informality, and the relationship between work and poverty in Brazil.",
+    "keyInsight": {
+      "title": "Key Insight: Work Doesn't Guarantee Escape from Poverty",
+      "description": "{{percent}}% of employed Brazilians still live below the poverty line. High informality ({{informality}}%) means millions work without labor protections or stable income."
+    },
+    "dataTitle": "Labor Market Data",
+    "employmentOverview": {
+      "title": "Employment Overview",
+      "employedPopulation": "Employed Population",
+      "million": "Million",
+      "employedPopulationDesc": "Total number of employed individuals in Brazil",
+      "employmentRate": "Employment Rate",
+      "employmentRateDesc": "Percentage of working-age population that is employed",
+      "unemploymentRate": "Unemployment Rate",
+      "unemploymentRateDesc": "Percentage of labor force that is unemployed"
+    },
+    "laborChallenges": {
+      "title": "Labor Market Challenges",
+      "informalityRate": "Informality Rate",
+      "informalityRateDesc": "Percentage of workers in informal employment without legal protections",
+      "workingPoor": "Working Poor",
+      "workingPoorDesc": "Employed individuals still living below the poverty line",
+      "monthlyIncomeMass": "Monthly Income Mass",
+      "totalMonthlyIncome": "Total monthly labor income in Brazil (billions of BRL)"
+    },
+    "minimumWage": {
+      "title": "Minimum Wage",
+      "evolutionChart": "Minimum Wage Evolution",
+      "populationImpact": "Population Impact",
+      "braziliansAffected": "Brazilians affected by minimum wage changes",
+      "includesIndexed": "Includes workers earning minimum wage and those with benefits indexed to it",
+      "increase": "Increase:",
+      "effectiveDate": "Effective date:"
+    },
+    "atAGlance": {
+      "title": "Labor Market at a Glance",
+      "employed": "Employed",
+      "unemployed": "Unemployed",
+      "informal": "Informal",
+      "minWage2025": "Min Wage 2025"
+    }
+  },
+  "wealth": {
+    "title": "Wealth Concentration",
+    "description": "Analysis of wealth distribution in Brazil, including millionaire and billionaire populations.",
+    "measurementNotes": "Measurement Notes",
+    "wealthInequality": {
+      "title": "Wealth Inequality",
+      "wealthGini": "Wealth Gini Coefficient",
+      "equal": "0 (Equal)",
+      "unequal": "1 (Unequal)",
+      "comparison": "Wealth inequality is significantly higher than income inequality (Gini: {{gini}})"
+    },
+    "millionairePopulation": {
+      "title": "Millionaire Population",
+      "description": "Individuals with net worth exceeding ${{threshold}} USD.",
+      "totalMillionaires": "Total Millionaires",
+      "individualsAbove": "Individuals with net worth over ${{threshold}} million USD",
+      "shareOfPopulation": "Share of Population",
+      "millionairePercentage": "Millionaires as percentage of total Brazilian population",
+      "wealthShare": "Wealth Share",
+      "wealthHeldByMillionaires": "Share of total national wealth held by millionaires",
+      "concentrationRatio": "Concentration Ratio",
+      "populationHolds": "{{percent}}% of the population holds {{wealth}}% of wealth"
+    },
+    "billionairePopulation": {
+      "title": "Billionaire Population",
+      "countTrend": "Billionaire Count Trend",
+      "dataTitle": "Billionaire Data",
+      "additionalNotes": "Additional Notes",
+      "yearOverYear": "+{{percent}}% year-over-year increase",
+      "contextTitle": "Global Context",
+      "context": "Brazil ranks among the top 10 countries by billionaire count globally. The combined wealth of Brazilian billionaires exceeds the annual income of the poorest 50% of the population."
+    },
+    "wealthGapVisualized": {
+      "title": "The Wealth Gap Visualized",
+      "wealthHeldBy": "Wealth held by",
+      "millionaires": "millionaires",
+      "everyoneElse": "everyone else",
+      "description": "Just {{percent}}% of Brazilians (millionaires) control nearly half of all wealth, while 99.8% of the population shares the remaining half."
+    }
+  },
+  "simulator": {
+    "title": "Policy Simulator",
+    "description": "Model hypothetical wealth tax scenarios. <strong>All outputs are simplified simulations, not predictions.</strong>",
+    "disclaimer": {
+      "title": "Simulation Disclaimer:",
+      "text": "These calculations use simplified assumptions and are for educational purposes only. Real policy outcomes depend on many factors not modeled here."
+    },
+    "baseline": {
+      "title": "Official Baseline (Anchors)",
+      "dataTitle": "Baseline Data",
+      "povertyLine": "Poverty Line:",
+      "povertyRate": "Poverty Rate:",
+      "inPoverty": "In Poverty:",
+      "millionaires": "Millionaires:"
+    },
+    "controls": {
+      "title": "Simulation Controls",
+      "taxBase": "Tax Base",
+      "taxRate": "Tax Rate: {{rate}}%",
+      "complianceRate": "Compliance Rate: {{rate}}%",
+      "adminCost": "Admin Cost: {{cost}}%",
+      "horizon": "Horizon: {{years}} years",
+      "allocation": "Allocation (must sum to 100%)",
+      "povertyGap": "Poverty Gap: {{percent}}%",
+      "services": "Services: {{percent}}%",
+      "regionalFund": "Regional Fund: {{percent}}%"
+    },
+    "results": {
+      "title": "Simulated Results",
+      "annualRevenue": "Annual Revenue (simulated)",
+      "totalOverYears": "Total over {{years}} years",
+      "povertyGapCovered": "Poverty Gap Covered (simplified)",
+      "estPeopleLifted": "Est. People Lifted (proportional model)",
+      "assumptions": "⚠️ Assumptions: Avg millionaire wealth $2.5M, billionaire $2.5B. Linear poverty gap model. No behavioral response modeled."
+    }
+  },
+  "dataExplorer": {
+    "title": "Data Explorer",
+    "description": "Full tree view of the validated dataset. Every field in the JSON is exposed here."
+  },
+  "deprecated": {
+    "title": "Deprecated Fields",
+    "fieldName": "Field Name",
+    "reasonRemoved": "Reason Removed"
+  },
+  "methodology": {
+    "title": "Methodology & Sources",
+    "description": "Complete source catalog and data quality information.",
+    "lastUpdated": "Last updated: {{date}}",
+    "dataCurrency": "Data Currency",
+    "sourceCatalog": {
+      "title": "Source Catalog",
+      "id": "ID: {{id}}"
+    },
+    "dataQuality": {
+      "title": "Data Quality",
+      "reliabilityRatings": "Reliability Ratings",
+      "officialData": "Official Data",
+      "wealthEstimates": "Wealth Estimates",
+      "knownLimitations": "Known Limitations"
+    }
+  },
+  "common": {
+    "sources": "Sources",
+    "viewSources": "View sources",
+    "openMenu": "Open menu",
+    "close": "Close",
+    "learnMore": "Learn More",
+    "loading": "Loading dataset...",
+    "dataValidationError": "Data Validation Error",
+    "dataValidationErrorDesc": "The dataset failed Zod schema validation. Please check the data format.",
+    "failedToLoad": "Failed to load data",
+    "noSourcesFound": "No sources found for IDs: {{ids}}",
+    "reduction": "Reduction: {{value}}",
+    "percentagePoints": "percentage points",
+    "decrease": "{{percent}}% decrease"
+  },
+  "charts": {
+    "high": "High (>35%)",
+    "medium": "Medium (20-35%)",
+    "low": "Low (<20%)",
+    "povertyRate": "Poverty Rate",
+    "extremePovertyRate": "Extreme Poverty Rate",
+    "povertyRateLabel": "Poverty rate:",
+    "populationLabel": "Population:",
+    "regionalPovertyDesc": "Regional poverty rates show the percentage of population living below the poverty line in each major Brazilian region.",
+    "racialPovertyDesc": "Racial distribution of poverty uses Brazilian census racial categories (cor ou raça). Categories include White (Branco), Black (Preto), Mixed (Pardo), and Indigenous groups."
+  },
+  "notFound": {
+    "title": "404",
+    "message": "Oops! Page not found",
+    "returnHome": "Return to Home"
+  }
+}
