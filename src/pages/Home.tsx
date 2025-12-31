@@ -62,14 +62,16 @@ export default function Home() {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: prefersReducedMotion ? 0 : 0.6 }}
-            className="max-w-4xl"
+            className="w-full sm:max-w-4xl"
           >
-            <h1 className="text-hero mb-6">
-              <span className="text-foreground">{t('home.hero.truth')}</span>
-              <span className="text-secondary mx-4">→</span>
-              <span className="text-foreground">{t('home.hero.choices')}</span>
-              <span className="text-secondary mx-4">→</span>
-              <span className="text-foreground">{t('home.hero.consequences')}</span>
+            <h1 className="text-hero mb-6 overflow-hidden">
+              <div className="flex flex-wrap items-center gap-1 sm:gap-2">
+                <span className="text-foreground tracking-tight whitespace-nowrap">{t('home.hero.truth')}</span>
+                <span className="text-secondary whitespace-nowrap">→</span>
+                <span className="text-foreground tracking-tight whitespace-nowrap">{t('home.hero.choices')}</span>
+                <span className="text-secondary whitespace-nowrap">→</span>
+                <span className="text-foreground tracking-tight whitespace-nowrap">{t('home.hero.consequences')}</span>
+              </div>
             </h1>
 
             <p className="text-body-lg text-muted-foreground max-w-2xl mb-10">
