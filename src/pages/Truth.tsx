@@ -51,6 +51,19 @@ export default function Truth() {
   // Adjust above-poverty to account for ultra-wealth
   const abovePovertyAdjusted = abovePovertyPct - multiMillionairePct - billionairePct;
 
+  // Calculate "100 people" metaphor counts (rounded for display)
+  const per100ExtremePoverty = Math.round(extremePovertyPct);
+  const per100Poverty = Math.round(povertyNonExtremePct);
+  const per100AbovePoverty = Math.round(abovePovertyAdjusted);
+
+  // Calculate comparative ratios
+  const multiMillionaireRatio = Math.round(data.metadata.population_total_millions * 1000000 / (wealth.millionaire_population.multi_millionaire_count_individuals || 1));
+  const billionaireRatio = Math.round(data.metadata.population_total_millions * 1000000 / wealth.billionaire_population.count_2025);
+
+  // Calculate ultra-wealth in "per 100" scale
+  const per100MultiMillionaire = (multiMillionairePct).toFixed(3);
+  const per100Billionaire = (billionairePct).toFixed(5);
+
   return (
     <Layout>
       {/* Header */}
@@ -188,51 +201,56 @@ export default function Truth() {
                   <svg className="w-5 h-5 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
                   </svg>
-                  <span className="text-sm font-medium">If 100 people represented all of Brazil...</span>
+                  <span className="text-sm font-medium">{t('truth.sectionA.hundredPeopleMetaphor')}</span>
                 </div>
 
                 <div className="space-y-3">
                   {/* Extreme Poverty */}
                   <div className="flex items-center gap-3">
-                    <div className="flex gap-0.5">
-                      {Array.from({ length: 6 }).map((_, i) => (
-                        <div key={i} className="w-3 h-3 rounded-full bg-destructive" title="Extreme poverty" />
+                    <div className="flex gap-0.5 flex-wrap">
+                      {Array.from({ length: per100ExtremePoverty }).map((_, i) => (
+                        <div key={i} className="w-3 h-3 rounded-full bg-destructive" title={t('truth.sectionA.extremePoverty')} />
                       ))}
                     </div>
-                    <span className="text-xs text-muted-foreground">6 in extreme poverty</span>
+                    <span className="text-xs text-muted-foreground">{t('truth.sectionA.inExtremePoverty', { count: per100ExtremePoverty })}</span>
                   </div>
 
                   {/* Poverty (Non-Extreme) */}
                   <div className="flex items-center gap-3">
-                    <div className="flex gap-0.5">
-                      {Array.from({ length: 22 }).map((_, i) => (
-                        <div key={i} className="w-3 h-3 rounded-full bg-amber-500" title="Poverty (non-extreme)" />
+                    <div className="flex gap-0.5 flex-wrap">
+                      {Array.from({ length: per100Poverty }).map((_, i) => (
+                        <div key={i} className="w-3 h-3 rounded-full bg-amber-500" title={t('truth.sectionA.povertyNonExtreme')} />
                       ))}
                     </div>
-                    <span className="text-xs text-muted-foreground">22 in poverty</span>
+                    <span className="text-xs text-muted-foreground">{t('truth.sectionA.inPoverty', { count: per100Poverty })}</span>
                   </div>
 
                   {/* Above Poverty */}
                   <div className="flex items-center gap-3">
                     <div className="flex gap-0.5 flex-wrap max-w-xl">
-                      {Array.from({ length: 72 }).map((_, i) => (
-                        <div key={i} className="w-3 h-3 rounded-full bg-secondary" title="Above poverty line" />
+                      {Array.from({ length: per100AbovePoverty }).map((_, i) => (
+                        <div key={i} className="w-3 h-3 rounded-full bg-secondary" title={t('truth.sectionA.abovePovertyLine')} />
                       ))}
                     </div>
-                    <span className="text-xs text-muted-foreground">72 above poverty line</span>
+                    <span className="text-xs text-muted-foreground">{t('truth.sectionA.abovePoverty', { count: per100AbovePoverty })}</span>
                   </div>
 
                   {/* Ultra-Wealth - The shocking part */}
                   <div className="mt-4 p-3 bg-accent/10 rounded border-l-4 border-accent">
                     <div className="flex items-start gap-3">
                       <div className="flex gap-2">
-                        <div className="w-4 h-4 rounded-full bg-gradient-to-r from-yellow-500 to-yellow-300 border-2 border-yellow-600 animate-pulse" title="Multi-millionaires" />
-                        <div className="w-4 h-4 rounded-full bg-gradient-to-r from-purple-600 to-purple-400 border-2 border-purple-700 animate-pulse" title="Billionaires" />
+                        <div className="w-4 h-4 rounded-full bg-gradient-to-r from-yellow-500 to-yellow-300 border-2 border-yellow-600 animate-pulse" title={t('truth.sectionA.multiMillionaires')} />
+                        <div className="w-4 h-4 rounded-full bg-gradient-to-r from-purple-600 to-purple-400 border-2 border-purple-700 animate-pulse" title={t('truth.sectionA.billionaires')} />
                       </div>
                       <div className="flex-1">
-                        <p className="text-xs font-semibold mb-1">Ultra-wealth would be invisible</p>
+                        <p className="text-xs font-semibold mb-1">{t('truth.sectionA.ultraWealthInvisible')}</p>
                         <p className="text-xs text-muted-foreground">
-                          Multi-millionaires: 0.025 people (1 in 4,000) • Billionaires: 0.00003 people (1 in 2.9 million)
+                          {t('truth.sectionA.ultraWealthDetail', {
+                            multiCount: per100MultiMillionaire,
+                            multiRatio: multiMillionaireRatio.toLocaleString(),
+                            billCount: per100Billionaire,
+                            billRatio: billionaireRatio.toLocaleString()
+                          })}
                         </p>
                       </div>
                     </div>
@@ -253,9 +271,9 @@ export default function Truth() {
                     <span className="font-semibold text-sm">{t('truth.sectionA.multiMillionaires')}</span>
                   </div>
                   <div className="text-2xl font-bold mb-1">{wealth.millionaire_population.multi_millionaire_count_individuals?.toLocaleString()}</div>
-                  <div className="text-xs text-muted-foreground">people with $10M+ net worth</div>
+                  <div className="text-xs text-muted-foreground">{t('truth.sectionA.peopleWithNetWorth', { threshold: '10M' })}</div>
                   <div className="mt-2 pt-2 border-t border-yellow-500/20">
-                    <div className="text-xs font-medium">That's 1 in every {Math.round(data.metadata.population_total_millions * 1000000 / (wealth.millionaire_population.multi_millionaire_count_individuals || 1)).toLocaleString()} people</div>
+                    <div className="text-xs font-medium">{t('truth.sectionA.oneInEvery', { ratio: multiMillionaireRatio.toLocaleString() })}</div>
                   </div>
                 </div>
 
@@ -269,9 +287,9 @@ export default function Truth() {
                     <span className="font-semibold text-sm">{t('truth.sectionA.billionaires')}</span>
                   </div>
                   <div className="text-2xl font-bold mb-1">{wealth.billionaire_population.count_2025}</div>
-                  <div className="text-xs text-muted-foreground">people with $1B+ net worth</div>
+                  <div className="text-xs text-muted-foreground">{t('truth.sectionA.peopleWithNetWorth', { threshold: '1B' })}</div>
                   <div className="mt-2 pt-2 border-t border-purple-500/20">
-                    <div className="text-xs font-medium">That's 1 in every {Math.round(data.metadata.population_total_millions * 1000000 / wealth.billionaire_population.count_2025).toLocaleString()} people</div>
+                    <div className="text-xs font-medium">{t('truth.sectionA.oneInEvery', { ratio: billionaireRatio.toLocaleString() })}</div>
                   </div>
                 </div>
               </div>
@@ -303,11 +321,9 @@ export default function Truth() {
 
             {/* Insight Note */}
             <div className="mt-4 p-3 bg-accent/10 rounded-lg text-xs border-l-4 border-accent">
-              <p className="font-semibold mb-1">The Scale of Inequality</p>
+              <p className="font-semibold mb-1">{t('truth.sectionA.scaleOfInequality')}</p>
               <p className="text-muted-foreground">
-                Ultra-wealth segments are so small they're nearly invisible in the main graph (barely {multiMillionairePct.toFixed(3)}% combined).
-                The magnified view above shows their relative proportions to each other. This visualization demonstrates how extreme wealth concentration
-                is in Brazil—a tiny fraction of the population holds enormous wealth while millions live in poverty.
+                {t('truth.sectionA.scaleDescription', { percent: (multiMillionairePct + billionairePct).toFixed(3) })}
               </p>
             </div>
           </div>

@@ -66,8 +66,8 @@
     "title": "Reality Dashboard",
     "description": "A comprehensive view of Brazil's inequality through verified data. Every metric is sourced from official government statistics and international organizations.",
     "sectionA": {
-      "title": "A. Poverty at a Glance",
-      "description": "Key indicators showing the current state of poverty in Brazil.",
+      "title": "A. Inequality at a Glance",
+      "description": "Key indicators showing the current state of inequality in Brazil.",
       "povertyRate": "Poverty Rate",
       "peopleInPoverty": "People in Poverty",
       "extremePovertyRate": "Extreme Poverty Rate",
@@ -81,7 +81,17 @@
       "povertyNonExtreme": "Poverty (non-extreme)",
       "abovePovertyLine": "Above poverty line",
       "multiMillionaires": "Multi-millionaires ($10M+)",
-      "billionaires": "Billionaires ($1B+)"
+      "billionaires": "Billionaires ($1B+)",
+      "hundredPeopleMetaphor": "If 100 people represented all of Brazil...",
+      "inExtremePoverty": "{{count}} in extreme poverty",
+      "inPoverty": "{{count}} in poverty",
+      "abovePoverty": "{{count}} above poverty line",
+      "ultraWealthInvisible": "Ultra-wealth would be invisible",
+      "ultraWealthDetail": "Multi-millionaires: {{multiCount}} people (1 in {{multiRatio}}) • Billionaires: {{billCount}} people (1 in {{billRatio}})",
+      "peopleWithNetWorth": "people with ${{threshold}}+ net worth",
+      "oneInEvery": "That's 1 in every {{ratio}} people",
+      "scaleOfInequality": "The Scale of Inequality",
+      "scaleDescription": "Ultra-wealth segments are so small they're nearly invisible in the main graph (barely {{percent}}% combined). The visualization above shows their relative proportions. This demonstrates how extreme wealth concentration is in Brazil—a tiny fraction of the population holds enormous wealth while millions live in poverty."
     },
     "sectionB": {
       "title": "B. Poverty Lines",

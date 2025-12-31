@@ -66,8 +66,8 @@
     "title": "Painel de Realidade",
     "description": "Uma visão abrangente da desigualdade do Brasil através de dados verificados. Cada métrica é proveniente de estatísticas governamentais oficiais e organizações internacionais.",
     "sectionA": {
-      "title": "A. Pobreza em Visão Geral",
-      "description": "Indicadores chave mostrando o estado atual da pobreza no Brasil.",
+      "title": "A. Desigualdade em Visão Geral",
+      "description": "Indicadores chave mostrando o estado atual da desigualdade no Brasil.",
       "povertyRate": "Taxa de Pobreza",
       "peopleInPoverty": "Pessoas em Pobreza",
       "extremePovertyRate": "Taxa de Pobreza Extrema",
@@ -81,7 +81,17 @@
       "povertyNonExtreme": "Pobreza (não-extrema)",
       "abovePovertyLine": "Acima da linha de pobreza",
       "multiMillionaires": "Multi-milionários ($10M+)",
-      "billionaires": "Bilionários ($1B+)"
+      "billionaires": "Bilionários ($1B+)",
+      "hundredPeopleMetaphor": "Se 100 pessoas representassem todo o Brasil...",
+      "inExtremePoverty": "{{count}} em pobreza extrema",
+      "inPoverty": "{{count}} em pobreza",
+      "abovePoverty": "{{count}} acima da linha de pobreza",
+      "ultraWealthInvisible": "A ultra-riqueza seria invisível",
+      "ultraWealthDetail": "Multi-milionários: {{multiCount}} pessoas (1 em {{multiRatio}}) • Bilionários: {{billCount}} pessoas (1 em {{billRatio}})",
+      "peopleWithNetWorth": "pessoas com patrimônio de ${{threshold}}+",
+      "oneInEvery": "Isso é 1 em cada {{ratio}} pessoas",
+      "scaleOfInequality": "A Escala da Desigualdade",
+      "scaleDescription": "Os segmentos de ultra-riqueza são tão pequenos que são quase invisíveis no gráfico principal (mal {{percent}}% combinados). A visualização acima mostra suas proporções relativas. Isso demonstra como extrema é a concentração de riqueza no Brasil—uma fração minúscula da população detém riqueza enorme enquanto milhões vivem na pobreza."
     },
     "sectionB": {
       "title": "B. Linhas de Pobreza",
