@@ -172,6 +172,9 @@
       "count_individuals": 413000,
       "percentage_of_population": 0.2,
       "estimated_wealth_share_percentage": 48.4,
+      "multi_millionaire_threshold_usd": 10000000,
+      "multi_millionaire_count_individuals": 51600,
+      "multi_millionaire_percentage_of_population": 0.025,
       "source_ids": ["credit_suisse_wealth_2023", "oxfam_inequality_2024"]
     },
     "billionaire_population": {
