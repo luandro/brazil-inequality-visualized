@@ -37,7 +37,19 @@ export default function Truth() {
     );
   }
 
-  const { poverty } = data;
+  const { poverty, wealth } = data;
+
+  // Calculate population distribution segments
+  const extremePovertyPct = poverty.official_key_statistics.extreme_poverty_rate_percentage;
+  const povertyNonExtremePct = poverty.official_key_statistics.poverty_rate_percentage - extremePovertyPct;
+  const abovePovertyPct = 100 - poverty.official_key_statistics.poverty_rate_percentage;
+
+  // Ultra-wealth segments
+  const multiMillionairePct = wealth.millionaire_population.multi_millionaire_percentage_of_population || 0;
+  const billionairePct = (wealth.billionaire_population.count_2025 / (data.metadata.population_total_millions * 1000000)) * 100;
+
+  // Adjust above-poverty to account for ultra-wealth
+  const abovePovertyAdjusted = abovePovertyPct - multiMillionairePct - billionairePct;
 
   return (
     <Layout>
@@ -108,35 +120,97 @@ export default function Truth() {
             />
           </div>
 
-          {/* Stacked visualization */}
+          {/* Enhanced Population Distribution with Wealth Extremes */}
           <div className="glass-card p-6">
             <div className="flex items-start justify-between mb-4">
               <h3 className="font-semibold">{t('truth.sectionA.populationDistribution')}</h3>
-              <SourceDrawer sourceIds={poverty.official_key_statistics.source_ids} title={t('truth.sectionA.populationDistribution')} />
+              <SourceDrawer
+                sourceIds={[
+                  ...poverty.official_key_statistics.source_ids,
+                  ...wealth.millionaire_population.source_ids,
+                  ...wealth.billionaire_population.source_ids
+                ]}
+                title={t('truth.sectionA.populationDistribution')}
+              />
             </div>
-            <div className="h-12 rounded-lg overflow-hidden flex">
+
+            <div className="h-16 rounded-lg overflow-hidden flex border border-border">
+              {/* Extreme Poverty */}
               <div
-                className="bg-gradient-to-r from-destructive to-red-400 flex items-center justify-center text-xs font-medium text-destructive-foreground"
-                style={{ width: `${poverty.official_key_statistics.extreme_poverty_rate_percentage}%` }}
+                className="bg-gradient-to-r from-destructive to-red-400 flex items-center justify-center text-xs font-medium text-destructive-foreground transition-all hover:brightness-110"
+                style={{ width: `${extremePovertyPct}%` }}
+                title={`${extremePovertyPct.toFixed(2)}% - ${t('truth.sectionA.extremePoverty')}`}
               >
-                {poverty.official_key_statistics.extreme_poverty_rate_percentage.toFixed(1)}%
+                {extremePovertyPct > 3 && `${extremePovertyPct.toFixed(1)}%`}
               </div>
+
+              {/* Poverty (Non-Extreme) */}
               <div
-                className="bg-gradient-to-r from-amber-500 to-amber-400 flex items-center justify-center text-xs font-medium text-primary"
-                style={{
-                  width: `${poverty.official_key_statistics.poverty_rate_percentage - poverty.official_key_statistics.extreme_poverty_rate_percentage}%`,
-                }}
+                className="bg-gradient-to-r from-amber-500 to-amber-400 flex items-center justify-center text-xs font-medium text-primary transition-all hover:brightness-110"
+                style={{ width: `${povertyNonExtremePct}%` }}
+                title={`${povertyNonExtremePct.toFixed(2)}% - ${t('truth.sectionA.povertyNonExtreme')}`}
               >
-                {(poverty.official_key_statistics.poverty_rate_percentage - poverty.official_key_statistics.extreme_poverty_rate_percentage).toFixed(1)}%
+                {povertyNonExtremePct > 3 && `${povertyNonExtremePct.toFixed(1)}%`}
               </div>
-              <div className="bg-gradient-to-r from-secondary to-cyan-400 flex-1 flex items-center justify-center text-xs font-medium text-primary">
-                {(100 - poverty.official_key_statistics.poverty_rate_percentage).toFixed(1)}%
+
+              {/* Above Poverty (Adjusted) */}
+              <div
+                className="bg-gradient-to-r from-secondary to-cyan-400 flex items-center justify-center text-xs font-medium text-primary transition-all hover:brightness-110"
+                style={{ width: `${abovePovertyAdjusted}%` }}
+                title={`${abovePovertyAdjusted.toFixed(2)}% - ${t('truth.sectionA.abovePovertyLine')}`}
+              >
+                {abovePovertyAdjusted.toFixed(1)}%
+              </div>
+
+              {/* Multi-Millionaires */}
+              {multiMillionairePct > 0 && (
+                <div
+                  className="bg-gradient-to-r from-yellow-500 to-yellow-300 flex items-center justify-center text-xs font-bold text-primary border-l-2 border-primary transition-all hover:brightness-110"
+                  style={{ width: `${Math.max(multiMillionairePct, 0.5)}%`, minWidth: '60px' }}
+                  title={`${multiMillionairePct.toFixed(3)}% - ${t('truth.sectionA.multiMillionaires')} (${wealth.millionaire_population.multi_millionaire_count_individuals?.toLocaleString()} people)`}
+                >
+                  <span className="truncate px-1">{multiMillionairePct < 0.1 ? `<0.1%` : `${multiMillionairePct.toFixed(2)}%`}</span>
+                </div>
+              )}
+
+              {/* Billionaires */}
+              <div
+                className="bg-gradient-to-r from-purple-600 to-purple-400 flex items-center justify-center text-xs font-bold text-primary-foreground border-l-2 border-primary transition-all hover:brightness-110"
+                style={{ width: `${Math.max(billionairePct, 0.3)}%`, minWidth: '80px' }}
+                title={`${billionairePct.toFixed(5)}% - ${t('truth.sectionA.billionaires')} (${wealth.billionaire_population.count_2025} people)`}
+              >
+                <span className="truncate px-1">{wealth.billionaire_population.count_2025}</span>
               </div>
             </div>
-            <div className="flex justify-between mt-3 text-sm text-muted-foreground">
-              <span>{t('truth.sectionA.extremePoverty')}</span>
-              <span>{t('truth.sectionA.povertyNonExtreme')}</span>
-              <span>{t('truth.sectionA.abovePovertyLine')}</span>
+
+            {/* Legend */}
+            <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-2 mt-4 text-xs">
+              <div className="flex items-center gap-2">
+                <div className="w-4 h-4 rounded bg-gradient-to-r from-destructive to-red-400" />
+                <span className="text-muted-foreground">{t('truth.sectionA.extremePoverty')}</span>
+              </div>
+              <div className="flex items-center gap-2">
+                <div className="w-4 h-4 rounded bg-gradient-to-r from-amber-500 to-amber-400" />
+                <span className="text-muted-foreground">{t('truth.sectionA.povertyNonExtreme')}</span>
+              </div>
+              <div className="flex items-center gap-2">
+                <div className="w-4 h-4 rounded bg-gradient-to-r from-secondary to-cyan-400" />
+                <span className="text-muted-foreground">{t('truth.sectionA.abovePovertyLine')}</span>
+              </div>
+              <div className="flex items-center gap-2">
+                <div className="w-4 h-4 rounded bg-gradient-to-r from-yellow-500 to-yellow-300 border border-primary" />
+                <span className="text-muted-foreground">{t('truth.sectionA.multiMillionaires')}</span>
+              </div>
+              <div className="flex items-center gap-2">
+                <div className="w-4 h-4 rounded bg-gradient-to-r from-purple-600 to-purple-400 border border-primary" />
+                <span className="text-muted-foreground">{t('truth.sectionA.billionaires')}</span>
+              </div>
+            </div>
+
+            {/* Insight Note */}
+            <div className="mt-4 p-3 bg-muted/50 rounded-lg text-xs text-muted-foreground">
+              <strong>Note:</strong> Ultra-wealth segments (multi-millionaires and billionaires) are visually enlarged for visibility.
+              Actual percentages: Multi-millionaires {multiMillionairePct.toFixed(3)}%, Billionaires {billionairePct.toFixed(5)}%.
             </div>
           </div>
         </div>
