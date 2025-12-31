@@ -6,7 +6,7 @@
 
   **Understanding poverty, wealth, and social policy through interactive data visualization**
 
-  [![Live Demo](https://img.shields.io/badge/🔗-Live_Demo-brightgreen)](https://yourusername.github.io/brazil-inequality-visualized/)
+  [![Live Demo](https://img.shields.io/badge/🔗-Live_Demo-brightgreen)](https://luandro.github.io/brazil-inequality-visualized/)
   [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
   [![React](https://img.shields.io/badge/React-18.3-61DAFB?logo=react)](https://react.dev/)
   [![TypeScript](https://img.shields.io/badge/TypeScript-5.8-3178C6?logo=typescript)](https://www.typescriptlang.org/)
@@ -66,7 +66,7 @@
 
 ```bash
 # Clone the repository
-git clone https://github.com/yourusername/brazil-inequality-visualized.git
+git clone https://github.com/luandro/brazil-inequality-visualized.git
 cd brazil-inequality-visualized
 
 # Install dependencies
@@ -237,8 +237,8 @@ This project is open source and available under the [MIT License](LICENSE).
 
 ## 📞 Contact & Support
 
-- 🐛 **Found a bug?** [Open an issue](https://github.com/yourusername/brazil-inequality-visualized/issues)
-- 💡 **Have an idea?** [Start a discussion](https://github.com/yourusername/brazil-inequality-visualized/discussions)
+- 🐛 **Found a bug?** [Open an issue](https://github.com/luandro/brazil-inequality-visualized/issues)
+- 💡 **Have an idea?** [Start a discussion](https://github.com/luandro/brazil-inequality-visualized/discussions)
 - 📧 **Questions?** Open a GitHub Discussion with the `question` label
 
 ---
