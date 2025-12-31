@@ -180,59 +180,98 @@ export default function Truth() {
               />
             </div>
 
-            {/* Magnified inset showing ultra-wealth segments */}
-            <div className="mt-6 p-4 bg-muted/30 rounded-lg border border-border">
-              <div className="flex items-center justify-between mb-3">
-                <div className="flex items-center gap-2">
-                  <div className="w-6 h-6 rounded bg-muted flex items-center justify-center">
-                    <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v3m0 0v3m0-3h3m-3 0H7" />
-                    </svg>
-                  </div>
-                  <span className="text-sm font-medium">Ultra-Wealth Magnified (1000x scale)</span>
+            {/* Ultra-Wealth Visualization: Multiple Perspectives */}
+            <div className="mt-6 space-y-4">
+              {/* Visual Metaphor: If 100 people represented Brazil */}
+              <div className="p-4 bg-muted/30 rounded-lg border border-border">
+                <div className="flex items-center gap-2 mb-3">
+                  <svg className="w-5 h-5 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
+                  </svg>
+                  <span className="text-sm font-medium">If 100 people represented all of Brazil...</span>
                 </div>
-                <span className="text-xs text-muted-foreground">Actual: 0.025% total</span>
+
+                <div className="space-y-3">
+                  {/* Extreme Poverty */}
+                  <div className="flex items-center gap-3">
+                    <div className="flex gap-0.5">
+                      {Array.from({ length: 6 }).map((_, i) => (
+                        <div key={i} className="w-3 h-3 rounded-full bg-destructive" title="Extreme poverty" />
+                      ))}
+                    </div>
+                    <span className="text-xs text-muted-foreground">6 in extreme poverty</span>
+                  </div>
+
+                  {/* Poverty (Non-Extreme) */}
+                  <div className="flex items-center gap-3">
+                    <div className="flex gap-0.5">
+                      {Array.from({ length: 22 }).map((_, i) => (
+                        <div key={i} className="w-3 h-3 rounded-full bg-amber-500" title="Poverty (non-extreme)" />
+                      ))}
+                    </div>
+                    <span className="text-xs text-muted-foreground">22 in poverty</span>
+                  </div>
+
+                  {/* Above Poverty */}
+                  <div className="flex items-center gap-3">
+                    <div className="flex gap-0.5 flex-wrap max-w-xl">
+                      {Array.from({ length: 72 }).map((_, i) => (
+                        <div key={i} className="w-3 h-3 rounded-full bg-secondary" title="Above poverty line" />
+                      ))}
+                    </div>
+                    <span className="text-xs text-muted-foreground">72 above poverty line</span>
+                  </div>
+
+                  {/* Ultra-Wealth - The shocking part */}
+                  <div className="mt-4 p-3 bg-accent/10 rounded border-l-4 border-accent">
+                    <div className="flex items-start gap-3">
+                      <div className="flex gap-2">
+                        <div className="w-4 h-4 rounded-full bg-gradient-to-r from-yellow-500 to-yellow-300 border-2 border-yellow-600 animate-pulse" title="Multi-millionaires" />
+                        <div className="w-4 h-4 rounded-full bg-gradient-to-r from-purple-600 to-purple-400 border-2 border-purple-700 animate-pulse" title="Billionaires" />
+                      </div>
+                      <div className="flex-1">
+                        <p className="text-xs font-semibold mb-1">Ultra-wealth would be invisible</p>
+                        <p className="text-xs text-muted-foreground">
+                          Multi-millionaires: 0.025 people (1 in 4,000) • Billionaires: 0.00003 people (1 in 2.9 million)
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
               </div>
 
-              <div className="h-12 rounded-lg overflow-hidden flex border border-border bg-background">
-                {/* Multi-Millionaires magnified */}
-                <div
-                  className="bg-gradient-to-r from-yellow-500 to-yellow-300 flex items-center justify-center text-xs font-bold text-primary border-r-2 border-yellow-600 transition-all hover:brightness-110"
-                  style={{ width: `${(multiMillionairePct / (multiMillionairePct + billionairePct)) * 100}%` }}
-                  title={`${multiMillionairePct.toFixed(3)}% - ${t('truth.sectionA.multiMillionaires')} (${wealth.millionaire_population.multi_millionaire_count_individuals?.toLocaleString()} people)`}
-                >
-                  <div className="flex flex-col items-center">
-                    <span className="text-[10px] font-semibold">{wealth.millionaire_population.multi_millionaire_count_individuals?.toLocaleString()}</span>
-                    <span className="text-[9px] opacity-80">people</span>
+              {/* Comparative Numbers */}
+              <div className="grid sm:grid-cols-2 gap-4">
+                <div className="p-4 bg-gradient-to-br from-yellow-500/10 to-yellow-300/10 rounded-lg border border-yellow-500/20">
+                  <div className="flex items-center gap-2 mb-2">
+                    <div className="w-8 h-8 rounded-full bg-gradient-to-r from-yellow-500 to-yellow-300 flex items-center justify-center">
+                      <svg className="w-5 h-5 text-yellow-900" fill="currentColor" viewBox="0 0 20 20">
+                        <path d="M8.433 7.418c.155-.103.346-.196.567-.267v1.698a2.305 2.305 0 01-.567-.267C8.07 8.34 8 8.114 8 8c0-.114.07-.34.433-.582zM11 12.849v-1.698c.22.071.412.164.567.267.364.243.433.468.433.582 0 .114-.07.34-.433.582a2.305 2.305 0 01-.567.267z"/>
+                        <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-13a1 1 0 10-2 0v.092a4.535 4.535 0 00-1.676.662C6.602 6.234 6 7.009 6 8c0 .99.602 1.765 1.324 2.246.48.32 1.054.545 1.676.662v1.941c-.391-.127-.68-.317-.843-.504a1 1 0 10-1.51 1.31c.562.649 1.413 1.076 2.353 1.253V15a1 1 0 102 0v-.092a4.535 4.535 0 001.676-.662C13.398 13.766 14 12.991 14 12c0-.99-.602-1.765-1.324-2.246A4.535 4.535 0 0011 9.092V7.151c.391.127.68.317.843.504a1 1 0 101.511-1.31c-.563-.649-1.413-1.076-2.354-1.253V5z" clipRule="evenodd"/>
+                      </svg>
+                    </div>
+                    <span className="font-semibold text-sm">{t('truth.sectionA.multiMillionaires')}</span>
+                  </div>
+                  <div className="text-2xl font-bold mb-1">{wealth.millionaire_population.multi_millionaire_count_individuals?.toLocaleString()}</div>
+                  <div className="text-xs text-muted-foreground">people with $10M+ net worth</div>
+                  <div className="mt-2 pt-2 border-t border-yellow-500/20">
+                    <div className="text-xs font-medium">That's 1 in every {Math.round(data.metadata.population_total_millions * 1000000 / (wealth.millionaire_population.multi_millionaire_count_individuals || 1)).toLocaleString()} people</div>
                   </div>
                 </div>
 
-                {/* Billionaires magnified */}
-                <div
-                  className="bg-gradient-to-r from-purple-600 to-purple-400 flex items-center justify-center text-xs font-bold text-primary-foreground transition-all hover:brightness-110"
-                  style={{ width: `${(billionairePct / (multiMillionairePct + billionairePct)) * 100}%` }}
-                  title={`${billionairePct.toFixed(5)}% - ${t('truth.sectionA.billionaires')} (${wealth.billionaire_population.count_2025} people)`}
-                >
-                  <div className="flex flex-col items-center">
-                    <span className="text-[10px] font-semibold">{wealth.billionaire_population.count_2025}</span>
-                    <span className="text-[9px] opacity-80">people</span>
+                <div className="p-4 bg-gradient-to-br from-purple-600/10 to-purple-400/10 rounded-lg border border-purple-500/20">
+                  <div className="flex items-center gap-2 mb-2">
+                    <div className="w-8 h-8 rounded-full bg-gradient-to-r from-purple-600 to-purple-400 flex items-center justify-center">
+                      <svg className="w-5 h-5 text-purple-50" fill="currentColor" viewBox="0 0 20 20">
+                        <path fillRule="evenodd" d="M5 2a1 1 0 011 1v1h1a1 1 0 010 2H6v1a1 1 0 01-2 0V6H3a1 1 0 010-2h1V3a1 1 0 011-1zm0 10a1 1 0 011 1v1h1a1 1 0 110 2H6v1a1 1 0 11-2 0v-1H3a1 1 0 110-2h1v-1a1 1 0 011-1zM12 2a1 1 0 01.967.744L14.146 7.2 17.5 9.134a1 1 0 010 1.732l-3.354 1.935-1.18 4.455a1 1 0 01-1.933 0L9.854 12.8 6.5 10.866a1 1 0 010-1.732l3.354-1.935 1.18-4.455A1 1 0 0112 2z" clipRule="evenodd"/>
+                      </svg>
+                    </div>
+                    <span className="font-semibold text-sm">{t('truth.sectionA.billionaires')}</span>
                   </div>
-                </div>
-              </div>
-
-              <div className="grid grid-cols-2 gap-4 mt-3 text-xs">
-                <div className="flex items-center gap-2">
-                  <div className="w-3 h-3 rounded bg-gradient-to-r from-yellow-500 to-yellow-300 border border-yellow-600" />
-                  <div>
-                    <div className="font-medium">{t('truth.sectionA.multiMillionaires')}</div>
-                    <div className="text-muted-foreground">{multiMillionairePct.toFixed(3)}% of population</div>
-                  </div>
-                </div>
-                <div className="flex items-center gap-2">
-                  <div className="w-3 h-3 rounded bg-gradient-to-r from-purple-600 to-purple-400 border border-purple-700" />
-                  <div>
-                    <div className="font-medium">{t('truth.sectionA.billionaires')}</div>
-                    <div className="text-muted-foreground">{billionairePct.toFixed(5)}% of population</div>
+                  <div className="text-2xl font-bold mb-1">{wealth.billionaire_population.count_2025}</div>
+                  <div className="text-xs text-muted-foreground">people with $1B+ net worth</div>
+                  <div className="mt-2 pt-2 border-t border-purple-500/20">
+                    <div className="text-xs font-medium">That's 1 in every {Math.round(data.metadata.population_total_millions * 1000000 / wealth.billionaire_population.count_2025).toLocaleString()} people</div>
                   </div>
                 </div>
               </div>
