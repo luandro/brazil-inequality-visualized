@@ -92,6 +92,10 @@ export const MillionaireStatsSchema = z.object({
   count_individuals: z.number().int().min(0),
   percentage_of_population: z.number().min(0).max(100),
   estimated_wealth_share_percentage: z.number().min(0).max(100),
+  // Multi-millionaire fields ($10M+)
+  multi_millionaire_threshold_usd: z.number().positive().optional(),
+  multi_millionaire_count_individuals: z.number().int().min(0).optional(),
+  multi_millionaire_percentage_of_population: z.number().min(0).max(100).optional(),
   source_ids: z.array(NonEmptyString).min(1),
 });
 
