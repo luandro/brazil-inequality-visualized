@@ -1,0 +1,212 @@
+{
+  "metadata": {
+    "title": "Brazil Inequality Dataset",
+    "description": "Comprehensive data on poverty, labor, and wealth inequality in Brazil, compiled from official sources including IBGE, World Bank, and Forbes.",
+    "last_updated": "2024-12-15",
+    "data_currency": "Data reflects 2023-2024 statistics with noted exceptions",
+    "population_total_millions": 203.1,
+    "currency": "BRL"
+  },
+  "source_catalog": {
+    "ibge_pnad_2023": {
+      "name": "Pesquisa Nacional por Amostra de Domicílios Contínua 2023",
+      "publisher": "IBGE - Instituto Brasileiro de Geografia e Estatística",
+      "year": 2023,
+      "url": "https://www.ibge.gov.br/estatisticas/sociais/trabalho/9171-pesquisa-nacional-por-amostra-de-domicilios-continua-mensal.html",
+      "notes": "Official household survey covering employment, income, and living conditions"
+    },
+    "world_bank_poverty_2024": {
+      "name": "World Bank Poverty & Inequality Platform",
+      "publisher": "World Bank",
+      "year": 2024,
+      "url": "https://pip.worldbank.org/",
+      "notes": "International poverty lines using 2017 PPP conversion rates"
+    },
+    "ipea_social_2023": {
+      "name": "Políticas Sociais: Acompanhamento e Análise",
+      "publisher": "IPEA - Instituto de Pesquisa Econômica Aplicada",
+      "year": 2023,
+      "url": "https://www.ipea.gov.br/",
+      "notes": "Analysis of social program impacts on poverty reduction"
+    },
+    "credit_suisse_wealth_2023": {
+      "name": "Global Wealth Report 2023",
+      "publisher": "Credit Suisse / UBS",
+      "year": 2023,
+      "url": "https://www.ubs.com/global/en/family-office-uhnw/reports/global-wealth-report-2023.html",
+      "notes": "Wealth distribution and millionaire population estimates"
+    },
+    "forbes_billionaires_2024": {
+      "name": "Forbes World's Billionaires List 2024",
+      "publisher": "Forbes",
+      "year": 2024,
+      "url": "https://www.forbes.com/billionaires/",
+      "notes": "Annual count of individuals with net worth exceeding $1 billion"
+    },
+    "forbes_billionaires_2025": {
+      "name": "Forbes World's Billionaires List 2025",
+      "publisher": "Forbes",
+      "year": 2025,
+      "url": "https://www.forbes.com/billionaires/",
+      "notes": "Preliminary 2025 billionaire count"
+    },
+    "govt_minimum_wage_2025": {
+      "name": "Decreto do Salário Mínimo 2025",
+      "publisher": "Governo Federal do Brasil",
+      "year": 2025,
+      "url": "https://www.gov.br/",
+      "notes": "Official minimum wage legislation"
+    },
+    "oxfam_inequality_2024": {
+      "name": "Inequality Inc. Report",
+      "publisher": "Oxfam International",
+      "year": 2024,
+      "url": "https://www.oxfam.org/",
+      "notes": "Analysis of wealth concentration and inequality trends"
+    }
+  },
+  "poverty": {
+    "measurement_basis": "Poverty rates calculated using World Bank international poverty lines (2017 PPP), with extreme poverty defined as living on less than $2.15/day and poverty as less than $6.85/day.",
+    "official_key_statistics": {
+      "poverty_rate_percentage": 27.4,
+      "poverty_population_millions": 55.7,
+      "extreme_poverty_rate_percentage": 5.9,
+      "extreme_poverty_population_millions": 12.0,
+      "gini_coefficient": 0.518,
+      "source_ids": ["ibge_pnad_2023", "world_bank_poverty_2024"]
+    },
+    "poverty_lines": {
+      "extreme_poverty_daily_usd_ppp": 2.15,
+      "extreme_poverty_monthly_brl": 209,
+      "poverty_daily_usd_ppp": 6.85,
+      "poverty_monthly_brl": 665,
+      "source_ids": ["world_bank_poverty_2024"]
+    },
+    "social_programs_counterfactuals": {
+      "poverty_rate_without_programs_percentage": 34.8,
+      "extreme_poverty_rate_without_programs_percentage": 12.4,
+      "poverty_reduction_percentage_points": 7.4,
+      "extreme_poverty_reduction_percentage_points": 6.5,
+      "source_ids": ["ipea_social_2023", "ibge_pnad_2023"]
+    },
+    "regional_distribution": [
+      {
+        "region": "Northeast",
+        "poverty_rate_percentage": 43.6,
+        "population_millions": 57.1,
+        "source_ids": ["ibge_pnad_2023"]
+      },
+      {
+        "region": "North",
+        "poverty_rate_percentage": 38.9,
+        "population_millions": 18.4,
+        "source_ids": ["ibge_pnad_2023"]
+      },
+      {
+        "region": "Central-West",
+        "poverty_rate_percentage": 18.2,
+        "population_millions": 16.3,
+        "source_ids": ["ibge_pnad_2023"]
+      },
+      {
+        "region": "Southeast",
+        "poverty_rate_percentage": 17.8,
+        "population_millions": 89.0,
+        "source_ids": ["ibge_pnad_2023"]
+      },
+      {
+        "region": "South",
+        "poverty_rate_percentage": 12.1,
+        "population_millions": 30.4,
+        "source_ids": ["ibge_pnad_2023"]
+      }
+    ],
+    "racial_distribution": [
+      {
+        "group": "White (Branco)",
+        "poverty_rate_percentage": 15.6,
+        "extreme_poverty_rate_percentage": 2.8,
+        "source_ids": ["ibge_pnad_2023"]
+      },
+      {
+        "group": "Black (Preto)",
+        "poverty_rate_percentage": 37.4,
+        "extreme_poverty_rate_percentage": 9.1,
+        "source_ids": ["ibge_pnad_2023"]
+      },
+      {
+        "group": "Mixed (Pardo)",
+        "poverty_rate_percentage": 35.8,
+        "extreme_poverty_rate_percentage": 8.2,
+        "source_ids": ["ibge_pnad_2023"]
+      },
+      {
+        "group": "Indigenous",
+        "poverty_rate_percentage": 47.2,
+        "extreme_poverty_rate_percentage": 14.8,
+        "source_ids": ["ibge_pnad_2023"]
+      }
+    ]
+  },
+  "minimum_wage": {
+    "wage_2024_brl": 1412,
+    "wage_2025_brl": 1518,
+    "effective_date_2025": "2025-01-01",
+    "population_affected_millions": 59.3,
+    "source_ids": ["govt_minimum_wage_2025", "ibge_pnad_2023"]
+  },
+  "labor_market": {
+    "employed_population_millions": 101.8,
+    "employment_rate_percentage": 57.6,
+    "unemployment_rate_percentage": 6.8,
+    "informality_rate_percentage": 38.7,
+    "working_poor_percentage_of_employed": 8.4,
+    "income_mass_monthly_brl_billions": 322.4,
+    "source_ids": ["ibge_pnad_2023"]
+  },
+  "wealth": {
+    "measurement_notes": "Wealth estimates based on Credit Suisse Global Wealth Report methodology. Millionaire threshold uses USD at market exchange rates. Wealth distribution data has higher uncertainty than income data due to reliance on surveys and estimates of unreported assets.",
+    "wealth_gini_coefficient": 0.85,
+    "millionaire_population": {
+      "threshold_usd": 1000000,
+      "count_individuals": 413000,
+      "percentage_of_population": 0.2,
+      "estimated_wealth_share_percentage": 48.4,
+      "source_ids": ["credit_suisse_wealth_2023", "oxfam_inequality_2024"]
+    },
+    "billionaire_population": {
+      "count_2024": 62,
+      "count_2025": 69,
+      "notes": "Billionaire count increased by 11.3% year-over-year. Combined wealth of Brazilian billionaires estimated at $179.4 billion in 2025.",
+      "source_ids": ["forbes_billionaires_2024", "forbes_billionaires_2025"]
+    }
+  },
+  "removed_or_deprecated": {
+    "removed_fields": [
+      {
+        "field_name": "gdp_per_capita_usd",
+        "reason_removed": "Removed to focus on distributional metrics rather than averages that obscure inequality"
+      },
+      {
+        "field_name": "human_development_index",
+        "reason_removed": "Composite indices removed in favor of specific, actionable poverty metrics"
+      },
+      {
+        "field_name": "middle_class_percentage",
+        "reason_removed": "Definition varies significantly across sources; replaced with poverty line metrics for clarity"
+      }
+    ],
+    "rationale": "This dataset prioritizes metrics that directly measure inequality and poverty rather than aggregate indicators that can mask distributional concerns. Removed fields may be available in source datasets for users requiring them."
+  },
+  "data_quality_notes": {
+    "official_data_reliability": "high",
+    "wealth_estimate_reliability": "medium",
+    "known_limitations": [
+      "Wealth data relies heavily on survey responses and may undercount hidden assets",
+      "Regional poverty figures may not capture intra-regional urban/rural disparities",
+      "Racial categories follow Brazilian census classifications which differ from other countries",
+      "Informal sector income is difficult to measure accurately",
+      "PPP conversion rates introduce some uncertainty in international comparisons"
+    ]
+  }
+}
