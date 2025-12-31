@@ -29,7 +29,7 @@ export function Navigation() {
           {/* Logo */}
           <Link to="/" className="flex items-center gap-2 group" aria-label={t('app.subtitle')}>
             <img
-              src="/logo-64.png"
+              src={`${import.meta.env.BASE_URL}logo-64.png`}
               alt="The Cost of Inequality Logo"
               className="w-8 h-8 rounded-lg object-contain"
             />
@@ -79,7 +79,7 @@ export function Navigation() {
                   className="flex items-center gap-2 px-4 py-3 rounded-lg hover:bg-muted transition-colors"
                 >
                   <img
-                    src="/logo-64.png"
+                    src={`${import.meta.env.BASE_URL}logo-64.png`}
                     alt="The Cost of Inequality Logo"
                     className="w-8 h-8 rounded-lg object-contain"
                   />
