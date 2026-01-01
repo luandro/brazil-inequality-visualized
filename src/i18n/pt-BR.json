@@ -25,7 +25,8 @@
       "consequences": "Consequências",
       "description": "Entendendo a desigualdade do Brasil através de dados validados. Cada número é fontado, cada simulação claramente rotulada. Tome decisões informadas baseadas na verdade.",
       "exploreReality": "Explorar Realidade",
-      "runSimulations": "Executar Simulações"
+      "runSimulations": "Executar Simulações",
+      "scrollToExplore": "Role para explorar"
     },
     "keyStats": {
       "title": "Brasil em Visão Geral",
@@ -299,7 +300,22 @@
   "deprecated": {
     "title": "Campos Descontinuados",
     "fieldName": "Nome do Campo",
-    "reasonRemoved": "Motivo da Remoção"
+    "reasonRemoved": "Motivo da Remoção",
+    "rationale": "Este conjunto de dados prioriza métricas que medem diretamente a desigualdade e a pobreza, em vez de indicadores agregados que podem mascarar preocupações distributivas. Os campos removidos podem estar disponíveis nos conjuntos de dados originais para usuários que os necessitem.",
+    "fields": {
+      "gdp_per_capita_usd": {
+        "name": "gdp_per_capita_usd",
+        "reason": "Removido para focar em métricas distributivas em vez de médias que obscurecem a desigualdade"
+      },
+      "human_development_index": {
+        "name": "human_development_index",
+        "reason": "Índices compostos removidos em favor de métricas de pobreza específicas e acionáveis"
+      },
+      "middle_class_percentage": {
+        "name": "middle_class_percentage",
+        "reason": "A definição varia significativamente entre fontes; substituída por métricas de linha de pobreza para maior clareza"
+      }
+    }
   },
   "methodology": {
     "title": "Metodologia e Fontes",

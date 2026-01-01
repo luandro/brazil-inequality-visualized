@@ -67,9 +67,9 @@ export function HeroSection({ onScrollDown }: HeroSectionProps) {
         initial={{ opacity: 0, y: -10 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ delay: 1, duration: prefersReducedMotion ? 0 : 0.5 }}
-        aria-label="Scroll to continue"
+        aria-label={t('home.hero.scrollToExplore')}
       >
-        <span className="text-xs font-medium uppercase tracking-wider">Scroll to explore</span>
+        <span className="text-xs font-medium uppercase tracking-wider text-center">{t('home.hero.scrollToExplore')}</span>
         <motion.div
           animate={{ y: [0, 8, 0] }}
           transition={{ repeat: Infinity, duration: 1.5, ease: 'easeInOut' }}
