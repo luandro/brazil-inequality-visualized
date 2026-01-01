@@ -79,23 +79,30 @@ export function SimulatorDials() {
                   x2: dial.cx + 22 * Math.sin((-90 * Math.PI) / 180),
                   y2: dial.cy - 22 * Math.cos((-90 * Math.PI) / 180)
                 }}
-                animate={{
-                  x2: dial.cx + 22 * Math.sin((dial.angle * Math.PI) / 180),
-                  y2: dial.cy - 22 * Math.cos((dial.angle * Math.PI) / 180)
-                }}
                 whileInView={{
                   x2: shouldReduceMotion
                     ? dial.cx + 22 * Math.sin((dial.angle * Math.PI) / 180)
-                    : dial.cx + 22 * Math.sin((dial.angle * Math.PI) / 180),
+                    : [
+                        // Start at top
+                        dial.cx + 22 * Math.sin((-90 * Math.PI) / 180),
+                        // Full rotation (270° = -90° + 360°)
+                        dial.cx + 22 * Math.sin((270 * Math.PI) / 180),
+                        // Land on target
+                        dial.cx + 22 * Math.sin((dial.angle * Math.PI) / 180)
+                      ],
                   y2: shouldReduceMotion
                     ? dial.cy - 22 * Math.cos((dial.angle * Math.PI) / 180)
-                    : dial.cy - 22 * Math.cos((dial.angle * Math.PI) / 180)
+                    : [
+                        dial.cy - 22 * Math.cos((-90 * Math.PI) / 180),
+                        dial.cy - 22 * Math.cos((270 * Math.PI) / 180),
+                        dial.cy - 22 * Math.cos((dial.angle * Math.PI) / 180)
+                      ]
                 }}
                 viewport={{ margin: "-100px" }}
                 transition={{
-                  duration: shouldReduceMotion ? 0 : 0.8,
+                  duration: shouldReduceMotion ? 0 : 1.2,
                   delay: shouldReduceMotion ? 0 : dial.delay + 0.3,
-                  ease: [0.34, 1.56, 0.64, 1] // Bouncy easing
+                  ease: shouldReduceMotion ? "linear" : [0.34, 1.56, 0.64, 1]
                 }}
               />
 
