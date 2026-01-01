@@ -51,7 +51,7 @@ export function NarrativeShell() {
   }
 
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-screen bg-background overflow-x-hidden">
       <Navigation />
       <ChapterNav activeSection={activeSection} onChapterClick={scrollToSection} />
       
