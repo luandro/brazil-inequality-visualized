@@ -23,7 +23,7 @@ export function SafetyNet() {
             strokeLinecap="round"
             initial={{ pathLength: 0, opacity: 0 }}
             whileInView={{ pathLength: 1, opacity: 1 }}
-            viewport={{ once: true, margin: "-100px" }}
+            viewport={{ margin: "-100px" }}
             transition={{
               duration: shouldReduceMotion ? 0 : 0.8,
               delay: shouldReduceMotion ? 0 : i * 0.1,
@@ -46,7 +46,7 @@ export function SafetyNet() {
             strokeLinecap="round"
             initial={{ pathLength: 0, opacity: 0 }}
             whileInView={{ pathLength: 1, opacity: 1 }}
-            viewport={{ once: true, margin: "-100px" }}
+            viewport={{ margin: "-100px" }}
             transition={{
               duration: shouldReduceMotion ? 0 : 0.6,
               delay: shouldReduceMotion ? 0 : 0.5 + i * 0.1,
@@ -70,7 +70,7 @@ export function SafetyNet() {
             className="fill-accent"
             initial={{ cy: dot.cy, opacity: 0 }}
             whileInView={{ cy: dot.targetY, opacity: 1 }}
-            viewport={{ once: true, margin: "-100px" }}
+            viewport={{ margin: "-100px" }}
             transition={{
               duration: shouldReduceMotion ? 0 : 1,
               delay: shouldReduceMotion ? 0 : 1 + i * 0.15,

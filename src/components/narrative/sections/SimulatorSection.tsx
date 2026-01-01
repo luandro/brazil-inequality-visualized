@@ -47,7 +47,7 @@ export function SimulatorSection() {
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: prefersReducedMotion ? 0 : 0.5 }}
-          viewport={{ once: true }}
+          viewport={{ }}
         >
           <h2 className="text-display mb-4">{t('simulator.title')}</h2>
           <p className="text-body-lg text-muted-foreground max-w-3xl mb-8" dangerouslySetInnerHTML={{ __html: t('simulator.description') }}></p>
@@ -59,7 +59,7 @@ export function SimulatorSection() {
           initial={{ opacity: 0, x: -20 }}
           whileInView={{ opacity: 1, x: 0 }}
           transition={{ duration: prefersReducedMotion ? 0 : 0.5 }}
-          viewport={{ once: true }}
+          viewport={{ }}
         >
           <div className="flex items-start gap-3">
             <Info className="w-5 h-5 text-destructive flex-shrink-0 mt-0.5" />
@@ -75,7 +75,7 @@ export function SimulatorSection() {
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: prefersReducedMotion ? 0 : 0.5 }}
-          viewport={{ once: true }}
+          viewport={{ }}
         >
           <div className="flex items-center justify-between mb-4">
             <h3 className="font-semibold">{t('simulator.baseline.title')}</h3>
@@ -97,7 +97,7 @@ export function SimulatorSection() {
             initial={{ opacity: 0, x: -20 }}
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: prefersReducedMotion ? 0 : 0.5 }}
-            viewport={{ once: true }}
+            viewport={{ }}
           >
             <h3 className="font-semibold text-lg mb-6 flex items-center gap-2">
               <Sliders className="w-5 h-5" /> {t('simulator.controls.title')}
@@ -182,7 +182,7 @@ export function SimulatorSection() {
             initial={{ opacity: 0, x: 20 }}
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: prefersReducedMotion ? 0 : 0.5 }}
-            viewport={{ once: true }}
+            viewport={{ }}
           >
             <h3 className="font-semibold text-lg mb-6 flex items-center gap-2">
               <Calculator className="w-5 h-5" /> {t('simulator.results.title')}

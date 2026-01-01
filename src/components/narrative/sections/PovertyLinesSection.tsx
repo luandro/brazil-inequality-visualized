@@ -23,7 +23,7 @@ export function PovertyLinesSection() {
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: prefersReducedMotion ? 0 : 0.5 }}
-          viewport={{ once: true }}
+          viewport={{ }}
           className="mb-8"
         >
           <h2 className="section-header">{t('poverty.povertyLines.title')}</h2>
@@ -38,7 +38,7 @@ export function PovertyLinesSection() {
             initial={{ opacity: 0, x: -20 }}
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: prefersReducedMotion ? 0 : 0.5 }}
-            viewport={{ once: true }}
+            viewport={{ }}
           >
             <div className="flex items-start justify-between">
               <h3 className="font-semibold text-lg text-destructive mb-4">{t('poverty.povertyLines.extremePoverty')}</h3>
@@ -65,7 +65,7 @@ export function PovertyLinesSection() {
             initial={{ opacity: 0, x: 20 }}
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: prefersReducedMotion ? 0 : 0.5 }}
-            viewport={{ once: true }}
+            viewport={{ }}
           >
             <div className="flex items-start justify-between">
               <h3 className="font-semibold text-lg text-accent mb-4">{t('poverty.povertyLines.poverty')}</h3>

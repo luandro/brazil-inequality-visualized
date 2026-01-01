@@ -30,7 +30,7 @@ export function FragmentedGround() {
             strokeWidth="2"
             initial={{ y: 120, opacity: 0 }}
             whileInView={{ y: fragment.y, opacity: 1 }}
-            viewport={{ once: true, margin: "-100px" }}
+            viewport={{ margin: "-100px" }}
             transition={{
               duration: shouldReduceMotion ? 0 : 0.6,
               delay: shouldReduceMotion ? 0 : fragment.delay,
@@ -58,7 +58,7 @@ export function FragmentedGround() {
             strokeDasharray="4,4"
             initial={{ pathLength: 0, opacity: 0 }}
             whileInView={{ pathLength: 1, opacity: 1 }}
-            viewport={{ once: true, margin: "-100px" }}
+            viewport={{ margin: "-100px" }}
             transition={{
               duration: shouldReduceMotion ? 0 : 0.8,
               delay: shouldReduceMotion ? 0 : 0.6 + i * 0.1,
@@ -78,7 +78,7 @@ export function FragmentedGround() {
           className="text-muted-foreground/40"
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
-          viewport={{ once: true, margin: "-100px" }}
+          viewport={{ margin: "-100px" }}
           transition={{
             duration: shouldReduceMotion ? 0 : 0.5,
             delay: shouldReduceMotion ? 0 : 1

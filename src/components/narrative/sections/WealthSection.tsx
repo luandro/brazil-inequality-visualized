@@ -25,7 +25,7 @@ export function WealthSection() {
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: prefersReducedMotion ? 0 : 0.5 }}
-          viewport={{ once: true }}
+          viewport={{ }}
         >
           <h2 className="text-display mb-4">{t('wealth.title')}</h2>
           <p className="text-body-lg text-muted-foreground max-w-3xl mb-8">
@@ -39,7 +39,7 @@ export function WealthSection() {
           initial={{ opacity: 0, x: -20 }}
           whileInView={{ opacity: 1, x: 0 }}
           transition={{ duration: prefersReducedMotion ? 0 : 0.5 }}
-          viewport={{ once: true }}
+          viewport={{ }}
         >
           <div className="flex items-start gap-4">
             <div className="w-10 h-10 rounded-lg bg-accent/10 flex items-center justify-center flex-shrink-0">
@@ -58,7 +58,7 @@ export function WealthSection() {
           initial={{ opacity: 0, scale: 0.95 }}
           whileInView={{ opacity: 1, scale: 1 }}
           transition={{ duration: prefersReducedMotion ? 0 : 0.5 }}
-          viewport={{ once: true }}
+          viewport={{ }}
         >
           <div className="text-center">
             <p className="text-6xl font-bold text-destructive mb-2">{wealth.wealth_gini_coefficient.toFixed(2)}</p>
@@ -125,7 +125,7 @@ export function WealthSection() {
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: prefersReducedMotion ? 0 : 0.5 }}
-          viewport={{ once: true }}
+          viewport={{ }}
         >
           <div className="flex items-start justify-between mb-6">
             <h3 className="font-semibold text-lg">{t('wealth.billionairePopulation.title')}</h3>

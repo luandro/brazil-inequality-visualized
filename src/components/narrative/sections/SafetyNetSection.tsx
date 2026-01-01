@@ -23,7 +23,7 @@ export function SafetyNetSection() {
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: prefersReducedMotion ? 0 : 0.5 }}
-          viewport={{ once: true }}
+          viewport={{ }}
           className="mb-12"
         >
           <h2 className="section-header">{t('home.socialPrograms.title')}</h2>

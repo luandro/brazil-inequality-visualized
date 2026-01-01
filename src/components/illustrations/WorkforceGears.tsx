@@ -167,7 +167,7 @@ export function WorkforceGears() {
           strokeDasharray="2,2"
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
-          viewport={{ once: true, margin: "-100px" }}
+          viewport={{ margin: "-100px" }}
           transition={{ duration: shouldReduceMotion ? 0 : 0.5 }}
         />
       </svg>

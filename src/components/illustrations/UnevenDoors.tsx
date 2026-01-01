@@ -30,7 +30,7 @@ export function UnevenDoors() {
               strokeWidth="2.5"
               initial={{ scaleY: 0, opacity: 0 }}
               whileInView={{ scaleY: 1, opacity: 1 }}
-              viewport={{ once: true, margin: "-100px" }}
+              viewport={{ margin: "-100px" }}
               style={{ transformOrigin: `${door.x + door.width / 2}px ${door.y + door.height}px` }}
               transition={{
                 duration: shouldReduceMotion ? 0 : 0.5,
@@ -47,7 +47,7 @@ export function UnevenDoors() {
               className="fill-accent"
               initial={{ scale: 0, opacity: 0 }}
               whileInView={{ scale: 1, opacity: 1 }}
-              viewport={{ once: true, margin: "-100px" }}
+              viewport={{ margin: "-100px" }}
               transition={{
                 duration: shouldReduceMotion ? 0 : 0.3,
                 delay: shouldReduceMotion ? 0 : door.delay + 0.3,
@@ -66,7 +66,7 @@ export function UnevenDoors() {
               className="text-primary/40"
               initial={{ pathLength: 0, opacity: 0 }}
               whileInView={{ pathLength: 1, opacity: 1 }}
-              viewport={{ once: true, margin: "-100px" }}
+              viewport={{ margin: "-100px" }}
               transition={{
                 duration: shouldReduceMotion ? 0 : 0.4,
                 delay: shouldReduceMotion ? 0 : door.delay + 0.4,
@@ -87,7 +87,7 @@ export function UnevenDoors() {
           className="text-muted-foreground/40"
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
-          viewport={{ once: true, margin: "-100px" }}
+          viewport={{ margin: "-100px" }}
           transition={{
             duration: shouldReduceMotion ? 0 : 0.5,
             delay: shouldReduceMotion ? 0 : 0.8

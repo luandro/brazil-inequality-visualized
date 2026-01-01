@@ -32,7 +32,7 @@ export function RacialSection() {
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: prefersReducedMotion ? 0 : 0.5 }}
-          viewport={{ once: true }}
+          viewport={{ }}
           className="mb-8"
         >
           <h2 className="section-header">{t('poverty.racialDistribution.title')}</h2>
@@ -53,7 +53,7 @@ export function RacialSection() {
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: prefersReducedMotion ? 0 : 0.3, delay: index * 0.1 }}
-                viewport={{ once: true }}
+                viewport={{ }}
               >
                 <div className="flex items-start justify-between">
                   <h4 className="font-medium">{t(racialGroupKeyMap[group.group] || group.group)}</h4>

@@ -21,7 +21,7 @@ export function InequalitySlope() {
           strokeLinecap="round"
           initial={{ pathLength: 0, opacity: 0 }}
           whileInView={{ pathLength: 1, opacity: 1 }}
-          viewport={{ once: true, margin: "-100px" }}
+          viewport={{ margin: "-100px" }}
           transition={{
             duration: shouldReduceMotion ? 0 : 1.5,
             ease: "easeInOut"
@@ -48,7 +48,7 @@ export function InequalitySlope() {
             className="fill-accent"
             initial={{ scale: 0, opacity: 0 }}
             whileInView={{ scale: 1, opacity: 1 }}
-            viewport={{ once: true, margin: "-100px" }}
+            viewport={{ margin: "-100px" }}
             transition={{
               duration: shouldReduceMotion ? 0 : 0.3,
               delay: shouldReduceMotion ? 0 : dot.delay
@@ -68,7 +68,7 @@ export function InequalitySlope() {
           strokeDasharray="3,3"
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
-          viewport={{ once: true, margin: "-100px" }}
+          viewport={{ margin: "-100px" }}
           transition={{ duration: shouldReduceMotion ? 0 : 0.5 }}
         />
       </svg>

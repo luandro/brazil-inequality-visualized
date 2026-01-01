@@ -23,7 +23,7 @@ export function PovertyWaterline() {
           strokeLinecap="round"
           initial={{ pathLength: 0, opacity: 0 }}
           whileInView={{ pathLength: 1, opacity: 1 }}
-          viewport={{ once: true, margin: "-100px" }}
+          viewport={{ margin: "-100px" }}
           transition={{
             duration: shouldReduceMotion ? 0 : 1.2,
             ease: "easeInOut"
@@ -40,7 +40,7 @@ export function PovertyWaterline() {
           strokeLinecap="round"
           initial={{ pathLength: 0, opacity: 0 }}
           whileInView={{ pathLength: 1, opacity: 1 }}
-          viewport={{ once: true, margin: "-100px" }}
+          viewport={{ margin: "-100px" }}
           transition={{
             duration: shouldReduceMotion ? 0 : 1.2,
             delay: shouldReduceMotion ? 0 : 0.3,
@@ -55,7 +55,7 @@ export function PovertyWaterline() {
           className="text-destructive/10"
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
-          viewport={{ once: true, margin: "-100px" }}
+          viewport={{ margin: "-100px" }}
           transition={{
             duration: shouldReduceMotion ? 0 : 0.8,
             delay: shouldReduceMotion ? 0 : 0.6
@@ -69,7 +69,7 @@ export function PovertyWaterline() {
           className="text-[8px] fill-secondary font-medium"
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
-          viewport={{ once: true, margin: "-100px" }}
+          viewport={{ margin: "-100px" }}
           transition={{
             duration: shouldReduceMotion ? 0 : 0.5,
             delay: shouldReduceMotion ? 0 : 0.8
@@ -84,7 +84,7 @@ export function PovertyWaterline() {
           className="text-[8px] fill-destructive font-medium"
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
-          viewport={{ once: true, margin: "-100px" }}
+          viewport={{ margin: "-100px" }}
           transition={{
             duration: shouldReduceMotion ? 0 : 0.5,
             delay: shouldReduceMotion ? 0 : 1.0

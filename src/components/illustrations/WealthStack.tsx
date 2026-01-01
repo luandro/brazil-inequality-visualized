@@ -38,7 +38,7 @@ export function WealthStack() {
                     strokeWidth="1.5"
                     initial={{ opacity: 0, scale: 0 }}
                     whileInView={{ opacity: 1, scale: 1 }}
-                    viewport={{ once: true, margin: "-100px" }}
+                    viewport={{ margin: "-100px" }}
                     style={{ transformOrigin: `${stack.x}px ${y}px` }}
                     transition={{
                       duration: shouldReduceMotion ? 0 : 0.4,
@@ -54,7 +54,7 @@ export function WealthStack() {
                     className="text-[8px] fill-accent-foreground font-bold"
                     initial={{ opacity: 0 }}
                     whileInView={{ opacity: 1 }}
-                    viewport={{ once: true, margin: "-100px" }}
+                    viewport={{ margin: "-100px" }}
                     transition={{
                       duration: shouldReduceMotion ? 0 : 0.2,
                       delay: shouldReduceMotion ? 0 : stack.delay + coinIdx * 0.1 + 0.2
@@ -87,7 +87,7 @@ export function WealthStack() {
         <motion.g
           initial={{ opacity: 0, x: -10 }}
           whileInView={{ opacity: 1, x: 0 }}
-          viewport={{ once: true, margin: "-100px" }}
+          viewport={{ margin: "-100px" }}
           transition={{
             duration: shouldReduceMotion ? 0 : 0.6,
             delay: shouldReduceMotion ? 0 : 1
@@ -121,7 +121,7 @@ export function WealthStack() {
           className="text-muted-foreground/40"
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
-          viewport={{ once: true, margin: "-100px" }}
+          viewport={{ margin: "-100px" }}
           transition={{
             duration: shouldReduceMotion ? 0 : 0.5,
             delay: shouldReduceMotion ? 0 : 0.8

@@ -41,7 +41,7 @@ export function SimulatorDials() {
                 strokeWidth="2.5"
                 initial={{ scale: 0, opacity: 0 }}
                 whileInView={{ scale: 1, opacity: 1 }}
-                viewport={{ once: true, margin: "-100px" }}
+                viewport={{ margin: "-100px" }}
                 transition={{
                   duration: shouldReduceMotion ? 0 : 0.4,
                   delay: shouldReduceMotion ? 0 : dial.delay,
@@ -57,7 +57,7 @@ export function SimulatorDials() {
                 strokeLinecap="round"
                 initial={{ pathLength: 0, opacity: 0 }}
                 whileInView={{ pathLength: 1, opacity: 1 }}
-                viewport={{ once: true, margin: "-100px" }}
+                viewport={{ margin: "-100px" }}
                 transition={{
                   duration: shouldReduceMotion ? 0 : 0.8,
                   delay: shouldReduceMotion ? 0 : dial.delay + 0.2,
@@ -69,7 +69,7 @@ export function SimulatorDials() {
               <motion.g
                 initial={{ rotate: shouldReduceMotion ? dial.angle : -90 }}
                 whileInView={{ rotate: dial.angle }}
-                viewport={{ once: true, margin: "-100px" }}
+                viewport={{ margin: "-100px" }}
                 style={{ transformOrigin: `${dial.cx}px ${dial.cy}px` }}
                 transition={{
                   duration: shouldReduceMotion ? 0 : 0.8,
@@ -97,7 +97,7 @@ export function SimulatorDials() {
                 className="fill-accent"
                 initial={{ scale: 0, opacity: 0 }}
                 whileInView={{ scale: 1, opacity: 1 }}
-                viewport={{ once: true, margin: "-100px" }}
+                viewport={{ margin: "-100px" }}
                 transition={{
                   duration: shouldReduceMotion ? 0 : 0.3,
                   delay: shouldReduceMotion ? 0 : dial.delay + 0.6,
@@ -125,7 +125,7 @@ export function SimulatorDials() {
                     strokeLinecap="round"
                     initial={{ opacity: 0, scale: 0 }}
                     whileInView={{ opacity: 1, scale: 1 }}
-                    viewport={{ once: true, margin: "-100px" }}
+                    viewport={{ margin: "-100px" }}
                     style={{ transformOrigin: `${(x1 + x2) / 2}px ${(y1 + y2) / 2}px` }}
                     transition={{
                       duration: shouldReduceMotion ? 0 : 0.2,
@@ -148,7 +148,7 @@ export function SimulatorDials() {
           className="fill-muted/50"
           initial={{ scaleX: 0, opacity: 0 }}
           whileInView={{ scaleX: 1, opacity: 1 }}
-          viewport={{ once: true, margin: "-100px" }}
+          viewport={{ margin: "-100px" }}
           style={{ transformOrigin: '100px 99px' }}
           transition={{
             duration: shouldReduceMotion ? 0 : 0.5,

@@ -20,7 +20,7 @@ export function DeprecatedSection() {
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: prefersReducedMotion ? 0 : 0.5 }}
-          viewport={{ once: true }}
+          viewport={{ }}
         >
           <h2 className="text-display mb-4 flex items-center gap-3">
             <Archive className="w-10 h-10" /> {t('deprecated.title')}
@@ -38,7 +38,7 @@ export function DeprecatedSection() {
               initial={{ opacity: 0, x: -20 }}
               whileInView={{ opacity: 1, x: 0 }}
               transition={{ duration: prefersReducedMotion ? 0 : 0.3, delay: index * 0.1 }}
-              viewport={{ once: true }}
+              viewport={{ }}
             >
               <h3 className="font-semibold font-mono text-destructive">
                 {t(`deprecated.fields.${fieldKey}.name`)}

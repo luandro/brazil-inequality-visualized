@@ -25,7 +25,7 @@ export function InequalityGlanceSection() {
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: prefersReducedMotion ? 0 : 0.5 }}
-          viewport={{ once: true }}
+          viewport={{ }}
           className="mb-12"
         >
           <h2 className="text-display mb-4">{t('truth.title')}</h2>
@@ -82,7 +82,7 @@ export function InequalityGlanceSection() {
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: prefersReducedMotion ? 0 : 0.5 }}
-          viewport={{ once: true }}
+          viewport={{ }}
         >
           <h3 className="text-2xl font-semibold mb-2 text-center">
             {t('home.wealthConcentration.title')}
