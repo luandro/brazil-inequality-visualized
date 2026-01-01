@@ -14,10 +14,10 @@ export function HeroSection({ onScrollDown }: HeroSectionProps) {
   const prefersReducedMotion = useReducedMotion();
 
   return (
-    <NarrativeSection id="home" ariaLabel="Home" className="min-h-screen flex items-center relative">
+    <NarrativeSection id="home" ariaLabel="Home" className="min-h-screen flex items-center relative overflow-hidden">
       <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-secondary/5" />
-      <div className="absolute top-20 right-20 w-96 h-96 bg-secondary/10 rounded-full blur-3xl" />
-      <div className="absolute bottom-20 left-20 w-96 h-96 bg-accent/10 rounded-full blur-3xl" />
+      <div className="absolute top-20 right-0 md:right-20 w-64 md:w-96 h-64 md:h-96 bg-secondary/10 rounded-full blur-3xl" />
+      <div className="absolute bottom-20 left-0 md:left-20 w-64 md:w-96 h-64 md:h-96 bg-accent/10 rounded-full blur-3xl" />
       
       <div className="container-wide relative py-20 md:py-32">
         <motion.div
