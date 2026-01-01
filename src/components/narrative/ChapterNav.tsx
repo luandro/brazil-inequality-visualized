@@ -61,6 +61,55 @@ interface ChapterNavProps {
   onChapterClick: (sectionId: string) => void;
 }
 
+interface MobileNavButtonProps {
+  chapter: Chapter;
+  isActive: boolean;
+  onClick: () => void;
+}
+
+function MobileNavButton({ chapter, isActive, onClick }: MobileNavButtonProps) {
+  const { t } = useTranslation();
+  const prefersReducedMotion = useReducedMotion();
+  const buttonRef = useRef<HTMLButtonElement>(null);
+  const Icon = chapter.icon;
+
+  // Scroll active button into view
+  useEffect(() => {
+    if (isActive && buttonRef.current) {
+      buttonRef.current.scrollIntoView({
+        behavior: 'smooth',
+        block: 'nearest',
+        inline: 'center'
+      });
+    }
+  }, [isActive]);
+
+  return (
+    <motion.button
+      ref={buttonRef}
+      onClick={onClick}
+      className={`relative flex items-center justify-center p-2 rounded-full transition-all flex-shrink-0 ${
+        isActive
+          ? 'bg-secondary text-primary-foreground'
+          : 'text-muted-foreground hover:text-foreground hover:bg-muted'
+      }`}
+      aria-label={t(chapter.labelKey)}
+      aria-current={isActive ? 'location' : undefined}
+      whileTap={{ scale: prefersReducedMotion ? 1 : 0.9 }}
+    >
+      <Icon className={`w-5 h-5 ${isActive ? 'scale-110' : ''}`} />
+
+      {isActive && (
+        <motion.div
+          layoutId="activeMobileChapter"
+          className="absolute inset-0 bg-secondary rounded-full -z-10"
+          transition={{ type: "spring", stiffness: 300, damping: 30 }}
+        />
+      )}
+    </motion.button>
+  );
+}
+
 export function ChapterNav({ activeSection, onChapterClick }: ChapterNavProps) {
   const { t } = useTranslation();
   const prefersReducedMotion = useReducedMotion();
@@ -140,48 +189,14 @@ export function ChapterNav({ activeSection, onChapterClick }: ChapterNavProps) {
         aria-label="Mobile chapter navigation"
       >
         <div className="flex items-center gap-2 overflow-x-auto scrollbar-hide">
-          {chapters.filter(ch => ch.id !== 'deprecated').map((chapter) => {
-            const isActive = activeSection === chapter.id;
-            const Icon = chapter.icon;
-            const buttonRef = useRef<HTMLButtonElement>(null);
-
-            // Scroll active button into view
-            useEffect(() => {
-              if (isActive && buttonRef.current) {
-                buttonRef.current.scrollIntoView({
-                  behavior: 'smooth',
-                  block: 'nearest',
-                  inline: 'center'
-                });
-              }
-            }, [isActive]);
-
-            return (
-              <motion.button
-                key={chapter.id}
-                ref={buttonRef}
-                onClick={() => onChapterClick(chapter.id)}
-                className={`relative flex items-center justify-center p-2 rounded-full transition-all flex-shrink-0 ${
-                  isActive
-                    ? 'bg-secondary text-primary-foreground'
-                    : 'text-muted-foreground hover:text-foreground hover:bg-muted'
-                }`}
-                aria-label={t(chapter.labelKey)}
-                aria-current={isActive ? 'location' : undefined}
-                whileTap={{ scale: prefersReducedMotion ? 1 : 0.9 }}
-              >
-                <Icon className={`w-5 h-5 ${isActive ? 'scale-110' : ''}`} />
-
-                {isActive && (
-                  <motion.div
-                    layoutId="activeMobileChapter"
-                    className="absolute inset-0 bg-secondary rounded-full -z-10"
-                    transition={{ type: "spring", stiffness: 300, damping: 30 }}
-                  />
-                )}
-              </motion.button>
-            );
-          })}
+          {chapters.filter(ch => ch.id !== 'deprecated').map((chapter) => (
+            <MobileNavButton
+              key={chapter.id}
+              chapter={chapter}
+              isActive={activeSection === chapter.id}
+              onClick={() => onChapterClick(chapter.id)}
+            />
+          ))}
         </div>
       </motion.nav>
     </>
