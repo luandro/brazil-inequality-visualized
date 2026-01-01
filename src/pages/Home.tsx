@@ -151,7 +151,7 @@ export default function Home() {
               decimals={0}
               sourceIds={wealth.millionaire_population.source_ids}
               definition={t('home.keyStats.ultraWealthyTooltip')}
-              variant="surplus"
+              variant="insight"
               size="lg"
               formatCompact={true}
             />

@@ -23,7 +23,6 @@ i18n
       order: ['localStorage', 'navigator'],
       caches: ['localStorage'],
       lookupLocalStorage: 'app_lang',
-      checkWhitelist: true,
     },
 
     interpolation: {

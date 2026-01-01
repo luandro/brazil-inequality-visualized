@@ -67,9 +67,7 @@ export function WealthConcentrationPie({
             {t('home.wealthConcentration.tooltipWealth', { percent: data.value.toFixed(1) })}
           </p>
           <p className="text-sm text-muted-foreground">
-            {t('home.wealthConcentration.tooltipPopulation', {
-              count: data.count.toLocaleString(),
-            })}
+            {data.count.toLocaleString()} people
           </p>
         </div>
       );
