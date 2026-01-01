@@ -65,29 +65,39 @@ export function SimulatorDials() {
                 }}
               />
 
-              {/* Dial pointer - animate rotation from starting position */}
-              <motion.g
-                initial={{ rotate: shouldReduceMotion ? dial.angle : -90 }}
-                whileInView={{ rotate: dial.angle }}
+              {/* Dial pointer - animate by calculating endpoint directly */}
+              <motion.line
+                x1={dial.cx}
+                y1={dial.cy}
+                x2={dial.cx}
+                y2={dial.cy - 22}
+                stroke="currentColor"
+                strokeWidth="2.5"
+                className="text-accent"
+                strokeLinecap="round"
+                initial={{
+                  x2: dial.cx + 22 * Math.sin((-90 * Math.PI) / 180),
+                  y2: dial.cy - 22 * Math.cos((-90 * Math.PI) / 180)
+                }}
+                animate={{
+                  x2: dial.cx + 22 * Math.sin((dial.angle * Math.PI) / 180),
+                  y2: dial.cy - 22 * Math.cos((dial.angle * Math.PI) / 180)
+                }}
+                whileInView={{
+                  x2: shouldReduceMotion
+                    ? dial.cx + 22 * Math.sin((dial.angle * Math.PI) / 180)
+                    : dial.cx + 22 * Math.sin((dial.angle * Math.PI) / 180),
+                  y2: shouldReduceMotion
+                    ? dial.cy - 22 * Math.cos((dial.angle * Math.PI) / 180)
+                    : dial.cy - 22 * Math.cos((dial.angle * Math.PI) / 180)
+                }}
                 viewport={{ margin: "-100px" }}
-                style={{ transformOrigin: `${dial.cx}px ${dial.cy}px` }}
                 transition={{
                   duration: shouldReduceMotion ? 0 : 0.8,
                   delay: shouldReduceMotion ? 0 : dial.delay + 0.3,
                   ease: [0.34, 1.56, 0.64, 1] // Bouncy easing
                 }}
-              >
-                <line
-                  x1={dial.cx}
-                  y1={dial.cy}
-                  x2={dial.cx}
-                  y2={dial.cy - 22}
-                  stroke="currentColor"
-                  strokeWidth="2.5"
-                  className="text-accent"
-                  strokeLinecap="round"
-                />
-              </motion.g>
+              />
 
               {/* Center dot */}
               <motion.circle
