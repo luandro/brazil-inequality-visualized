@@ -5,6 +5,7 @@ import { KPICard } from '@/components/ui/KPICard';
 import { SourceDrawer } from '@/components/ui/SourceDrawer';
 import { AlertCircle, Briefcase, Users, DollarSign, TrendingUp } from 'lucide-react';
 import { NarrativeSection } from '../NarrativeSection';
+import { WorkforceGears } from '@/components/illustrations';
 
 export function LaborSection() {
   const { t, i18n } = useTranslation();
@@ -16,8 +17,10 @@ export function LaborSection() {
   const { labor_market, minimum_wage } = data;
 
   return (
-    <NarrativeSection id="labor" ariaLabel="Labor Market" className="py-16 md:py-24 bg-muted/30">
+    <NarrativeSection id="labor" ariaLabel="Labor Market" className="py-16 md:py-24 bg-gradient-to-b from-slate-50/30 to-transparent dark:from-slate-950/10">
       <div className="container-wide">
+        <WorkforceGears />
+
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}

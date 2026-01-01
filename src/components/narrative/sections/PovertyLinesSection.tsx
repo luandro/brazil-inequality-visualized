@@ -3,6 +3,7 @@ import { useTranslation } from 'react-i18next';
 import { useData } from '@/context/DataContext';
 import { SourceDrawer } from '@/components/ui/SourceDrawer';
 import { NarrativeSection } from '../NarrativeSection';
+import { PovertyWaterline } from '@/components/illustrations';
 
 export function PovertyLinesSection() {
   const { t } = useTranslation();
@@ -14,8 +15,10 @@ export function PovertyLinesSection() {
   const { poverty } = data;
 
   return (
-    <NarrativeSection id="poverty-lines" ariaLabel="Poverty Lines" className="py-16 md:py-24 bg-muted/30">
+    <NarrativeSection id="poverty-lines" ariaLabel="Poverty Lines" className="py-16 md:py-24 bg-gradient-to-b from-cyan-50/30 to-transparent dark:from-cyan-950/10">
       <div className="container-wide">
+        <PovertyWaterline />
+
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}

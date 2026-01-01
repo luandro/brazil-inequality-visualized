@@ -3,6 +3,7 @@ import { useTranslation } from 'react-i18next';
 import { useData } from '@/context/DataContext';
 import { RegionalChart } from '@/components/charts/RegionalChart';
 import { NarrativeSection } from '../NarrativeSection';
+import { FragmentedGround } from '@/components/illustrations';
 
 export function RegionalSection() {
   const { t } = useTranslation();
@@ -23,8 +24,10 @@ export function RegionalSection() {
   const { poverty } = data;
 
   return (
-    <NarrativeSection id="regional" ariaLabel="Regional Inequality" className="py-16 md:py-24 bg-muted/30">
+    <NarrativeSection id="regional" ariaLabel="Regional Inequality" className="py-16 md:py-24 bg-gradient-to-b from-amber-50/30 to-transparent dark:from-amber-950/10">
       <div className="container-wide">
+        <FragmentedGround />
+
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}

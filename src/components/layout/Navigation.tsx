@@ -5,6 +5,7 @@ import { useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet';
 import { LanguageSwitcher } from '@/components/LanguageSwitcher';
+import { ScrollProgress } from '@/components/ui/ScrollProgress';
 import { useTranslation } from 'react-i18next';
 
 const navItems = [
@@ -23,9 +24,10 @@ export function Navigation() {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-xl border-b border-border/50">
-      <nav className="container-wide">
-        <div className="flex items-center justify-between h-16">
+    <>
+      <header className="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-xl border-b border-border/50">
+        <nav className="container-wide">
+          <div className="flex items-center justify-between h-16">
           {/* Logo */}
           <Link to="/" className="flex items-center gap-2 group" aria-label={t('app.subtitle')}>
             <img
@@ -129,6 +131,8 @@ export function Navigation() {
           </Sheet>
         </div>
       </nav>
+      <ScrollProgress />
     </header>
+    </>
   );
 }

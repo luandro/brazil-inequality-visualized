@@ -3,6 +3,7 @@ import { useTranslation } from 'react-i18next';
 import { useData } from '@/context/DataContext';
 import { ComparisonBar } from '@/components/charts/ComparisonBar';
 import { NarrativeSection } from '../NarrativeSection';
+import { SafetyNet } from '@/components/illustrations';
 
 export function SafetyNetSection() {
   const { t } = useTranslation();
@@ -14,8 +15,10 @@ export function SafetyNetSection() {
   const { poverty } = data;
 
   return (
-    <NarrativeSection id="safety-net" ariaLabel="Safety Net Impact" className="py-16 md:py-24">
+    <NarrativeSection id="safety-net" ariaLabel="Safety Net Impact" className="py-16 md:py-24 bg-gradient-to-b from-emerald-50/30 to-transparent dark:from-emerald-950/10">
       <div className="container-wide">
+        <SafetyNet />
+
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}

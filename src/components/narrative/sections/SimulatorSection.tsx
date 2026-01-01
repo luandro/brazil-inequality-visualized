@@ -3,10 +3,12 @@ import { motion, useReducedMotion } from 'framer-motion';
 import { useTranslation } from 'react-i18next';
 import { useData } from '@/context/DataContext';
 import { SourceDrawer } from '@/components/ui/SourceDrawer';
-import { Info, Calculator, Sliders } from 'lucide-react';
+import { Info, Calculator, Sliders, DollarSign, TrendingUp, Target, Users } from 'lucide-react';
 import { Slider } from '@/components/ui/slider';
+import { SliderWithValue } from '@/components/ui/SliderWithValue';
 import { Label } from '@/components/ui/label';
 import { NarrativeSection } from '../NarrativeSection';
+import { SimulatorDials } from '@/components/illustrations';
 
 export function SimulatorSection() {
   const { t } = useTranslation();
@@ -37,8 +39,10 @@ export function SimulatorSection() {
   const peopleLiftedEstimate = (gapCovered / 100) * poverty.official_key_statistics.poverty_population_millions;
 
   return (
-    <NarrativeSection id="simulator" ariaLabel="Policy Simulator" className="py-16 md:py-24 bg-muted/30">
+    <NarrativeSection id="simulator" ariaLabel="Policy Simulator" className="py-16 md:py-24 bg-gradient-to-b from-blue-50/30 to-transparent dark:from-blue-950/10">
       <div className="container-wide">
+        <SimulatorDials />
+
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -115,22 +119,46 @@ export function SimulatorSection() {
                   ))}
                 </div>
               </div>
-              <div>
-                <Label>{t('simulator.controls.taxRate', { rate: taxRate })}</Label>
-                <Slider value={[taxRate]} onValueChange={([v]) => setTaxRate(v)} min={0} max={5} step={0.5} className="mt-2" />
-              </div>
-              <div>
-                <Label>{t('simulator.controls.complianceRate', { rate: compliance })}</Label>
-                <Slider value={[compliance]} onValueChange={([v]) => setCompliance(v)} min={30} max={95} step={5} className="mt-2" />
-              </div>
-              <div>
-                <Label>{t('simulator.controls.adminCost', { cost: adminCost })}</Label>
-                <Slider value={[adminCost]} onValueChange={([v]) => setAdminCost(v)} min={0} max={20} step={1} className="mt-2" />
-              </div>
-              <div>
-                <Label>{t('simulator.controls.horizon', { years: horizon })}</Label>
-                <Slider value={[horizon]} onValueChange={([v]) => setHorizon(v)} min={1} max={10} step={1} className="mt-2" />
-              </div>
+              <SliderWithValue
+                value={[taxRate]}
+                onValueChange={([v]) => setTaxRate(v)}
+                min={0}
+                max={5}
+                step={0.5}
+                label={t('simulator.controls.taxRate', { rate: '' })}
+                tooltip="Annual tax rate applied to the wealth base"
+                formatValue={(v) => `${v}%`}
+              />
+              <SliderWithValue
+                value={[compliance]}
+                onValueChange={([v]) => setCompliance(v)}
+                min={30}
+                max={95}
+                step={5}
+                label={t('simulator.controls.complianceRate', { rate: '' })}
+                tooltip="Expected tax compliance rate"
+                formatValue={(v) => `${v}%`}
+              />
+              <SliderWithValue
+                value={[adminCost]}
+                onValueChange={([v]) => setAdminCost(v)}
+                min={0}
+                max={20}
+                step={1}
+                label={t('simulator.controls.adminCost', { cost: '' })}
+                tooltip="Administrative costs for tax collection"
+                formatValue={(v) => `${v}%`}
+              />
+              <SliderWithValue
+                value={[horizon]}
+                onValueChange={([v]) => setHorizon(v)}
+                min={1}
+                max={10}
+                step={1}
+                label={t('simulator.controls.horizon', { years: '' })}
+                tooltip="Time horizon for revenue calculation"
+                formatValue={(v) => `${v} years`}
+              />
               <div className="border-t pt-4">
                 <Label className="mb-2 block">{t('simulator.controls.allocation')}</Label>
                 <div className="space-y-3">
@@ -160,22 +188,66 @@ export function SimulatorSection() {
               <Calculator className="w-5 h-5" /> {t('simulator.results.title')}
             </h3>
             <div className="space-y-6">
-              <div className="p-4 bg-secondary/10 rounded-lg">
-                <p className="text-sm text-muted-foreground">{t('simulator.results.annualRevenue')}</p>
-                <p className="text-3xl font-bold text-secondary">R$ {annualRevenue.toFixed(1)}B</p>
-              </div>
-              <div className="p-4 bg-accent/10 rounded-lg">
-                <p className="text-sm text-muted-foreground">{t('simulator.results.totalOverYears', { years: horizon })}</p>
-                <p className="text-3xl font-bold text-accent">R$ {totalRevenue.toFixed(1)}B</p>
-              </div>
-              <div className="p-4 bg-muted rounded-lg">
-                <p className="text-sm text-muted-foreground">{t('simulator.results.povertyGapCovered')}</p>
-                <p className="text-3xl font-bold">{gapCovered.toFixed(1)}%</p>
-              </div>
-              <div className="p-4 bg-muted rounded-lg">
-                <p className="text-sm text-muted-foreground">{t('simulator.results.estPeopleLifted')}</p>
-                <p className="text-3xl font-bold">{peopleLiftedEstimate.toFixed(1)}M</p>
-              </div>
+              <motion.div
+                className="p-4 bg-secondary/10 rounded-lg flex items-center gap-4"
+                key={annualRevenue}
+                initial={{ scale: 1 }}
+                animate={{ scale: [1, 1.02, 1] }}
+                transition={{ duration: 0.3 }}
+              >
+                <div className="w-10 h-10 rounded-full bg-secondary/20 flex items-center justify-center flex-shrink-0">
+                  <DollarSign className="w-5 h-5 text-secondary" />
+                </div>
+                <div className="flex-1">
+                  <p className="text-sm text-muted-foreground">{t('simulator.results.annualRevenue')}</p>
+                  <p className="text-3xl font-bold text-secondary">R$ {annualRevenue.toFixed(1)}B</p>
+                </div>
+              </motion.div>
+              <motion.div
+                className="p-4 bg-accent/10 rounded-lg flex items-center gap-4"
+                key={totalRevenue}
+                initial={{ scale: 1 }}
+                animate={{ scale: [1, 1.02, 1] }}
+                transition={{ duration: 0.3 }}
+              >
+                <div className="w-10 h-10 rounded-full bg-accent/20 flex items-center justify-center flex-shrink-0">
+                  <TrendingUp className="w-5 h-5 text-accent" />
+                </div>
+                <div className="flex-1">
+                  <p className="text-sm text-muted-foreground">{t('simulator.results.totalOverYears', { years: horizon })}</p>
+                  <p className="text-3xl font-bold text-accent">R$ {totalRevenue.toFixed(1)}B</p>
+                </div>
+              </motion.div>
+              <motion.div
+                className="p-4 bg-primary/10 rounded-lg flex items-center gap-4"
+                key={gapCovered}
+                initial={{ scale: 1 }}
+                animate={{ scale: [1, 1.02, 1] }}
+                transition={{ duration: 0.3 }}
+              >
+                <div className="w-10 h-10 rounded-full bg-primary/20 flex items-center justify-center flex-shrink-0">
+                  <Target className="w-5 h-5 text-primary" />
+                </div>
+                <div className="flex-1">
+                  <p className="text-sm text-muted-foreground">{t('simulator.results.povertyGapCovered')}</p>
+                  <p className="text-3xl font-bold text-primary">{gapCovered.toFixed(1)}%</p>
+                </div>
+              </motion.div>
+              <motion.div
+                className="p-4 bg-muted rounded-lg flex items-center gap-4"
+                key={peopleLiftedEstimate}
+                initial={{ scale: 1 }}
+                animate={{ scale: [1, 1.02, 1] }}
+                transition={{ duration: 0.3 }}
+              >
+                <div className="w-10 h-10 rounded-full bg-foreground/10 flex items-center justify-center flex-shrink-0">
+                  <Users className="w-5 h-5 text-foreground" />
+                </div>
+                <div className="flex-1">
+                  <p className="text-sm text-muted-foreground">{t('simulator.results.estPeopleLifted')}</p>
+                  <p className="text-3xl font-bold">{peopleLiftedEstimate.toFixed(1)}M</p>
+                </div>
+              </motion.div>
               <div className="p-3 bg-destructive/10 rounded-lg text-sm text-destructive">
                 <strong>{t('simulator.results.assumptions')}</strong>
               </div>

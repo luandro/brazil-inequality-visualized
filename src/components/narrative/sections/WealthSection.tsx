@@ -5,6 +5,7 @@ import { KPICard } from '@/components/ui/KPICard';
 import { SourceDrawer } from '@/components/ui/SourceDrawer';
 import { Info, TrendingUp, Coins } from 'lucide-react';
 import { NarrativeSection } from '../NarrativeSection';
+import { WealthStack } from '@/components/illustrations';
 
 export function WealthSection() {
   const { t } = useTranslation();
@@ -16,8 +17,10 @@ export function WealthSection() {
   const { wealth } = data;
 
   return (
-    <NarrativeSection id="wealth" ariaLabel="Wealth Concentration" className="py-16 md:py-24">
+    <NarrativeSection id="wealth" ariaLabel="Wealth Concentration" className="py-16 md:py-24 bg-gradient-to-b from-yellow-50/30 to-transparent dark:from-yellow-950/10">
       <div className="container-wide">
+        <WealthStack />
+
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
