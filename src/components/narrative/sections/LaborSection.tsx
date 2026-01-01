@@ -5,6 +5,7 @@ import { KPICard } from '@/components/ui/KPICard';
 import { SourceDrawer } from '@/components/ui/SourceDrawer';
 import { AlertCircle, Briefcase, Users, DollarSign, TrendingUp } from 'lucide-react';
 import { NarrativeSection } from '../NarrativeSection';
+import { WorkforceGears } from '@/components/illustrations';
 
 export function LaborSection() {
   const { t, i18n } = useTranslation();
@@ -16,13 +17,15 @@ export function LaborSection() {
   const { labor_market, minimum_wage } = data;
 
   return (
-    <NarrativeSection id="labor" ariaLabel="Labor Market" className="py-16 md:py-24 bg-muted/30">
+    <NarrativeSection id="labor" ariaLabel="Labor Market" className="py-16 md:py-24 bg-gradient-to-b from-slate-50/30 to-transparent dark:from-slate-950/10">
       <div className="container-wide">
+        <WorkforceGears />
+
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: prefersReducedMotion ? 0 : 0.5 }}
-          viewport={{ once: true }}
+          viewport={{ }}
         >
           <h2 className="text-display mb-4">{t('labor.title')}</h2>
           <p className="text-body-lg text-muted-foreground max-w-3xl mb-8">
@@ -36,7 +39,7 @@ export function LaborSection() {
           initial={{ opacity: 0, x: -20 }}
           whileInView={{ opacity: 1, x: 0 }}
           transition={{ duration: prefersReducedMotion ? 0 : 0.5 }}
-          viewport={{ once: true }}
+          viewport={{ }}
         >
           <div className="flex items-start gap-4">
             <div className="w-10 h-10 rounded-lg bg-accent/10 flex items-center justify-center flex-shrink-0">
@@ -92,7 +95,7 @@ export function LaborSection() {
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: prefersReducedMotion ? 0 : 0.5 }}
-          viewport={{ once: true }}
+          viewport={{ }}
         >
           <div className="glass-card p-6">
             <div className="flex items-start justify-between mb-6">

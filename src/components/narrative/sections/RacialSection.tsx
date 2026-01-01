@@ -4,6 +4,7 @@ import { useData } from '@/context/DataContext';
 import { RacialChart } from '@/components/charts/RacialChart';
 import { SourceDrawer } from '@/components/ui/SourceDrawer';
 import { NarrativeSection } from '../NarrativeSection';
+import { UnevenDoors } from '@/components/illustrations';
 
 export function RacialSection() {
   const { t } = useTranslation();
@@ -23,13 +24,15 @@ export function RacialSection() {
   const { poverty } = data;
 
   return (
-    <NarrativeSection id="racial" ariaLabel="Racial Inequality" className="py-16 md:py-24">
+    <NarrativeSection id="racial" ariaLabel="Racial Inequality" className="py-16 md:py-24 bg-gradient-to-b from-purple-50/30 to-transparent dark:from-purple-950/10">
       <div className="container-wide">
+        <UnevenDoors />
+
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: prefersReducedMotion ? 0 : 0.5 }}
-          viewport={{ once: true }}
+          viewport={{ }}
           className="mb-8"
         >
           <h2 className="section-header">{t('poverty.racialDistribution.title')}</h2>
@@ -50,7 +53,7 @@ export function RacialSection() {
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: prefersReducedMotion ? 0 : 0.3, delay: index * 0.1 }}
-                viewport={{ once: true }}
+                viewport={{ }}
               >
                 <div className="flex items-start justify-between">
                   <h4 className="font-medium">{t(racialGroupKeyMap[group.group] || group.group)}</h4>

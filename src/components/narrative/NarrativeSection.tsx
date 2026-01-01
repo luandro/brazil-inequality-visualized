@@ -22,7 +22,7 @@ export const NarrativeSection = forwardRef<HTMLElement, NarrativeSectionProps>(
         <motion.div
           initial={{ opacity: 0, y: prefersReducedMotion ? 0 : 30 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: '-100px' }}
+          viewport={{ margin: '-100px' }}
           transition={{ duration: prefersReducedMotion ? 0 : 0.5, ease: 'easeOut' }}
         >
           {children}

@@ -5,6 +5,7 @@ import { KPICard } from '@/components/ui/KPICard';
 import { WealthConcentrationPie } from '@/components/charts/WealthConcentrationPie';
 import { SourceDrawer } from '@/components/ui/SourceDrawer';
 import { NarrativeSection } from '../NarrativeSection';
+import { InequalitySlope } from '@/components/illustrations';
 
 export function InequalityGlanceSection() {
   const { t } = useTranslation();
@@ -16,13 +17,15 @@ export function InequalityGlanceSection() {
   const { poverty, wealth } = data;
 
   return (
-    <NarrativeSection id="truth" ariaLabel="Reality Dashboard" className="py-16 md:py-24">
+    <NarrativeSection id="truth" ariaLabel="Reality Dashboard" className="py-16 md:py-24 bg-gradient-to-b from-indigo-50/30 to-transparent dark:from-indigo-950/10">
       <div className="container-wide">
+        <InequalitySlope />
+
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: prefersReducedMotion ? 0 : 0.5 }}
-          viewport={{ once: true }}
+          viewport={{ }}
           className="mb-12"
         >
           <h2 className="text-display mb-4">{t('truth.title')}</h2>
@@ -79,7 +82,7 @@ export function InequalityGlanceSection() {
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: prefersReducedMotion ? 0 : 0.5 }}
-          viewport={{ once: true }}
+          viewport={{ }}
         >
           <h3 className="text-2xl font-semibold mb-2 text-center">
             {t('home.wealthConcentration.title')}

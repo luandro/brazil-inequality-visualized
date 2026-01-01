@@ -3,6 +3,7 @@ import { useTranslation } from 'react-i18next';
 import { useData } from '@/context/DataContext';
 import { SourceDrawer } from '@/components/ui/SourceDrawer';
 import { NarrativeSection } from '../NarrativeSection';
+import { PovertyWaterline } from '@/components/illustrations';
 
 export function PovertyLinesSection() {
   const { t } = useTranslation();
@@ -14,13 +15,15 @@ export function PovertyLinesSection() {
   const { poverty } = data;
 
   return (
-    <NarrativeSection id="poverty-lines" ariaLabel="Poverty Lines" className="py-16 md:py-24 bg-muted/30">
+    <NarrativeSection id="poverty-lines" ariaLabel="Poverty Lines" className="py-16 md:py-24 bg-gradient-to-b from-cyan-50/30 to-transparent dark:from-cyan-950/10">
       <div className="container-wide">
+        <PovertyWaterline />
+
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: prefersReducedMotion ? 0 : 0.5 }}
-          viewport={{ once: true }}
+          viewport={{ }}
           className="mb-8"
         >
           <h2 className="section-header">{t('poverty.povertyLines.title')}</h2>
@@ -35,7 +38,7 @@ export function PovertyLinesSection() {
             initial={{ opacity: 0, x: -20 }}
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: prefersReducedMotion ? 0 : 0.5 }}
-            viewport={{ once: true }}
+            viewport={{ }}
           >
             <div className="flex items-start justify-between">
               <h3 className="font-semibold text-lg text-destructive mb-4">{t('poverty.povertyLines.extremePoverty')}</h3>
@@ -62,7 +65,7 @@ export function PovertyLinesSection() {
             initial={{ opacity: 0, x: 20 }}
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: prefersReducedMotion ? 0 : 0.5 }}
-            viewport={{ once: true }}
+            viewport={{ }}
           >
             <div className="flex items-start justify-between">
               <h3 className="font-semibold text-lg text-accent mb-4">{t('poverty.povertyLines.poverty')}</h3>

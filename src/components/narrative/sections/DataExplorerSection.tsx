@@ -47,7 +47,7 @@ export function DataExplorerSection() {
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: prefersReducedMotion ? 0 : 0.5 }}
-          viewport={{ once: true }}
+          viewport={{ }}
         >
           <h2 className="text-display mb-4 flex items-center gap-3">
             <Database className="w-10 h-10" /> {t('dataExplorer.title')}
@@ -62,7 +62,7 @@ export function DataExplorerSection() {
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: prefersReducedMotion ? 0 : 0.5 }}
-          viewport={{ once: true }}
+          viewport={{ }}
         >
           {Object.entries(data).map(([k, v]) => (
             <TreeNode key={k} name={k} value={v} path={k} />

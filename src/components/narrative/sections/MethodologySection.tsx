@@ -18,7 +18,7 @@ export function MethodologySection() {
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: prefersReducedMotion ? 0 : 0.5 }}
-          viewport={{ once: true }}
+          viewport={{ }}
         >
           <h2 className="text-display mb-4 flex items-center gap-3">
             <BookOpen className="w-10 h-10" />
@@ -43,7 +43,7 @@ export function MethodologySection() {
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: prefersReducedMotion ? 0 : 0.3, delay: index * 0.05 }}
-              viewport={{ once: true }}
+              viewport={{ }}
             >
               <div className="flex items-start justify-between gap-2">
                 <h4 className="font-semibold">{source.name}</h4>
@@ -78,7 +78,7 @@ export function MethodologySection() {
             initial={{ opacity: 0, x: -20 }}
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: prefersReducedMotion ? 0 : 0.5 }}
-            viewport={{ once: true }}
+            viewport={{ }}
           >
             <h4 className="font-semibold mb-4">{t('methodology.dataQuality.reliabilityRatings')}</h4>
             <div className="space-y-3">
@@ -97,7 +97,7 @@ export function MethodologySection() {
             initial={{ opacity: 0, x: 20 }}
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: prefersReducedMotion ? 0 : 0.5 }}
-            viewport={{ once: true }}
+            viewport={{ }}
           >
             <h4 className="font-semibold mb-4">{t('methodology.dataQuality.knownLimitations')}</h4>
             <ul className="space-y-2 text-sm text-muted-foreground">
