@@ -63,13 +63,13 @@ export function HeroSection({ onScrollDown }: HeroSectionProps) {
       {/* Scroll indicator */}
       <motion.button
         onClick={onScrollDown}
-        className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 text-muted-foreground hover:text-foreground transition-colors"
+        className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 text-muted-foreground hover:text-foreground transition-colors px-4"
         initial={{ opacity: 0, y: -10 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ delay: 1, duration: prefersReducedMotion ? 0 : 0.5 }}
         aria-label={t('home.hero.scrollToExplore')}
       >
-        <span className="text-xs font-medium uppercase tracking-wider text-center">{t('home.hero.scrollToExplore')}</span>
+        <span className="text-xs font-medium uppercase tracking-wider text-center whitespace-nowrap">{t('home.hero.scrollToExplore')}</span>
         <motion.div
           animate={{ y: [0, 8, 0] }}
           transition={{ repeat: Infinity, duration: 1.5, ease: 'easeInOut' }}
