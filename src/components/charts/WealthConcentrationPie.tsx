@@ -1,6 +1,7 @@
-import { useMemo } from 'react';
+import { useMemo, useState, useRef, useEffect } from 'react';
 import { PieChart, Pie, Cell, Tooltip, Legend, ResponsiveContainer } from 'recharts';
 import { useTranslation } from 'react-i18next';
+import { useReducedMotion } from 'framer-motion';
 
 interface WealthConcentrationPieProps {
   millionaireCount: number;
@@ -37,6 +38,28 @@ export function WealthConcentrationPie({
   wealthShare,
 }: WealthConcentrationPieProps) {
   const { t } = useTranslation();
+  const shouldReduceMotion = useReducedMotion();
+  const [isInView, setIsInView] = useState(false);
+  const containerRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        setIsInView(entry.isIntersecting);
+      },
+      { threshold: 0.2, rootMargin: '-100px' }
+    );
+
+    if (containerRef.current) {
+      observer.observe(containerRef.current);
+    }
+
+    return () => {
+      if (containerRef.current) {
+        observer.unobserve(containerRef.current);
+      }
+    };
+  }, []);
 
   const pieData = useMemo<PieData[]>(() => {
     const populationPercentage = (millionaireCount / totalPopulation) * 100;
@@ -99,7 +122,11 @@ export function WealthConcentrationPie({
   };
 
   return (
-    <div role="img" aria-label={`Wealth concentration chart showing ${populationLabel}% of population holds ${wealthShare}% of wealth`}>
+    <div
+      ref={containerRef}
+      role="img"
+      aria-label={`Wealth concentration chart showing ${populationLabel}% of population holds ${wealthShare}% of wealth`}
+    >
       <ResponsiveContainer width="100%" height={350}>
         <PieChart>
           <Pie
@@ -119,6 +146,10 @@ export function WealthConcentrationPie({
             outerRadius={100}
             fill="#8884d8"
             dataKey="value"
+            isAnimationActive={shouldReduceMotion ? false : isInView}
+            animationBegin={0}
+            animationDuration={shouldReduceMotion ? 0 : 800}
+            animationEasing="ease-out"
           >
             {pieData.map((entry, index) => (
               <Cell
