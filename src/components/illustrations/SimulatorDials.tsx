@@ -81,7 +81,7 @@ export function SimulatorDials() {
                   x1={dial.cx}
                   y1={dial.cy}
                   x2={dial.cx}
-                  y2={dial.cy - 18}
+                  y2={dial.cy - 22}
                   stroke="currentColor"
                   strokeWidth="2.5"
                   className="text-accent"
