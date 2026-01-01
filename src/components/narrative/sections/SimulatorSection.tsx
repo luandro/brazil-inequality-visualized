@@ -26,7 +26,7 @@ export function SimulatorSection() {
   if (!data) return null;
 
   const { poverty, wealth } = data;
-  const regionalAlloc = 100 - povertyAlloc - servicesAlloc;
+  const regionalAlloc = Math.max(0, 100 - povertyAlloc - servicesAlloc);
 
   // Simulation calculations (clearly marked as assumptions)
   const taxableWealth = taxBase === 'millionaires' 
@@ -187,7 +187,7 @@ export function SimulatorSection() {
             <h3 className="font-semibold text-lg mb-6 flex items-center gap-2">
               <Calculator className="w-5 h-5" /> {t('simulator.results.title')}
             </h3>
-            <div className="space-y-6">
+            <div className="space-y-6" aria-live="polite">
               <motion.div
                 className="p-4 bg-secondary/10 rounded-lg flex items-center gap-4"
                 key={annualRevenue}

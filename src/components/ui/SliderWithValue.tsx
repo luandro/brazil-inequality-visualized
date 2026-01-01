@@ -1,4 +1,3 @@
-import { useState } from 'react';
 import { Slider } from '@/components/ui/slider';
 import { motion } from 'framer-motion';
 import { HelpCircle } from 'lucide-react';
@@ -32,8 +31,6 @@ export function SliderWithValue({
   formatValue,
   className
 }: SliderWithValueProps) {
-  const [isHovering, setIsHovering] = useState(false);
-
   const displayValue = formatValue ? formatValue(value[0]) : value[0];
 
   return (
@@ -64,11 +61,7 @@ export function SliderWithValue({
           {displayValue}
         </motion.span>
       </div>
-      <div
-        className="relative"
-        onMouseEnter={() => setIsHovering(true)}
-        onMouseLeave={() => setIsHovering(false)}
-      >
+      <div className="relative">
         <Slider
           value={value}
           onValueChange={onValueChange}

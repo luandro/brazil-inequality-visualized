@@ -15,7 +15,7 @@ export function WorkforceGears() {
         <motion.g
           initial={{ rotate: 0 }}
           whileInView={{ rotate: shouldReduceMotion ? 0 : 360 }}
-          viewport={{ once: true, margin: "-100px" }}
+          viewport={{ margin: "-100px" }}
           transition={{
             duration: shouldReduceMotion ? 0 : 4,
             ease: "linear",
@@ -63,7 +63,7 @@ export function WorkforceGears() {
         <motion.g
           initial={{ rotate: 0 }}
           whileInView={{ rotate: shouldReduceMotion ? 0 : -360 }}
-          viewport={{ once: true, margin: "-100px" }}
+          viewport={{ margin: "-100px" }}
           transition={{
             duration: shouldReduceMotion ? 0 : 3,
             ease: "linear",
@@ -111,7 +111,7 @@ export function WorkforceGears() {
         <motion.g
           initial={{ rotate: 0 }}
           whileInView={{ rotate: shouldReduceMotion ? 0 : 360 }}
-          viewport={{ once: true, margin: "-100px" }}
+          viewport={{ margin: "-100px" }}
           transition={{
             duration: shouldReduceMotion ? 0 : 2.5,
             ease: "linear",

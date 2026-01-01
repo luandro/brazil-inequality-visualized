@@ -1,4 +1,4 @@
-import { useEffect, useState, useCallback } from 'react';
+import { useEffect, useState, useCallback, useRef } from 'react';
 import { useTranslation } from 'react-i18next';
 import { motion, useReducedMotion } from 'framer-motion';
 import { 
@@ -143,10 +143,23 @@ export function ChapterNav({ activeSection, onChapterClick }: ChapterNavProps) {
           {chapters.filter(ch => ch.id !== 'deprecated').map((chapter) => {
             const isActive = activeSection === chapter.id;
             const Icon = chapter.icon;
+            const buttonRef = useRef<HTMLButtonElement>(null);
+
+            // Scroll active button into view
+            useEffect(() => {
+              if (isActive && buttonRef.current) {
+                buttonRef.current.scrollIntoView({
+                  behavior: 'smooth',
+                  block: 'nearest',
+                  inline: 'center'
+                });
+              }
+            }, [isActive]);
 
             return (
               <motion.button
                 key={chapter.id}
+                ref={buttonRef}
                 onClick={() => onChapterClick(chapter.id)}
                 className={`relative flex items-center justify-center p-2 rounded-full transition-all flex-shrink-0 ${
                   isActive
