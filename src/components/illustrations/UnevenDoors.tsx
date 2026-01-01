@@ -17,8 +17,8 @@ export function UnevenDoors() {
           { x: 65, y: 55, width: 30, height: 65, delay: 0.2 },
           { x: 110, y: 80, width: 30, height: 40, delay: 0.4 },
           { x: 155, y: 60, width: 30, height: 60, delay: 0.6 }
-        ].map((door, i) => (
-          <g key={i}>
+        ].map((door) => (
+          <g key={`door-${door.x}-${door.y}`}>
             {/* Door frame */}
             <motion.rect
               x={door.x}

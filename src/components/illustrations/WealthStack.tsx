@@ -1,7 +1,11 @@
 import { motion, useReducedMotion } from 'framer-motion';
+import { useTranslation } from 'react-i18next';
+import { useId } from 'react';
 
 export function WealthStack() {
   const shouldReduceMotion = useReducedMotion();
+  const { t } = useTranslation();
+  const arrowheadId = useId();
 
   return (
     <div className="w-full max-w-md mx-auto mb-12">
@@ -9,7 +13,7 @@ export function WealthStack() {
         viewBox="0 0 200 120"
         className="w-full h-auto"
         xmlns="http://www.w3.org/2000/svg"
-        aria-label="Wealth concentration visualization - stacking coins"
+        aria-label={t('wealth.title')}
       >
         {/* Stacks of coins of different heights */}
         {[
@@ -18,12 +22,12 @@ export function WealthStack() {
           { x: 90, coins: 5, delay: 0.2 },
           { x: 120, coins: 7, delay: 0.3 },
           { x: 150, coins: 9, delay: 0.4 }
-        ].map((stack, stackIdx) => (
-          <g key={stackIdx}>
+        ].map((stack) => (
+          <g key={`stack-${stack.x}`}>
             {Array.from({ length: stack.coins }).map((_, coinIdx) => {
               const y = 110 - coinIdx * 10;
               return (
-                <motion.g key={coinIdx}>
+                <motion.g key={`coin-${stack.x}-${coinIdx}`}>
                   {/* Coin ellipse */}
                   <motion.ellipse
                     cx={stack.x}
@@ -32,12 +36,12 @@ export function WealthStack() {
                     ry="5"
                     className="fill-accent/80 stroke-accent"
                     strokeWidth="1.5"
-                    initial={{ y: -20, opacity: 0 }}
-                    whileInView={{ y: 0, opacity: 1 }}
+                    initial={{ opacity: 0, scale: 0 }}
+                    whileInView={{ opacity: 1, scale: 1 }}
                     viewport={{ once: true, margin: "-100px" }}
                     style={{ transformOrigin: `${stack.x}px ${y}px` }}
                     transition={{
-                      duration: shouldReduceMotion ? 0 : 0.3,
+                      duration: shouldReduceMotion ? 0 : 0.4,
                       delay: shouldReduceMotion ? 0 : stack.delay + coinIdx * 0.1,
                       ease: "easeOut"
                     }}
@@ -64,6 +68,21 @@ export function WealthStack() {
           </g>
         ))}
 
+        {/* Arrow marker definition - must be before use */}
+        <defs>
+          <marker
+            id={arrowheadId}
+            markerWidth="10"
+            markerHeight="10"
+            refX="9"
+            refY="3"
+            orient="auto"
+            className="fill-primary/60"
+          >
+            <polygon points="0 0, 10 3, 0 6" />
+          </marker>
+        </defs>
+
         {/* Arrow showing concentration */}
         <motion.g
           initial={{ opacity: 0, x: -10 }}
@@ -79,7 +98,7 @@ export function WealthStack() {
             stroke="currentColor"
             strokeWidth="1.5"
             className="text-primary/60"
-            markerEnd="url(#arrowhead)"
+            markerEnd={`url(#${arrowheadId})`}
           />
           <text
             x="90"
@@ -87,24 +106,9 @@ export function WealthStack() {
             textAnchor="middle"
             className="text-[8px] fill-primary/80 font-medium"
           >
-            Concentration →
+            {t('wealth.millionairePopulation.concentrationRatio')} →
           </text>
         </motion.g>
-
-        {/* Arrow marker definition */}
-        <defs>
-          <marker
-            id="arrowhead"
-            markerWidth="10"
-            markerHeight="10"
-            refX="9"
-            refY="3"
-            orient="auto"
-            className="fill-primary/60"
-          >
-            <polygon points="0 0, 10 3, 0 6" />
-          </marker>
-        </defs>
 
         {/* Base line */}
         <motion.line

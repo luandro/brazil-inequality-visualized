@@ -16,8 +16,8 @@ export function SimulatorDials() {
           { cx: 50, cy: 60, delay: 0, angle: -45 },
           { cx: 100, cy: 60, delay: 0.2, angle: 0 },
           { cx: 150, cy: 60, delay: 0.4, angle: 45 }
-        ].map((dial, i) => (
-          <g key={i}>
+        ].map((dial) => (
+          <g key={`dial-${dial.cx}`}>
             {/* Dial background circle */}
             <motion.circle
               cx={dial.cx}
@@ -96,7 +96,7 @@ export function SimulatorDials() {
               const y2 = dial.cy - 25 * Math.cos(rad);
               return (
                 <motion.line
-                  key={tickIdx}
+                  key={`tick-${dial.cx}-${tickAngle}`}
                   x1={x1}
                   y1={y1}
                   x2={x2}

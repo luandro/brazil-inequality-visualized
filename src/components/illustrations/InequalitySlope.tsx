@@ -39,9 +39,9 @@ export function InequalitySlope() {
           { cx: 130, cy: 40, delay: 0.9 },
           { cx: 150, cy: 32, delay: 1.0 },
           { cx: 170, cy: 24, delay: 1.1 }
-        ].map((dot, i) => (
+        ].map((dot) => (
           <motion.circle
-            key={i}
+            key={`dot-${dot.cx}-${dot.cy}`}
             cx={dot.cx}
             cy={dot.cy}
             r="3"

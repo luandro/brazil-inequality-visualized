@@ -30,13 +30,13 @@ export function WorkforceGears() {
             className="fill-none stroke-primary"
             strokeWidth="2"
           />
-          {[0, 60, 120, 180, 240, 300].map((angle, i) => {
+          {[0, 60, 120, 180, 240, 300].map((angle) => {
             const rad = (angle * Math.PI) / 180;
             const x = 60 + 35 * Math.cos(rad);
             const y = 60 + 35 * Math.sin(rad);
             return (
               <rect
-                key={i}
+                key={`large-tooth-${angle}`}
                 x={x - 3}
                 y={y - 6}
                 width="6"
@@ -78,13 +78,13 @@ export function WorkforceGears() {
             className="fill-none stroke-secondary"
             strokeWidth="2"
           />
-          {[0, 72, 144, 216, 288].map((angle, i) => {
+          {[0, 72, 144, 216, 288].map((angle) => {
             const rad = (angle * Math.PI) / 180;
             const x = 140 + 26 * Math.cos(rad);
             const y = 60 + 26 * Math.sin(rad);
             return (
               <rect
-                key={i}
+                key={`medium-tooth-${angle}`}
                 x={x - 2.5}
                 y={y - 5}
                 width="5"
@@ -126,13 +126,13 @@ export function WorkforceGears() {
             className="fill-none stroke-accent"
             strokeWidth="1.5"
           />
-          {[0, 90, 180, 270].map((angle, i) => {
+          {[0, 90, 180, 270].map((angle) => {
             const rad = (angle * Math.PI) / 180;
             const x = 100 + 18 * Math.cos(rad);
             const y = 25 + 18 * Math.sin(rad);
             return (
               <rect
-                key={i}
+                key={`small-tooth-${angle}`}
                 x={x - 2}
                 y={y - 4}
                 width="4"

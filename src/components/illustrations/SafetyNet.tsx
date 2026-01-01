@@ -63,7 +63,7 @@ export function SafetyNet() {
           { cx: 145, cy: 22, targetY: 48 }
         ].map((dot, i) => (
           <motion.circle
-            key={i}
+            key={`dot-${dot.cx}-${dot.cy}`}
             cx={dot.cx}
             cy={dot.cy}
             r="3"

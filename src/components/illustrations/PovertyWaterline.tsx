@@ -1,7 +1,9 @@
 import { motion, useReducedMotion } from 'framer-motion';
+import { useTranslation } from 'react-i18next';
 
 export function PovertyWaterline() {
   const shouldReduceMotion = useReducedMotion();
+  const { t } = useTranslation();
 
   return (
     <div className="w-full max-w-md mx-auto mb-12">
@@ -9,7 +11,7 @@ export function PovertyWaterline() {
         viewBox="0 0 200 120"
         className="w-full h-auto"
         xmlns="http://www.w3.org/2000/svg"
-        aria-label="Poverty line visualization - waterline"
+        aria-label={t('poverty.povertyLines.title')}
       >
         {/* Wavy poverty line (extreme) */}
         <motion.path
@@ -73,7 +75,7 @@ export function PovertyWaterline() {
             delay: shouldReduceMotion ? 0 : 0.8
           }}
         >
-          Standard
+          {t('poverty.povertyLines.poverty')}
         </motion.text>
 
         <motion.text
@@ -88,7 +90,7 @@ export function PovertyWaterline() {
             delay: shouldReduceMotion ? 0 : 1.0
           }}
         >
-          Extreme
+          {t('poverty.povertyLines.extremePoverty')}
         </motion.text>
       </svg>
     </div>

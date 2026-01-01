@@ -18,9 +18,9 @@ export function FragmentedGround() {
           { x: 85, y: 40, width: 32, height: 80, delay: 0.2 },
           { x: 122, y: 70, width: 28, height: 50, delay: 0.3 },
           { x: 155, y: 55, width: 35, height: 65, delay: 0.4 }
-        ].map((fragment, i) => (
+        ].map((fragment) => (
           <motion.rect
-            key={i}
+            key={`fragment-${fragment.x}-${fragment.y}`}
             x={fragment.x}
             y={fragment.y}
             width={fragment.width}
@@ -47,7 +47,7 @@ export function FragmentedGround() {
           { x1: 150, y1: 50, x2: 155, y2: 120 }
         ].map((crack, i) => (
           <motion.line
-            key={i}
+            key={`crack-${crack.x1}-${crack.x2}`}
             x1={crack.x1}
             y1={crack.y1}
             x2={crack.x2}
