@@ -106,14 +106,14 @@ export function WealthConcentrationPie({
 
   const CustomLegend = ({ payload }: CustomLegendProps) => {
     return (
-      <div className="flex justify-center gap-6 mt-4 flex-wrap">
+      <div className="flex justify-center gap-8 md:gap-12 mt-6 flex-wrap">
         {payload?.map((entry, index) => (
-          <div key={`legend-${index}`} className="flex items-center gap-2">
+          <div key={`legend-${index}`} className="flex items-center gap-3">
             <div
-              className="w-3 h-3 rounded-sm"
+              className="w-4 h-4 rounded-sm"
               style={{ backgroundColor: entry.color }}
             />
-            <span className="text-sm font-medium text-foreground">
+            <span className="text-base md:text-lg font-medium text-foreground">
               {entry.value}
             </span>
           </div>
@@ -128,7 +128,7 @@ export function WealthConcentrationPie({
       role="img"
       aria-label={`Wealth concentration chart showing ${populationLabel}% of population holds ${wealthShare}% of wealth`}
     >
-      <ResponsiveContainer width="100%" height={350}>
+      <ResponsiveContainer width="100%" height={400}>
         <PieChart>
           <Pie
             data={pieData}
@@ -138,13 +138,13 @@ export function WealthConcentrationPie({
             label={(entry) => (
               <text
                 fill="hsl(var(--background))"
-                fontSize="14"
+                fontSize="16"
                 fontWeight="600"
               >
                 {entry.value.toFixed(1)}%
               </text>
             )}
-            outerRadius={100}
+            outerRadius={130}
             fill="#8884d8"
             dataKey="value"
             isAnimationActive={shouldReduceMotion ? false : isInView}

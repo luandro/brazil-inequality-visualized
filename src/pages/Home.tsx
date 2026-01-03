@@ -159,16 +159,16 @@ export default function Home() {
 
           {/* Wealth Concentration Chart */}
           <motion.div
-            className="mt-12 max-w-3xl mx-auto"
+            className="mt-12 max-w-4xl md:max-w-5xl lg:max-w-6xl mx-auto"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: prefersReducedMotion ? 0 : 0.5 }}
             viewport={{ once: true }}
           >
-            <h3 className="text-2xl font-semibold mb-2 text-center">
+            <h3 className="text-2xl md:text-3xl font-semibold mb-3 text-center">
               {t('home.wealthConcentration.title')}
             </h3>
-            <p className="text-muted-foreground text-center mb-8">
+            <p className="text-muted-foreground text-center mb-8 text-base md:text-lg">
               {t('home.wealthConcentration.description')}
             </p>
 

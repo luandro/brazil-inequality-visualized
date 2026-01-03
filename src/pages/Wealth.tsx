@@ -242,32 +242,32 @@ export default function Wealth() {
       {/* Visual Comparison */}
       <section className="py-12 bg-muted/30">
         <div className="container-wide">
-          <div className="glass-card p-8 text-center">
-            <h3 className="font-semibold text-lg mb-8">{t('wealth.wealthGapVisualized.title')}</h3>
-            
-            <div className="flex items-end justify-center gap-8 h-48 mb-6">
+          <div className="glass-card p-8 md:p-12 text-center">
+            <h3 className="font-semibold text-lg md:text-xl mb-8 md:mb-12">{t('wealth.wealthGapVisualized.title')}</h3>
+
+            <div className="flex items-end justify-center gap-12 md:gap-16 lg:gap-20 h-64 md:h-80 lg:h-96 mb-8">
               <div className="text-center">
                 <div
-                  className="w-16 bg-gradient-to-t from-destructive to-red-400 rounded-t-lg mx-auto mb-2"
-                  style={{ height: `${wealth.millionaire_population.estimated_wealth_share_percentage * 3}px` }}
+                  className="w-20 md:w-24 lg:w-32 bg-gradient-to-t from-destructive to-red-400 rounded-t-lg mx-auto mb-4 transition-transform hover:scale-105 cursor-pointer"
+                  style={{ height: `${wealth.millionaire_population.estimated_wealth_share_percentage * 4}px` }}
                 />
-                <p className="font-bold">{wealth.millionaire_population.estimated_wealth_share_percentage}%</p>
-                <p className="text-xs text-muted-foreground">{t('wealth.wealthGapVisualized.wealthHeldBy')}</p>
-                <p className="text-xs text-muted-foreground">{t('wealth.wealthGapVisualized.millionaires')}</p>
+                <p className="font-bold text-lg md:text-xl">{wealth.millionaire_population.estimated_wealth_share_percentage}%</p>
+                <p className="text-xs md:text-sm text-muted-foreground mt-2">{t('wealth.wealthGapVisualized.wealthHeldBy')}</p>
+                <p className="text-xs md:text-sm text-muted-foreground">{t('wealth.wealthGapVisualized.millionaires')}</p>
               </div>
 
               <div className="text-center">
                 <div
-                  className="w-16 bg-gradient-to-t from-secondary to-cyan-400 rounded-t-lg mx-auto mb-2"
-                  style={{ height: `${(100 - wealth.millionaire_population.estimated_wealth_share_percentage) * 3}px` }}
+                  className="w-20 md:w-24 lg:w-32 bg-gradient-to-t from-secondary to-cyan-400 rounded-t-lg mx-auto mb-4 transition-transform hover:scale-105 cursor-pointer"
+                  style={{ height: `${(100 - wealth.millionaire_population.estimated_wealth_share_percentage) * 4}px` }}
                 />
-                <p className="font-bold">{(100 - wealth.millionaire_population.estimated_wealth_share_percentage).toFixed(1)}%</p>
-                <p className="text-xs text-muted-foreground">{t('wealth.wealthGapVisualized.wealthHeldBy')}</p>
-                <p className="text-xs text-muted-foreground">{t('wealth.wealthGapVisualized.everyoneElse')}</p>
+                <p className="font-bold text-lg md:text-xl">{(100 - wealth.millionaire_population.estimated_wealth_share_percentage).toFixed(1)}%</p>
+                <p className="text-xs md:text-sm text-muted-foreground mt-2">{t('wealth.wealthGapVisualized.wealthHeldBy')}</p>
+                <p className="text-xs md:text-sm text-muted-foreground">{t('wealth.wealthGapVisualized.everyoneElse')}</p>
               </div>
             </div>
 
-            <p className="text-sm text-muted-foreground max-w-lg mx-auto">
+            <p className="text-sm md:text-base text-muted-foreground max-w-2xl mx-auto">
               {t('wealth.wealthGapVisualized.description', { percent: wealth.millionaire_population.percentage_of_population })}
             </p>
           </div>
