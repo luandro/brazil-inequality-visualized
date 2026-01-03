@@ -1,4 +1,4 @@
-import { useEffect, useState, useCallback, useRef } from 'react';
+import { useEffect, useState, useRef } from 'react';
 import { useTranslation } from 'react-i18next';
 import { motion, useReducedMotion } from 'framer-motion';
 import { 
@@ -114,6 +114,7 @@ export function ChapterNav({ activeSection, onChapterClick }: ChapterNavProps) {
   const { t } = useTranslation();
   const prefersReducedMotion = useReducedMotion();
   const [isVisible, setIsVisible] = useState(false);
+  const buttonRefs = useRef<Record<string, HTMLButtonElement | null>>({});
 
   useEffect(() => {
     const handleScroll = () => {
@@ -124,6 +125,17 @@ export function ChapterNav({ activeSection, onChapterClick }: ChapterNavProps) {
     handleScroll();
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
+
+  useEffect(() => {
+    const activeButton = buttonRefs.current[activeSection];
+    if (activeButton) {
+      activeButton.scrollIntoView({
+        behavior: prefersReducedMotion ? 'auto' : 'smooth',
+        block: 'nearest',
+        inline: 'nearest'
+      });
+    }
+  }, [activeSection, prefersReducedMotion]);
 
   return (
     <>
@@ -136,7 +148,7 @@ export function ChapterNav({ activeSection, onChapterClick }: ChapterNavProps) {
           pointerEvents: isVisible ? 'auto' : 'none'
         }}
         transition={{ duration: prefersReducedMotion ? 0 : 0.3 }}
-        className="fixed left-4 top-1/2 -translate-y-1/2 z-40 hidden xl:flex flex-col gap-1 bg-background/90 backdrop-blur-xl rounded-xl px-2 pt-2 pb-8 border border-border/50 shadow-xl max-h-[calc(100vh-2rem)] overflow-y-auto scrollbar-hide"
+        className="fixed left-4 top-1/2 -translate-y-1/2 z-40 hidden xl:flex flex-col gap-0.5 bg-background/90 backdrop-blur-xl rounded-xl p-2 border border-border/50 shadow-xl max-h-[calc(100vh-1rem)] overflow-y-auto scrollbar-hide"
         aria-label="Chapter navigation"
       >
         {chapters.map((chapter) => {
@@ -146,8 +158,11 @@ export function ChapterNav({ activeSection, onChapterClick }: ChapterNavProps) {
           return (
             <motion.button
               key={chapter.id}
+              ref={(node) => {
+                buttonRefs.current[chapter.id] = node;
+              }}
               onClick={() => onChapterClick(chapter.id)}
-              className={`group relative flex items-center gap-2 p-2.5 rounded-lg transition-all ${
+              className={`group relative flex items-center gap-2 p-2 rounded-lg transition-all ${
                 isActive
                   ? 'bg-secondary text-primary-foreground shadow-md scale-105'
                   : 'hover:bg-muted text-muted-foreground hover:text-foreground hover:scale-105'
@@ -157,7 +172,7 @@ export function ChapterNav({ activeSection, onChapterClick }: ChapterNavProps) {
               whileHover={{ scale: prefersReducedMotion ? 1 : 1.05 }}
               whileTap={{ scale: prefersReducedMotion ? 1 : 0.95 }}
             >
-              <Icon className={`w-5 h-5 flex-shrink-0 transition-transform ${isActive ? 'scale-110' : ''}`} />
+              <Icon className={`w-4 h-4 flex-shrink-0 transition-transform ${isActive ? 'scale-105' : ''}`} />
 
               {isActive && (
                 <motion.div
