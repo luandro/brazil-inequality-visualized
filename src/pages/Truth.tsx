@@ -6,6 +6,7 @@ import { ComparisonBar } from '@/components/charts/ComparisonBar';
 import { RegionalChart } from '@/components/charts/RegionalChart';
 import { RacialChart } from '@/components/charts/RacialChart';
 import { SourceDrawer } from '@/components/ui/SourceDrawer';
+import { LiquidCircleImage } from '@/components/ui/LiquidCircleImage';
 import { AlertTriangle } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
 
@@ -92,10 +93,21 @@ export default function Truth() {
             viewport={{ once: true }}
             className="mb-8"
           >
-            <h2 className="section-header">{t('truth.sectionA.title')}</h2>
-            <p className="text-muted-foreground">
-              {t('truth.sectionA.description')}
-            </p>
+            <div className="relative">
+              <div className="absolute left-0 top-0 -z-10">
+                <LiquidCircleImage
+                  src="/img/A.png"
+                  alt=""
+                  size={120}
+                />
+              </div>
+              <div className="pl-8 pt-4">
+                <h2 className="section-header">{t('truth.sectionA.title')}</h2>
+                <p className="text-muted-foreground">
+                  {t('truth.sectionA.description')}
+                </p>
+              </div>
+            </div>
           </motion.div>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
@@ -340,10 +352,21 @@ export default function Truth() {
             viewport={{ once: true }}
             className="mb-8"
           >
-            <h2 className="section-header">{t('truth.sectionB.title')}</h2>
-            <p className="text-muted-foreground">
-              {t('truth.sectionB.description')}
-            </p>
+            <div className="relative">
+              <div className="absolute left-0 top-0 -z-10">
+                <LiquidCircleImage
+                  src="/img/B.png"
+                  alt=""
+                  size={120}
+                />
+              </div>
+              <div className="pl-8 pt-4">
+                <h2 className="section-header">{t('truth.sectionB.title')}</h2>
+                <p className="text-muted-foreground">
+                  {t('truth.sectionB.description')}
+                </p>
+              </div>
+            </div>
           </motion.div>
 
           <div className="grid sm:grid-cols-2 gap-6">
@@ -396,10 +419,21 @@ export default function Truth() {
             viewport={{ once: true }}
             className="mb-8"
           >
-            <h2 className="section-header">{t('truth.sectionC.title')}</h2>
-            <p className="text-muted-foreground">
-              {t('truth.sectionC.description')}
-            </p>
+            <div className="relative">
+              <div className="absolute left-0 top-0 -z-10">
+                <LiquidCircleImage
+                  src="/img/C.png"
+                  alt=""
+                  size={120}
+                />
+              </div>
+              <div className="pl-8 pt-4">
+                <h2 className="section-header">{t('truth.sectionC.title')}</h2>
+                <p className="text-muted-foreground">
+                  {t('truth.sectionC.description')}
+                </p>
+              </div>
+            </div>
           </motion.div>
 
           <div className="grid lg:grid-cols-2 gap-6">
@@ -433,10 +467,21 @@ export default function Truth() {
             viewport={{ once: true }}
             className="mb-8"
           >
-            <h2 className="section-header">{t('truth.sectionD.title')}</h2>
-            <p className="text-muted-foreground">
-              {t('truth.sectionD.description')}
-            </p>
+            <div className="relative">
+              <div className="absolute left-0 top-0 -z-10">
+                <LiquidCircleImage
+                  src="/img/D.png"
+                  alt=""
+                  size={120}
+                />
+              </div>
+              <div className="pl-8 pt-4">
+                <h2 className="section-header">{t('truth.sectionD.title')}</h2>
+                <p className="text-muted-foreground">
+                  {t('truth.sectionD.description')}
+                </p>
+              </div>
+            </div>
           </motion.div>
 
           <RegionalChart data={poverty.regional_distribution} title={t('truth.sectionD.chartTitle')} />
@@ -453,10 +498,21 @@ export default function Truth() {
             viewport={{ once: true }}
             className="mb-8"
           >
-            <h2 className="section-header">{t('truth.sectionE.title')}</h2>
-            <p className="text-muted-foreground">
-              {t('truth.sectionE.description')}
-            </p>
+            <div className="relative">
+              <div className="absolute left-0 top-0 -z-10">
+                <LiquidCircleImage
+                  src="/img/E.png"
+                  alt=""
+                  size={120}
+                />
+              </div>
+              <div className="pl-8 pt-4">
+                <h2 className="section-header">{t('truth.sectionE.title')}</h2>
+                <p className="text-muted-foreground">
+                  {t('truth.sectionE.description')}
+                </p>
+              </div>
+            </div>
           </motion.div>
 
           <RacialChart data={poverty.racial_distribution} title={t('truth.sectionE.chartTitle')} />
