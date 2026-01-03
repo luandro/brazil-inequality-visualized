@@ -3,20 +3,94 @@ import { motion, useReducedMotion } from 'framer-motion';
 export function FragmentedGround() {
   const shouldReduceMotion = useReducedMotion();
 
+  // Regional poverty data (accurate to dataset.json)
+  // Heights are proportional to poverty rates for accurate visualization
+  const getMaxHeight = () => 110;
+  const getMinHeight = () => 30;
+
+  const calculateHeight = (rate: number) => {
+    const maxHeight = getMaxHeight();
+    const minHeight = getMinHeight();
+    const maxRate = 43.6; // Northeast
+    const minRate = 12.1; // South
+    return minHeight + ((rate - minRate) / (maxRate - minRate)) * (maxHeight - minHeight);
+  };
+
+  const calculateTopY = (rate: number) => {
+    return 120 - calculateHeight(rate);
+  };
+
+  // Color scheme matches RegionalChart.tsx
+  const COLORS = {
+    high: 'hsl(355, 80%, 56%)',    // deficit/red
+    medium: 'hsl(43, 100%, 50%)',  // amber/neutral
+    low: 'hsl(187, 100%, 45%)',    // cyan/insight
+  };
+
+  const getColor = (rate: number) => {
+    if (rate >= 35) return COLORS.high;
+    if (rate >= 20) return COLORS.medium;
+    return COLORS.low;
+  };
+
   // Five regions at different poverty levels (heights represent inequality)
   const regions = [
-    { x: 8, topY: 65, height: 55, label: 'N', delay: 0, color: 'destructive' },      // North - highest poverty
-    { x: 48, topY: 50, height: 70, label: 'NE', delay: 0.1, color: 'destructive' },  // Northeast - high poverty
-    { x: 88, topY: 25, height: 95, label: 'CO', delay: 0.2, color: 'secondary' },    // Center-West - medium
-    { x: 128, topY: 15, height: 105, label: 'S', delay: 0.3, color: 'primary' },     // South - lower poverty
-    { x: 168, topY: 10, height: 110, label: 'SE', delay: 0.4, color: 'primary' }     // Southeast - lowest poverty
+    {
+      x: 8,
+      topY: calculateTopY(43.6),
+      height: calculateHeight(43.6),
+      label: 'NE',
+      delay: 0,
+      color: getColor(43.6),
+      fillOpacity: '0.15',
+      povertyRate: 43.6,
+      population: 57.1
+    },  // Northeast - HIGHEST poverty (43.6%)
+    {
+      x: 48,
+      topY: calculateTopY(38.9),
+      height: calculateHeight(38.9),
+      label: 'N',
+      delay: 0.1,
+      color: getColor(38.9),
+      fillOpacity: '0.15',
+      povertyRate: 38.9,
+      population: 18.4
+    },  // North - HIGH poverty (38.9%)
+    {
+      x: 88,
+      topY: calculateTopY(18.2),
+      height: calculateHeight(18.2),
+      label: 'CO',
+      delay: 0.2,
+      color: getColor(18.2),
+      fillOpacity: '0.15',
+      povertyRate: 18.2,
+      population: 16.3
+    },  // Central-West - MEDIUM poverty (18.2%)
+    {
+      x: 128,
+      topY: calculateTopY(17.8),
+      height: calculateHeight(17.8),
+      label: 'SE',
+      delay: 0.3,
+      color: getColor(17.8),
+      fillOpacity: '0.15',
+      povertyRate: 17.8,
+      population: 89.0
+    },  // Southeast - LOW poverty (17.8%)
+    {
+      x: 168,
+      topY: calculateTopY(12.1),
+      height: calculateHeight(12.1),
+      label: 'S',
+      delay: 0.4,
+      color: getColor(12.1),
+      fillOpacity: '0.15',
+      povertyRate: 12.1,
+      population: 30.4
+    }   // South - LOWEST poverty (12.1%)
   ];
-
-  const getColorClass = (color: string) => {
-    if (color === 'destructive') return 'fill-destructive/10 stroke-destructive';
-    if (color === 'secondary') return 'fill-secondary/10 stroke-secondary';
-    return 'fill-primary/10 stroke-primary';
-  };
 
   return (
     <div className="w-full max-w-md mx-auto mb-12">
@@ -24,7 +98,8 @@ export function FragmentedGround() {
         viewBox="0 0 200 130"
         className="w-full h-auto"
         xmlns="http://www.w3.org/2000/svg"
-        aria-label="Regional inequality visualization - Brazil's 5 regions at different poverty levels"
+        role="img"
+        aria-label="Bar chart showing poverty rates by Brazilian region: Northeast (43.6%), North (38.9%), Central-West (18.2%), Southeast (17.8%), South (12.1%)"
       >
         {/* Regional platforms at different heights */}
         {regions.map((region) => (
@@ -46,8 +121,10 @@ export function FragmentedGround() {
                     L ${region.x + 30} ${region.topY - 3}
                     L ${region.x + 32} ${region.topY - 1}
                     L ${region.x + 2} ${region.topY + 2} Z`}
-                className={region.color === 'destructive' ? 'fill-destructive/30' :
-                          region.color === 'secondary' ? 'fill-secondary/30' : 'fill-primary/30'}
+                fill={region.color}
+                fillOpacity="0.4"
+                stroke={region.color}
+                strokeWidth="1"
               />
 
               {/* Main column */}
@@ -57,7 +134,9 @@ export function FragmentedGround() {
                 width="30"
                 height={region.height}
                 rx="1"
-                className={getColorClass(region.color)}
+                fill={region.color}
+                fillOpacity={region.fillOpacity}
+                stroke={region.color}
                 strokeWidth="2.5"
               />
 
