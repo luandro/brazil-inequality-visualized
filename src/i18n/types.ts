@@ -200,6 +200,7 @@ export interface TranslationKeys {
     wealthInequality: {
       title: string;
       wealthGini: string;
+      wealthGiniDefinition: string;
       equal: string;
       unequal: string;
       comparison: string;

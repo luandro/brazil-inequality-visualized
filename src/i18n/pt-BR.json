@@ -43,7 +43,7 @@
       "ultraWealthy": "Ultra-ricos",
       "povertyTooltip": "Parcela da população vivendo abaixo da linha internacional de pobreza de US$ 6,85/dia (PPA 2017)",
       "extremePovertyTooltip": "Parcela da população vivendo abaixo da linha internacional de pobreza extrema de US$ 2,15/dia (PPA 2017)",
-      "giniTooltip": "O coeficiente de Gini mede a desigualdade de renda de 0 (igualdade perfeita) a 1 (desigualdade máxima)",
+      "giniTooltip": "O coeficiente de Gini mede a desigualdade de renda em uma escala de 0 a 1. Um valor de 0 representa igualdade perfeita (todos têm a mesma renda), enquanto 1 representa desigualdade máxima (uma pessoa tem toda a renda). Valores mais altos indicam maior desigualdade. O Brasil tipicamente tem pontuação em torno de 0,52-0,53, colocando-o entre os países mais desiguais do mundo.",
       "ultraWealthyTooltip": "Indivíduos com patrimônio líquido de pelo menos US$ 1M (USD), incluindo 69 bilionários com patrimônio de pelo menos US$ 1B"
     },
     "wealthConcentration": {
@@ -93,7 +93,7 @@
       "povertyRateDesc": "Parcela da população vivendo abaixo de US$ 6,85/dia (PPA 2017)",
       "peopleInPovertyDesc": "Número total de brasileiros vivendo abaixo da linha de pobreza",
       "extremePovertyRateDesc": "Parcela vivendo abaixo de US$ 2,15/dia (PPA 2017)",
-      "incomeGiniDesc": "0 = igualdade perfeita, 1 = desigualdade máxima",
+      "incomeGiniDesc": "O coeficiente de Gini mede a desigualdade de renda em uma escala de 0 a 1, onde 0 representa igualdade perfeita e 1 representa desigualdade máxima. Valores mais altos indicam maior desigualdade.",
       "populationDistribution": "Distribuição da População",
       "extremePoverty": "Pobreza extrema",
       "povertyNonExtreme": "Pobreza (não extrema)",
@@ -230,6 +230,7 @@
     "wealthInequality": {
       "title": "Desigualdade de Riqueza",
       "wealthGini": "Coeficiente de Gini de Riqueza",
+      "wealthGiniDefinition": "O coeficiente de Gini mede a desigualdade de riqueza em uma escala de 0 a 1. Um valor de 0 representa igualdade perfeita (todos têm a mesma riqueza), enquanto 1 representa desigualdade máxima (uma pessoa tem toda a riqueza). A desigualdade de riqueza é tipicamente muito maior que a desigualdade de renda porque a riqueza se acumula ao longo do tempo e pode ser herdada. O Gini de riqueza do Brasil é cerca de 0,85, indicando extrema concentração de ativos.",
       "equal": "0 (Igual)",
       "unequal": "1 (Desigual)",
       "comparison": "A desigualdade de riqueza é significativamente maior que a desigualdade de renda (Gini: {{gini}})"

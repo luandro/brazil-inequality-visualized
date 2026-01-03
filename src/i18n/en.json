@@ -43,7 +43,7 @@
       "ultraWealthy": "Ultra-wealthy",
       "povertyTooltip": "Share of the population living below the international poverty line of US$ 6.85/day (2017 PPP)",
       "extremePovertyTooltip": "Share of the population living below the international extreme poverty line of US$ 2.15/day (2017 PPP)",
-      "giniTooltip": "Gini coefficient measures income inequality from 0 (perfect equality) to 1 (maximum inequality)",
+      "giniTooltip": "The Gini coefficient measures income inequality on a scale from 0 to 1. A value of 0 represents perfect equality (everyone has the same income), while 1 represents maximum inequality (one person has all the income). Higher values indicate greater inequality. Brazil typically scores around 0.52-0.53, placing it among the most unequal countries in the world.",
       "ultraWealthyTooltip": "Individuals with net worth of at least US$ 1M (USD), including 69 billionaires with net worth of at least US$ 1B"
     },
     "wealthConcentration": {
@@ -93,7 +93,7 @@
       "povertyRateDesc": "Share of population living below US$ 6.85/day (2017 PPP)",
       "peopleInPovertyDesc": "Total number of Brazilians living below the poverty line",
       "extremePovertyRateDesc": "Share living below US$ 2.15/day (2017 PPP)",
-      "incomeGiniDesc": "0 = perfect equality, 1 = maximum inequality",
+      "incomeGiniDesc": "The Gini coefficient measures income inequality on a scale from 0 to 1, where 0 represents perfect equality and 1 represents maximum inequality. Higher values indicate greater inequality.",
       "populationDistribution": "Population Distribution",
       "extremePoverty": "Extreme poverty",
       "povertyNonExtreme": "Poverty (non-extreme)",
@@ -230,6 +230,7 @@
     "wealthInequality": {
       "title": "Wealth Inequality",
       "wealthGini": "Wealth Gini Coefficient",
+      "wealthGiniDefinition": "The Gini coefficient measures wealth inequality on a scale from 0 to 1. A value of 0 represents perfect equality (everyone has the same wealth), while 1 represents maximum inequality (one person has all the wealth). Wealth inequality is typically much higher than income inequality because wealth accumulates over time and can be inherited. Brazil's wealth Gini is around 0.85, indicating extreme concentration of assets.",
       "equal": "0 (Equal)",
       "unequal": "1 (Unequal)",
       "comparison": "Wealth inequality is significantly higher than income inequality (Gini: {{gini}})"
