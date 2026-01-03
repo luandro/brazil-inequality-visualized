@@ -64,7 +64,7 @@ export function WealthSection() {
             <div className="flex items-center justify-center gap-2 mb-2">
               <p className="text-6xl font-bold text-destructive">{wealth.wealth_gini_coefficient.toFixed(2)}</p>
               <SourceDrawer
-                sourceIds={wealth.source_ids}
+                sourceIds={wealth.millionaire_population.source_ids}
                 title={t('wealth.wealthInequality.wealthGini')}
                 definition={t('wealth.wealthInequality.wealthGiniDefinition')}
                 showLabel={false}
