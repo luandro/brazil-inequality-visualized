@@ -79,7 +79,7 @@ function MobileNavButton({ chapter, isActive, onClick }: MobileNavButtonProps) {
       buttonRef.current.scrollIntoView({
         behavior: 'smooth',
         block: 'nearest',
-        inline: 'center'
+        inline: 'nearest'
       });
     }
   }, [isActive]);
@@ -136,7 +136,7 @@ export function ChapterNav({ activeSection, onChapterClick }: ChapterNavProps) {
           pointerEvents: isVisible ? 'auto' : 'none'
         }}
         transition={{ duration: prefersReducedMotion ? 0 : 0.3 }}
-        className="fixed left-4 top-1/2 -translate-y-1/2 z-40 hidden xl:flex flex-col gap-1 bg-background/90 backdrop-blur-xl rounded-xl p-2 border border-border/50 shadow-xl"
+        className="fixed left-4 top-1/2 -translate-y-1/2 z-40 hidden xl:flex flex-col gap-1 bg-background/90 backdrop-blur-xl rounded-xl px-2 pt-2 pb-8 border border-border/50 shadow-xl max-h-[calc(100vh-2rem)] overflow-y-auto scrollbar-hide"
         aria-label="Chapter navigation"
       >
         {chapters.map((chapter) => {
@@ -188,7 +188,7 @@ export function ChapterNav({ activeSection, onChapterClick }: ChapterNavProps) {
         className="fixed bottom-4 left-1/2 -translate-x-1/2 z-40 xl:hidden bg-background/90 backdrop-blur-xl rounded-full px-4 py-2 border border-border/50 shadow-xl max-w-[calc(100vw-2rem)]"
         aria-label="Mobile chapter navigation"
       >
-        <div className="flex items-center gap-2 overflow-x-auto scrollbar-hide">
+        <div className="flex items-center gap-2 overflow-x-auto scrollbar-hide px-2 scroll-px-4">
           {chapters.filter(ch => ch.id !== 'deprecated').map((chapter) => (
             <MobileNavButton
               key={chapter.id}

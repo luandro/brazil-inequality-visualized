@@ -11,6 +11,12 @@ export interface TranslationKeys {
     dataExplorer: string;
     deprecated: string;
   };
+  narrative: {
+    povertyLines: string;
+    safetyNet: string;
+    regional: string;
+    racial: string;
+  };
   app: {
     subtitle: string;
   };

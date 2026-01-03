@@ -10,6 +10,12 @@
     "dataExplorer": "Explorador de Dados",
     "deprecated": "Descontinuados"
   },
+  "narrative": {
+    "povertyLines": "Linhas de pobreza",
+    "safetyNet": "Rede de proteção",
+    "regional": "Desigualdade regional",
+    "racial": "Desigualdade racial"
+  },
   "app": {
     "title": "O Custo da Desigualdade",
     "subtitle": "Entendendo pobreza, riqueza e escolhas no Brasil",

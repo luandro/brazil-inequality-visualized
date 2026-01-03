@@ -10,6 +10,12 @@
     "dataExplorer": "Data Explorer",
     "deprecated": "Deprecated"
   },
+  "narrative": {
+    "povertyLines": "Poverty lines",
+    "safetyNet": "Safety net",
+    "regional": "Regional inequality",
+    "racial": "Racial inequality"
+  },
   "app": {
     "title": "The Cost of Inequality",
     "subtitle": "Understanding poverty, wealth, and choices in Brazil",

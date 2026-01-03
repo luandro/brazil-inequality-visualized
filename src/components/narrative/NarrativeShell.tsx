@@ -20,7 +20,9 @@ import { useTranslation } from 'react-i18next';
 export function NarrativeShell() {
   const { t, i18n } = useTranslation();
   const { data, isLoading, error } = useData();
-  const { activeSection, scrollToSection } = useScrollSync();
+  const { activeSection, scrollToSection } = useScrollSync({
+    enabled: !isLoading && !!data && !error
+  });
 
   if (isLoading) {
     return (

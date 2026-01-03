@@ -2,31 +2,62 @@ import { useEffect, useRef, useCallback, useState } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 import { chapters, routeToSection, sectionToRoute } from './ChapterNav';
 
-export function useScrollSync() {
+interface UseScrollSyncOptions {
+  enabled?: boolean;
+}
+
+export function useScrollSync({ enabled = true }: UseScrollSyncOptions = {}) {
   const location = useLocation();
   const navigate = useNavigate();
   const [activeSection, setActiveSection] = useState('home');
   const isScrollingToSection = useRef(false);
   const scrollTimeout = useRef<ReturnType<typeof setTimeout>>();
+  const intersectingById = useRef<Record<string, boolean>>({});
+  const activeSectionRef = useRef(activeSection);
+  const pathnameRef = useRef(location.pathname);
+
+  useEffect(() => {
+    activeSectionRef.current = activeSection;
+  }, [activeSection]);
+
+  useEffect(() => {
+    pathnameRef.current = location.pathname;
+  }, [location.pathname]);
+
+  const beginProgrammaticScroll = useCallback(() => {
+    isScrollingToSection.current = true;
+    if (scrollTimeout.current) {
+      clearTimeout(scrollTimeout.current);
+    }
+    scrollTimeout.current = setTimeout(() => {
+      isScrollingToSection.current = false;
+    }, 1000);
+  }, []);
 
   // Scroll to section when route changes
   useEffect(() => {
+    if (!enabled) return;
+
     const sectionId = routeToSection[location.pathname] || 'home';
     const element = document.getElementById(sectionId);
-    
-    if (element && !isScrollingToSection.current) {
-      isScrollingToSection.current = true;
+
+    // Skip scrolling if this update came from scroll-driven URL update
+    const state = location.state as { scrollSync?: boolean } | null;
+    const isScrollDriven = state?.scrollSync === true;
+
+    if (element && !isScrollingToSection.current && !isScrollDriven) {
+      beginProgrammaticScroll();
       element.scrollIntoView({ behavior: 'smooth', block: 'start' });
-      
-      // Reset flag after scroll completes
-      scrollTimeout.current = setTimeout(() => {
-        isScrollingToSection.current = false;
-      }, 1000);
+      setActiveSection(sectionId);
     }
-  }, [location.pathname]);
+  }, [beginProgrammaticScroll, enabled, location.pathname, location.state]);
 
   // Update route when scrolling
   useEffect(() => {
+    if (!enabled) return;
+
+    intersectingById.current = {};
+
     const observerOptions: IntersectionObserverInit = {
       root: null,
       rootMargin: '-45% 0px -45% 0px', // ~55% visibility required
@@ -34,20 +65,29 @@ export function useScrollSync() {
     };
 
     const handleIntersection = (entries: IntersectionObserverEntry[]) => {
-      if (isScrollingToSection.current) return;
-
+      // Update intersection state for each entry
       entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          const sectionId = entry.target.id;
-          setActiveSection(sectionId);
-          
-          // Update URL without adding to history
-          const route = sectionToRoute[sectionId];
-          if (route && route !== location.pathname) {
-            window.history.replaceState(null, '', `${import.meta.env.BASE_URL}${route.slice(1)}`);
-          }
-        }
+        intersectingById.current[entry.target.id] = entry.isIntersecting;
       });
+
+      // Compute active section deterministically: last intersecting chapter in order
+      let newActiveSection: string | null = null;
+      for (const chapter of chapters) {
+        if (intersectingById.current[chapter.id]) {
+          newActiveSection = chapter.id;
+        }
+      }
+
+      if (!newActiveSection || newActiveSection === activeSectionRef.current) return;
+
+      activeSectionRef.current = newActiveSection;
+      setActiveSection(newActiveSection);
+
+      // Update URL via navigate (scroll-driven update) without tearing down the observer
+      const route = sectionToRoute[newActiveSection];
+      if (route && route !== pathnameRef.current && !isScrollingToSection.current) {
+        navigate(route, { replace: true, state: { scrollSync: true } });
+      }
     };
 
     const observer = new IntersectionObserver(handleIntersection, observerOptions);
@@ -65,29 +105,26 @@ export function useScrollSync() {
       if (scrollTimeout.current) {
         clearTimeout(scrollTimeout.current);
       }
+      isScrollingToSection.current = false;
     };
-  }, [location.pathname]);
+  }, [enabled, navigate]);
 
   // Scroll to a specific section (for chapter nav clicks)
   const scrollToSection = useCallback((sectionId: string) => {
     const element = document.getElementById(sectionId);
     if (element) {
-      isScrollingToSection.current = true;
-      
+      beginProgrammaticScroll();
+
       // Update route via push (clicking = navigation)
       const route = sectionToRoute[sectionId];
       if (route) {
         navigate(route);
       }
-      
+
       element.scrollIntoView({ behavior: 'smooth', block: 'start' });
       setActiveSection(sectionId);
-      
-      scrollTimeout.current = setTimeout(() => {
-        isScrollingToSection.current = false;
-      }, 1000);
     }
-  }, [navigate]);
+  }, [beginProgrammaticScroll, navigate]);
 
   return { activeSection, scrollToSection };
 }
