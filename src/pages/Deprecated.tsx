@@ -13,14 +13,18 @@ export default function Deprecated() {
     <Layout>
       <section className="py-12 md:py-20"><div className="container-wide">
         <h1 className="text-display mb-4 flex items-center gap-3"><Archive className="w-10 h-10" /> {t('deprecated.title')}</h1>
-        <p className="text-body-lg text-muted-foreground max-w-3xl">{data.removed_or_deprecated.rationale}</p>
+        <p className="text-body-lg text-muted-foreground max-w-3xl">{t('deprecated.rationale')}</p>
       </div></section>
       <section className="py-8"><div className="container-wide">
         <div className="space-y-4">
           {data.removed_or_deprecated.removed_fields.map((field) => (
             <div key={field.field_name} className="glass-card p-5">
-              <h3 className="font-semibold font-mono text-destructive">{field.field_name}</h3>
-              <p className="text-muted-foreground mt-2">{field.reason_removed}</p>
+              <h3 className="font-semibold font-mono text-destructive">
+                {t(`deprecated.fields.${field.field_name}.name` as const, { defaultValue: field.field_name })}
+              </h3>
+              <p className="text-muted-foreground mt-2">
+                {t(`deprecated.fields.${field.field_name}.reason` as const, { defaultValue: field.reason_removed })}
+              </p>
             </div>
           ))}
         </div>

@@ -47,7 +47,7 @@ export function WealthSection() {
             </div>
             <div>
               <h3 className="font-semibold mb-2">{t('wealth.measurementNotes')}</h3>
-              <p className="text-muted-foreground">{wealth.measurement_notes}</p>
+              <p className="text-muted-foreground">{t('wealth.measurementNotesText')}</p>
             </div>
           </div>
         </motion.div>

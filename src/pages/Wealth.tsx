@@ -64,7 +64,7 @@ export default function Wealth() {
               </div>
               <div>
                 <h3 className="font-semibold mb-2">{t('wealth.measurementNotes')}</h3>
-                <p className="text-muted-foreground">{wealth.measurement_notes}</p>
+                <p className="text-muted-foreground">{t('wealth.measurementNotesText')}</p>
               </div>
             </div>
           </div>
@@ -222,10 +222,14 @@ export default function Wealth() {
                 <SourceDrawer sourceIds={wealth.billionaire_population.source_ids} title={t('wealth.billionairePopulation.dataTitle')} />
               </div>
               
-              <p className="text-muted-foreground mb-6">{wealth.billionaire_population.notes}</p>
+              <p className="text-muted-foreground mb-6">
+                {wealth.billionaire_population.combined_wealth_usd_billions_2025 != null
+                  ? t('wealth.billionairePopulation.notesText', { wealth: wealth.billionaire_population.combined_wealth_usd_billions_2025, year: 2025 })
+                  : wealth.billionaire_population.notes}
+              </p>
 
               <div className="p-4 bg-muted/50 rounded-lg">
-                <h4 className="font-medium mb-2">Context</h4>
+                <h4 className="font-medium mb-2">{t('wealth.billionairePopulation.contextTitle')}</h4>
                 <p className="text-sm text-muted-foreground">
                   {t('wealth.billionairePopulation.context')}
                 </p>

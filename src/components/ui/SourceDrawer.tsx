@@ -73,7 +73,7 @@ export function SourceDrawer({ sourceIds, title, definition, showLabel = true }:
                         target="_blank"
                         rel="noopener noreferrer"
                         className="text-secondary hover:text-secondary/80 transition-colors"
-                        aria-label={`Visit ${source.name}`}
+                        aria-label={t('common.visitSource', { name: source.name })}
                       >
                         <ExternalLink className="w-4 h-4" />
                       </a>

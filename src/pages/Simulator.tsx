@@ -64,9 +64,16 @@ export default function Simulator() {
       {/* Baseline Anchors */}
       <section className="pb-8"><div className="container-wide">
         <div className="glass-card p-6">
-          <div className="flex items-center justify-between mb-4"><h3 className="font-semibold">{t('simulator.baseline.title')}</h3><SourceDrawer sourceIds={poverty.official_key_statistics.source_ids} title={t('simulator.baseline.dataTitle')} /></div>
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 text-sm">
-            <div><span className="text-muted-foreground">{t('simulator.baseline.povertyLine')}</span> <strong>R${poverty.poverty_lines.poverty_monthly_brl}/mo</strong></div>
+          <div className="flex items-center justify-between mb-4">
+            <h3 className="font-semibold">{t('simulator.baseline.title')}</h3>
+            <SourceDrawer
+              sourceIds={[...new Set([...poverty.official_key_statistics.source_ids, ...poverty.poverty_lines.source_ids, ...wealth.millionaire_population.source_ids])]}
+              title={t('simulator.baseline.dataTitle')}
+            />
+          </div>
+          <div className="grid grid-cols-2 md:grid-cols-5 gap-4 text-sm">
+            <div><span className="text-muted-foreground">{t('simulator.baseline.povertyLineDaily')}</span> <strong>US$ {poverty.poverty_lines.poverty_daily_usd_ppp.toFixed(2)}</strong></div>
+            <div><span className="text-muted-foreground">{t('simulator.baseline.povertyLineMonthly')}</span> <strong>R$ {poverty.poverty_lines.poverty_monthly_brl}</strong></div>
             <div><span className="text-muted-foreground">{t('simulator.baseline.povertyRate')}</span> <strong>{poverty.official_key_statistics.poverty_rate_percentage}%</strong></div>
             <div><span className="text-muted-foreground">{t('simulator.baseline.inPoverty')}</span> <strong>{poverty.official_key_statistics.poverty_population_millions}M</strong></div>
             <div><span className="text-muted-foreground">{t('simulator.baseline.millionaires')}</span> <strong>{(wealth.millionaire_population.count_individuals/1000).toFixed(0)}K</strong></div>

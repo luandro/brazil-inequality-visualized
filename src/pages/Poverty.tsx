@@ -83,7 +83,12 @@ export default function Poverty() {
               </div>
               <div>
                 <h3 className="font-semibold mb-2">{t('poverty.measurementBasis')}</h3>
-                <p className="text-muted-foreground">{poverty.measurement_basis}</p>
+                <p className="text-muted-foreground">
+                  {t('poverty.measurementBasisText', {
+                    extremeUsd: poverty.poverty_lines.extreme_poverty_daily_usd_ppp.toFixed(2),
+                    povertyUsd: poverty.poverty_lines.poverty_daily_usd_ppp.toFixed(2)
+                  })}
+                </p>
               </div>
             </div>
           </div>
@@ -169,7 +174,7 @@ export default function Poverty() {
                 <div className="flex justify-between items-center p-4 bg-destructive/5 rounded-lg">
                   <span className="text-muted-foreground">{t('poverty.povertyLines.dailyUSD')}</span>
                   <span className="text-xl font-bold text-destructive">
-                    ${poverty.poverty_lines.extreme_poverty_daily_usd_ppp.toFixed(2)}
+                    US$ {poverty.poverty_lines.extreme_poverty_daily_usd_ppp.toFixed(2)}
                   </span>
                 </div>
                 <div className="flex justify-between items-center p-4 bg-destructive/5 rounded-lg">
@@ -190,7 +195,7 @@ export default function Poverty() {
                 <div className="flex justify-between items-center p-4 bg-accent/5 rounded-lg">
                   <span className="text-muted-foreground">{t('poverty.povertyLines.dailyUSD')}</span>
                   <span className="text-xl font-bold text-accent">
-                    ${poverty.poverty_lines.poverty_daily_usd_ppp.toFixed(2)}
+                    US$ {poverty.poverty_lines.poverty_daily_usd_ppp.toFixed(2)}
                   </span>
                 </div>
                 <div className="flex justify-between items-center p-4 bg-accent/5 rounded-lg">

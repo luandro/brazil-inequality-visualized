@@ -102,6 +102,7 @@ export const MillionaireStatsSchema = z.object({
 export const BillionaireStatsSchema = z.object({
   count_2024: z.number().int().min(0),
   count_2025: z.number().int().min(0),
+  combined_wealth_usd_billions_2025: z.number().positive().optional(),
   notes: z.string(),
   source_ids: z.array(NonEmptyString).min(1),
 });

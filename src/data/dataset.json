@@ -180,6 +180,7 @@
     "billionaire_population": {
       "count_2024": 62,
       "count_2025": 69,
+      "combined_wealth_usd_billions_2025": 179.4,
       "notes": "Billionaire count increased by 11.3% year-over-year. Combined wealth of Brazilian billionaires estimated at $179.4 billion in 2025.",
       "source_ids": ["forbes_billionaires_2024", "forbes_billionaires_2025"]
     }

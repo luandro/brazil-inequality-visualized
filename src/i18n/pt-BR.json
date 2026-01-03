@@ -23,22 +23,22 @@
       "truth": "Verdade",
       "choices": "Escolhas",
       "consequences": "Consequências",
-      "description": "Entendendo a desigualdade do Brasil através de dados validados. Cada número é fontado, cada simulação claramente rotulada. Tome decisões informadas baseadas na verdade.",
-      "exploreReality": "Explorar Realidade",
-      "runSimulations": "Executar Simulações",
+      "description": "Entendendo a desigualdade do Brasil por meio de dados validados. Cada número tem fonte; cada simulação é claramente rotulada. Tome decisões informadas com base na verdade.",
+      "exploreReality": "Explorar a realidade",
+      "runSimulations": "Executar simulações",
       "scrollToExplore": "Role para explorar"
     },
     "keyStats": {
       "title": "Brasil em Visão Geral",
-      "description": "Três números que definem o desafio da desigualdade do Brasil. Cada figura é validada contra fontes oficiais.",
+      "description": "Três números que definem o desafio da desigualdade no Brasil. Cada um é validado com base em fontes oficiais.",
       "livingInPoverty": "Vivendo na pobreza",
       "inExtremePoverty": "Na pobreza extrema",
       "incomeGini": "Coeficiente de Gini de renda",
       "ultraWealthy": "Ultra-ricos",
-      "povertyTooltip": "Porcentagem da população vivendo abaixo da linha de pobreza de $6,85/dia (PPA 2017)",
-      "extremePovertyTooltip": "Porcentagem vivendo abaixo da linha de pobreza extrema de $2,15/dia (PPA 2017)",
+      "povertyTooltip": "Parcela da população vivendo abaixo da linha internacional de pobreza de US$ 6,85/dia (PPA 2017)",
+      "extremePovertyTooltip": "Parcela da população vivendo abaixo da linha internacional de pobreza extrema de US$ 2,15/dia (PPA 2017)",
       "giniTooltip": "O coeficiente de Gini mede a desigualdade de renda de 0 (igualdade perfeita) a 1 (desigualdade máxima)",
-      "ultraWealthyTooltip": "Indivíduos com patrimônio líquido superior a $1M USD, incluindo 69 bilionários com patrimônio de $1B+"
+      "ultraWealthyTooltip": "Indivíduos com patrimônio líquido de pelo menos US$ 1M (USD), incluindo 69 bilionários com patrimônio de pelo menos US$ 1B"
     },
     "wealthConcentration": {
       "title": "Concentração de Riqueza",
@@ -81,27 +81,27 @@
       "title": "A. Desigualdade em Visão Geral",
       "description": "Indicadores chave mostrando o estado atual da desigualdade no Brasil.",
       "povertyRate": "Taxa de Pobreza",
-      "peopleInPoverty": "Pessoas em Pobreza",
+      "peopleInPoverty": "Pessoas em situação de pobreza",
       "extremePovertyRate": "Taxa de Pobreza Extrema",
       "incomeGini": "Gini de Renda",
-      "povertyRateDesc": "Parcela da população vivendo abaixo de $6,85/dia (PPA 2017)",
+      "povertyRateDesc": "Parcela da população vivendo abaixo de US$ 6,85/dia (PPA 2017)",
       "peopleInPovertyDesc": "Número total de brasileiros vivendo abaixo da linha de pobreza",
-      "extremePovertyRateDesc": "Parcela vivendo abaixo de $2,15/dia (PPA 2017)",
+      "extremePovertyRateDesc": "Parcela vivendo abaixo de US$ 2,15/dia (PPA 2017)",
       "incomeGiniDesc": "0 = igualdade perfeita, 1 = desigualdade máxima",
       "populationDistribution": "Distribuição da População",
       "extremePoverty": "Pobreza extrema",
-      "povertyNonExtreme": "Pobreza (não-extrema)",
+      "povertyNonExtreme": "Pobreza (não extrema)",
       "abovePovertyLine": "Acima da linha de pobreza",
-      "multiMillionaires": "Multi-milionários ($10M+)",
-      "billionaires": "Bilionários ($1B+)",
+      "multiMillionaires": "Multi-milionários (US$ 10M+)",
+      "billionaires": "Bilionários (US$ 1B+)",
       "hundredPeopleMetaphor": "Se 100 pessoas representassem todo o Brasil...",
       "inExtremePoverty": "{{count}} em pobreza extrema",
-      "inPoverty": "{{count}} em pobreza",
+      "inPoverty": "{{count}} na pobreza",
       "abovePoverty": "{{count}} acima da linha de pobreza",
       "ultraWealthInvisible": "A ultra-riqueza seria invisível",
       "ultraWealthDetail": "Multi-milionários: {{multiCount}} pessoas (1 em {{multiRatio}}) • Bilionários: {{billCount}} pessoas (1 em {{billRatio}})",
-      "peopleWithNetWorth": "pessoas com patrimônio de ${{threshold}}+",
-      "oneInEvery": "Isso é 1 em cada {{ratio}} pessoas",
+      "peopleWithNetWorth": "pessoas com patrimônio de pelo menos US$ {{threshold}} (USD)",
+      "oneInEvery": "Isso equivale a 1 em cada {{ratio}} pessoas",
       "scaleOfInequality": "A Escala da Desigualdade",
       "scaleDescription": "Os segmentos de ultra-riqueza são tão pequenos que são quase invisíveis no gráfico principal (mal {{percent}}% combinados). A visualização acima mostra suas proporções relativas. Isso demonstra como extrema é a concentração de riqueza no Brasil—uma fração minúscula da população detém riqueza enorme enquanto milhões vivem na pobreza."
     },
@@ -112,7 +112,7 @@
       "povertyLine": "Linha de Pobreza",
       "extremePovertyLineDesc": "Linha internacional de pobreza extrema do Banco Mundial (PPA 2017)",
       "povertyLineDesc": "Linha de pobreza para país de renda média-alta (PPA 2017)",
-      "perDayPPP": "/dia PPA",
+      "perDayPPP": "/dia (PPA 2017)",
       "perMonth": "/mês"
     },
     "sectionC": {
@@ -138,6 +138,7 @@
     "title": "Análise da Pobreza",
     "description": "Um mergulho profundo nas estatísticas de pobreza do Brasil, incluindo metodologia de medição, disparidades regionais e distribuição racial.",
     "measurementBasis": "Base de Medição",
+    "measurementBasisText": "As taxas de pobreza são calculadas usando as linhas internacionais de pobreza do Banco Mundial (PPA 2017). Pobreza extrema é definida como viver com menos de US$ {{extremeUsd}}/dia, e pobreza como viver com menos de US$ {{povertyUsd}}/dia (ajustado por PPA).",
     "keyStatistics": {
       "title": "Estatísticas Chave Oficiais",
       "povertyRate": "Taxa de Pobreza",
@@ -148,11 +149,11 @@
     },
     "povertyLines": {
       "title": "Linhas de Pobreza (PPA)",
-      "description": "Limites internacionais de pobreza ajustados por Paridade de Poder de Compra.",
+      "description": "Limites internacionais de pobreza ajustados por Paridade de Poder de Compra (PPA 2017). Os valores são exibidos como US$/dia (PPA) e como um valor aproximado em R$/mês por pessoa.",
       "extremePoverty": "Pobreza Extrema",
       "poverty": "Pobreza",
-      "dailyUSD": "Diário (USD PPA)",
-      "monthlyBRL": "Mensal (BRL)"
+      "dailyUSD": "Diário (US$ PPA, 2017)",
+      "monthlyBRL": "Mensal (R$, BRL)"
     },
     "regionalDistribution": {
       "title": "Distribuição Regional",
@@ -175,8 +176,8 @@
     "title": "Mercado de Trabalho",
     "description": "Emprego, informalidade e a relação entre trabalho e pobreza no Brasil.",
     "keyInsight": {
-      "title": "Percepção Chave: Trabalho Não Garante Fuga da Pobreza",
-      "description": "{{percent}}% dos brasileiros empregados ainda vivem abaixo da linha de pobreza. Alta informalidade ({{informality}}%) significa milhões trabalhando sem proteções trabalhistas ou renda estável."
+      "title": "Ponto-chave: trabalho não garante sair da pobreza",
+      "description": "{{percent}}% dos brasileiros empregados ainda vivem abaixo da linha de pobreza. A alta informalidade ({{informality}}%) significa que milhões trabalham sem proteções trabalhistas ou renda estável."
     },
     "dataTitle": "Dados do Mercado de Trabalho",
     "employmentOverview": {
@@ -219,6 +220,7 @@
     "title": "Concentração de Riqueza",
     "description": "Análise da distribuição de riqueza no Brasil, incluindo populações de milionários e bilionários.",
     "measurementNotes": "Notas de Medição",
+    "measurementNotesText": "As estimativas de riqueza seguem a metodologia do Global Wealth Report e são menos precisas do que estatísticas de renda. \"Patrimônio líquido\" refere-se ao total de ativos menos dívidas. Os limiares de milionários são definidos em dólares (USD) a taxas de câmbio de mercado (não PPA).",
     "wealthInequality": {
       "title": "Desigualdade de Riqueza",
       "wealthGini": "Coeficiente de Gini de Riqueza",
@@ -228,9 +230,9 @@
     },
     "millionairePopulation": {
       "title": "População de Milionários",
-      "description": "Indivíduos com patrimônio líquido superior a ${{threshold}} USD.",
+      "description": "Indivíduos com patrimônio líquido de pelo menos US$ {{threshold}} (USD, a taxas de câmbio de mercado).",
       "totalMillionaires": "Total de Milionários",
-      "individualsAbove": "Indivíduos com patrimônio líquido acima de ${{threshold}} milhões USD",
+      "individualsAbove": "Patrimônio líquido ≥ US$ {{threshold}} milhões (USD)",
       "shareOfPopulation": "Parcela da População",
       "millionairePercentage": "Milionários como porcentagem da população total brasileira",
       "wealthShare": "Parcela da Riqueza",
@@ -245,6 +247,7 @@
       "additionalNotes": "Notas Adicionais",
       "yearOverYear": "+{{percent}}% aumento ano a ano",
       "contextTitle": "Contexto Global",
+      "notesText": "Bilionários são definidos como indivíduos com patrimônio líquido de pelo menos US$ 1B (USD). A riqueza combinada é estimada em cerca de US$ {{wealth}}B em {{year}}.",
       "context": "O Brasil está entre os top 10 países por número de bilionários globalmente. A riqueza combinada dos bilionários brasileiros excede a renda anual dos 50% mais pobres da população."
     },
     "wealthGapVisualized": {
@@ -257,7 +260,7 @@
   },
   "simulator": {
     "title": "Simulador de Políticas",
-    "description": "Modele cenários hipotéticos de tributação de riqueza. <strong>Todas as saídas são simulações simplificadas, não previsões.</strong>",
+    "description": "Modele cenários hipotéticos de tributação de riqueza. <strong>Todos os resultados são simulações simplificadas, não previsões.</strong>",
     "disclaimer": {
       "title": "Aviso de Simulação:",
       "text": "Esses cálculos usam premissas simplificadas e são apenas para fins educacionais. Resultados reais de políticas dependem de muitos fatores não modelados aqui."
@@ -265,10 +268,11 @@
     "baseline": {
       "title": "Linha de Base Oficial (Âncoras)",
       "dataTitle": "Dados de Linha de Base",
-      "povertyLine": "Linha de Pobreza:",
+      "povertyLineDaily": "Linha de pobreza (US$/dia, PPA 2017):",
+      "povertyLineMonthly": "Linha de pobreza (aprox., R$/mês por pessoa):",
       "povertyRate": "Taxa de Pobreza:",
       "inPoverty": "Em Pobreza:",
-      "millionaires": "Milionários:"
+      "millionaires": "Milionários (patrimônio de US$ 1M+):"
     },
     "controls": {
       "title": "Controles de Simulação",
@@ -278,24 +282,24 @@
       "adminCost": "Custo Administrativo: {{cost}}%",
       "horizon": "Horizonte: {{years}} anos",
       "allocation": "Alocação (deve somar 100%)",
-      "povertyGap": "Gap de Pobreza: {{percent}}%",
+      "povertyGap": "Hiato de pobreza: {{percent}}%",
       "services": "Serviços: {{percent}}%",
       "regionalFund": "Fundo Regional: {{percent}}%",
-      "millionaires": "Milionários",
-      "billionaires": "Bilionários"
+      "millionaires": "Milionários (US$ 1M+)",
+      "billionaires": "Bilionários (US$ 1B+)"
     },
     "results": {
       "title": "Resultados Simulados",
-      "annualRevenue": "Receita Anual (simulada)",
+      "annualRevenue": "Receita anual (simulada, bilhões de R$)",
       "totalOverYears": "Total em {{years}} anos",
-      "povertyGapCovered": "Gap de Pobreza Coberto (simplificado)",
-      "estPeopleLifted": "Est. Pessoas Tiradas (modelo proporcional)",
+      "povertyGapCovered": "Hiato de pobreza coberto (simplificado)",
+      "estPeopleLifted": "Est. pessoas retiradas da pobreza (modelo proporcional)",
       "assumptions": "⚠️ Premissas: Riqueza média de milionários $2,5M, bilionários $2,5B. Modelo linear de gap de pobreza. Nenhuma resposta comportamental modelada."
     }
   },
   "dataExplorer": {
     "title": "Explorador de Dados",
-    "description": "Visão completa em árvore do dataset validado. Cada campo do JSON é exposto aqui."
+    "description": "Visualização em árvore do conjunto de dados validado. Cada campo do JSON é exibido aqui."
   },
   "deprecated": {
     "title": "Campos Descontinuados",
@@ -322,7 +326,7 @@
     "description": "Catálogo completo de fontes e informações de qualidade de dados.",
     "lastUpdated": "Última atualização: {{date}}",
     "dataCurrency": "Atualidade dos Dados",
-    "dataCurrencyText": "Os dados refletem estatísticas de 2023-2024 com exceções notadas",
+    "dataCurrencyText": "Os dados refletem estatísticas de 2023-2024, com exceções indicadas. Valores em BRL aparecem como R$; linhas de pobreza também são mostradas em US$ (PPA 2017). Limiares de riqueza (milionários/bilionários) usam USD a taxas de câmbio de mercado (não PPA).",
     "sourceCatalog": {
       "title": "Catálogo de Fontes",
       "id": "ID: {{id}}"
@@ -332,7 +336,19 @@
       "reliabilityRatings": "Classificações de Confiabilidade",
       "officialData": "Dados Oficiais",
       "wealthEstimates": "Estimativas de Riqueza",
-      "knownLimitations": "Limitações Conhecidas"
+      "knownLimitations": "Limitações Conhecidas",
+      "ratings": {
+        "high": "alta",
+        "medium": "média",
+        "low": "baixa"
+      },
+      "knownLimitationsItems": [
+        "Dados de riqueza dependem fortemente de pesquisas e podem subcontar ativos ocultos",
+        "Os números regionais de pobreza podem não capturar diferenças internas (urbano/rural)",
+        "As categorias raciais seguem o censo brasileiro e podem não corresponder às de outros países",
+        "A renda no setor informal é difícil de medir com precisão",
+        "A conversão por PPA introduz incerteza em comparações internacionais"
+      ]
     }
   },
   "common": {
@@ -341,14 +357,15 @@
     "openMenu": "Abrir menu",
     "close": "Fechar",
     "learnMore": "Saiba Mais",
-    "loading": "Carregando dataset...",
+    "loading": "Carregando dados...",
     "dataValidationError": "Erro de Validação de Dados",
-    "dataValidationErrorDesc": "O dataset falhou na validação do esquema Zod. Por favor, verifique o formato dos dados.",
+    "dataValidationErrorDesc": "O conjunto de dados falhou na validação do esquema Zod. Por favor, verifique o formato dos dados.",
     "failedToLoad": "Falha ao carregar dados",
     "noSourcesFound": "Nenhuma fonte encontrada para IDs: {{ids}}",
     "reduction": "Redução: {{value}}",
     "percentagePoints": "pontos percentuais",
-    "decrease": "{{percent}}% de redução"
+    "decrease": "{{percent}}% de redução",
+    "visitSource": "Visitar o site de {{name}}"
   },
   "charts": {
     "high": "Alta (>35%)",
@@ -361,7 +378,7 @@
     "povertyLabel": "Pobreza:",
     "extremeLabel": "Extrema:",
     "regionalPovertyDesc": "As taxas de pobreza regionais mostram a porcentagem da população vivendo abaixo da linha de pobreza em cada grande região brasileira.",
-    "racialPovertyDesc": "A distribuição racial da pobreza usa categorias raciais do censo brasileiro (cor ou raça). As categorias incluem Branco, Negro, Pardo e grupos indígenas.",
+    "racialPovertyDesc": "A distribuição racial da pobreza usa categorias do censo brasileiro (cor ou raça). As categorias incluem Branco, Preto, Pardo e Indígena.",
     "regions": {
       "northeast": "Nordeste",
       "north": "Norte",
@@ -371,7 +388,7 @@
     },
     "racialGroups": {
       "white": "Branco",
-      "black": "Negro",
+      "black": "Preto",
       "mixed": "Pardo",
       "indigenous": "Indígena"
     }

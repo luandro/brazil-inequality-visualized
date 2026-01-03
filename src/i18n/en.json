@@ -23,7 +23,7 @@
       "truth": "Truth",
       "choices": "Choices",
       "consequences": "Consequences",
-      "description": "Understanding Brazil's inequality through validated data. Every number is sourced, every simulation clearly labeled. Make informed choices based truth.",
+      "description": "Understanding Brazil's inequality through validated data. Every number is sourced; every simulation is clearly labeled. Make informed choices based on truth.",
       "exploreReality": "Explore Reality",
       "runSimulations": "Run Simulations",
       "scrollToExplore": "Scroll to explore"
@@ -35,10 +35,10 @@
       "inExtremePoverty": "In extreme poverty",
       "incomeGini": "Income Gini coefficient",
       "ultraWealthy": "Ultra-wealthy",
-      "povertyTooltip": "Percentage of population living below the $6.85/day poverty line (2017 PPP)",
-      "extremePovertyTooltip": "Percentage living below $2.15/day extreme poverty line (2017 PPP)",
+      "povertyTooltip": "Share of the population living below the international poverty line of US$ 6.85/day (2017 PPP)",
+      "extremePovertyTooltip": "Share of the population living below the international extreme poverty line of US$ 2.15/day (2017 PPP)",
       "giniTooltip": "Gini coefficient measures income inequality from 0 (perfect equality) to 1 (maximum inequality)",
-      "ultraWealthyTooltip": "Individuals with net worth exceeding $1M USD, including 69 billionaires with $1B+ net worth"
+      "ultraWealthyTooltip": "Individuals with net worth of at least US$ 1M (USD), including 69 billionaires with net worth of at least US$ 1B"
     },
     "wealthConcentration": {
       "title": "Wealth Concentration",
@@ -84,23 +84,23 @@
       "peopleInPoverty": "People in Poverty",
       "extremePovertyRate": "Extreme Poverty Rate",
       "incomeGini": "Income Gini",
-      "povertyRateDesc": "Share of population living below $6.85/day (2017 PPP)",
+      "povertyRateDesc": "Share of population living below US$ 6.85/day (2017 PPP)",
       "peopleInPovertyDesc": "Total number of Brazilians living below the poverty line",
-      "extremePovertyRateDesc": "Share living below $2.15/day (2017 PPP)",
+      "extremePovertyRateDesc": "Share living below US$ 2.15/day (2017 PPP)",
       "incomeGiniDesc": "0 = perfect equality, 1 = maximum inequality",
       "populationDistribution": "Population Distribution",
       "extremePoverty": "Extreme poverty",
       "povertyNonExtreme": "Poverty (non-extreme)",
       "abovePovertyLine": "Above poverty line",
-      "multiMillionaires": "Multi-millionaires ($10M+)",
-      "billionaires": "Billionaires ($1B+)",
+      "multiMillionaires": "Multi-millionaires (US$ 10M+)",
+      "billionaires": "Billionaires (US$ 1B+)",
       "hundredPeopleMetaphor": "If 100 people represented all of Brazil...",
       "inExtremePoverty": "{{count}} in extreme poverty",
       "inPoverty": "{{count}} in poverty",
       "abovePoverty": "{{count}} above poverty line",
       "ultraWealthInvisible": "Ultra-wealth would be invisible",
       "ultraWealthDetail": "Multi-millionaires: {{multiCount}} people (1 in {{multiRatio}}) • Billionaires: {{billCount}} people (1 in {{billRatio}})",
-      "peopleWithNetWorth": "people with ${{threshold}}+ net worth",
+      "peopleWithNetWorth": "people with net worth of at least US$ {{threshold}} (USD)",
       "oneInEvery": "That's 1 in every {{ratio}} people",
       "scaleOfInequality": "The Scale of Inequality",
       "scaleDescription": "Ultra-wealth segments are so small they're nearly invisible in the main graph (barely {{percent}}% combined). The visualization above shows their relative proportions. This demonstrates how extreme wealth concentration is in Brazil—a tiny fraction of the population holds enormous wealth while millions live in poverty."
@@ -112,7 +112,7 @@
       "povertyLine": "Poverty Line",
       "extremePovertyLineDesc": "World Bank international extreme poverty line (2017 PPP)",
       "povertyLineDesc": "Upper-middle-income country poverty line (2017 PPP)",
-      "perDayPPP": "/day PPP",
+      "perDayPPP": "/day (2017 PPP)",
       "perMonth": "/month"
     },
     "sectionC": {
@@ -138,6 +138,7 @@
     "title": "Poverty Analysis",
     "description": "Deep dive into Brazil's poverty statistics, including measurement methodology, regional disparities, and racial distribution.",
     "measurementBasis": "Measurement Basis",
+    "measurementBasisText": "Poverty rates are calculated using the World Bank international poverty lines (2017 PPP). Extreme poverty is defined as living on less than US$ {{extremeUsd}}/day, and poverty as living on less than US$ {{povertyUsd}}/day (PPP-adjusted).",
     "keyStatistics": {
       "title": "Official Key Statistics",
       "povertyRate": "Poverty Rate",
@@ -148,11 +149,11 @@
     },
     "povertyLines": {
       "title": "Poverty Lines (PPP)",
-      "description": "International poverty thresholds adjusted for Purchasing Power Parity.",
+      "description": "International poverty thresholds adjusted for Purchasing Power Parity (2017 PPP). Values are shown as US$/day (PPP) and as an approximate BRL/month amount per person.",
       "extremePoverty": "Extreme Poverty",
       "poverty": "Poverty",
-      "dailyUSD": "Daily (USD PPP)",
-      "monthlyBRL": "Monthly (BRL)"
+      "dailyUSD": "Daily (US$ PPP, 2017)",
+      "monthlyBRL": "Monthly (R$, BRL)"
     },
     "regionalDistribution": {
       "title": "Regional Distribution",
@@ -219,6 +220,7 @@
     "title": "Wealth Concentration",
     "description": "Analysis of wealth distribution in Brazil, including millionaire and billionaire populations.",
     "measurementNotes": "Measurement Notes",
+    "measurementNotesText": "Wealth estimates follow Global Wealth Report methodology and are less precise than income statistics. \"Net worth\" refers to total assets minus debts. Millionaire thresholds are defined in US dollars (USD) at market exchange rates (not PPP).",
     "wealthInequality": {
       "title": "Wealth Inequality",
       "wealthGini": "Wealth Gini Coefficient",
@@ -228,9 +230,9 @@
     },
     "millionairePopulation": {
       "title": "Millionaire Population",
-      "description": "Individuals with net worth exceeding ${{threshold}} USD.",
+      "description": "Individuals with net worth of at least US$ {{threshold}} (USD, at market exchange rates).",
       "totalMillionaires": "Total Millionaires",
-      "individualsAbove": "Individuals with net worth over ${{threshold}} million USD",
+      "individualsAbove": "Net worth ≥ US$ {{threshold}} million (USD)",
       "shareOfPopulation": "Share of Population",
       "millionairePercentage": "Millionaires as percentage of total Brazilian population",
       "wealthShare": "Wealth Share",
@@ -245,6 +247,7 @@
       "additionalNotes": "Additional Notes",
       "yearOverYear": "+{{percent}}% year-over-year increase",
       "contextTitle": "Global Context",
+      "notesText": "Billionaires are defined as individuals with net worth of at least US$ 1B (USD). Combined wealth is estimated at about US$ {{wealth}}B in {{year}}.",
       "context": "Brazil ranks among the top 10 countries by billionaire count globally. The combined wealth of Brazilian billionaires exceeds the annual income of the poorest 50% of the population."
     },
     "wealthGapVisualized": {
@@ -265,10 +268,11 @@
     "baseline": {
       "title": "Official Baseline (Anchors)",
       "dataTitle": "Baseline Data",
-      "povertyLine": "Poverty Line:",
+      "povertyLineDaily": "Poverty line (US$/day, 2017 PPP):",
+      "povertyLineMonthly": "Poverty line (approx., R$/month per person):",
       "povertyRate": "Poverty Rate:",
       "inPoverty": "In Poverty:",
-      "millionaires": "Millionaires:"
+      "millionaires": "Millionaires (US$ 1M+ net worth):"
     },
     "controls": {
       "title": "Simulation Controls",
@@ -281,15 +285,15 @@
       "povertyGap": "Poverty Gap: {{percent}}%",
       "services": "Services: {{percent}}%",
       "regionalFund": "Regional Fund: {{percent}}%",
-      "millionaires": "Millionaires",
-      "billionaires": "Billionaires"
+      "millionaires": "Millionaires (US$ 1M+)",
+      "billionaires": "Billionaires (US$ 1B+)"
     },
     "results": {
       "title": "Simulated Results",
-      "annualRevenue": "Annual Revenue (simulated)",
+      "annualRevenue": "Annual Revenue (simulated, BRL billions)",
       "totalOverYears": "Total over {{years}} years",
       "povertyGapCovered": "Poverty Gap Covered (simplified)",
-      "estPeopleLifted": "Est. People Lifted (proportional model)",
+      "estPeopleLifted": "Est. People Lifted Out of Poverty (proportional model)",
       "assumptions": "⚠️ Assumptions: Avg millionaire wealth $2.5M, billionaire $2.5B. Linear poverty gap model. No behavioral response modeled."
     }
   },
@@ -322,7 +326,7 @@
     "description": "Complete source catalog and data quality information.",
     "lastUpdated": "Last updated: {{date}}",
     "dataCurrency": "Data Currency",
-    "dataCurrencyText": "Data reflects 2023-2024 statistics with noted exceptions",
+    "dataCurrencyText": "Data reflects 2023–2024 statistics, with noted exceptions. BRL values are shown as R$; poverty lines are also shown in US$ (2017 PPP). Wealth thresholds (millionaires/billionaires) use USD at market exchange rates (not PPP).",
     "sourceCatalog": {
       "title": "Source Catalog",
       "id": "ID: {{id}}"
@@ -332,7 +336,19 @@
       "reliabilityRatings": "Reliability Ratings",
       "officialData": "Official Data",
       "wealthEstimates": "Wealth Estimates",
-      "knownLimitations": "Known Limitations"
+      "knownLimitations": "Known Limitations",
+      "ratings": {
+        "high": "high",
+        "medium": "medium",
+        "low": "low"
+      },
+      "knownLimitationsItems": [
+        "Wealth data relies heavily on surveys and may undercount hidden assets",
+        "Regional poverty figures may not capture within-region urban/rural differences",
+        "Racial categories follow Brazilian census classifications and may not match other countries' groupings",
+        "Informal sector income is difficult to measure accurately",
+        "PPP conversion introduces uncertainty in international comparisons"
+      ]
     }
   },
   "common": {
@@ -348,7 +364,8 @@
     "noSourcesFound": "No sources found for IDs: {{ids}}",
     "reduction": "Reduction: {{value}}",
     "percentagePoints": "percentage points",
-    "decrease": "{{percent}}% decrease"
+    "decrease": "{{percent}}% decrease",
+    "visitSource": "Visit {{name}} website"
   },
   "charts": {
     "high": "High (>35%)",
@@ -361,7 +378,7 @@
     "povertyLabel": "Poverty:",
     "extremeLabel": "Extreme:",
     "regionalPovertyDesc": "Regional poverty rates show the percentage of population living below the poverty line in each major Brazilian region.",
-    "racialPovertyDesc": "Racial distribution of poverty uses Brazilian census racial categories (cor ou raça). Categories include White, Black, Mixed, and Indigenous groups.",
+    "racialPovertyDesc": "Racial distribution of poverty uses Brazilian census racial categories (cor ou raça). Categories include White (Branco), Black (Preto), Mixed (Pardo), and Indigenous groups.",
     "regions": {
       "northeast": "Northeast",
       "north": "North",

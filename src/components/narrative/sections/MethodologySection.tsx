@@ -84,11 +84,11 @@ export function MethodologySection() {
             <div className="space-y-3">
               <div className="flex justify-between">
                 <span>{t('methodology.dataQuality.officialData')}</span>
-                <span className="chip-insight">{data.data_quality_notes.official_data_reliability}</span>
+                <span className="chip-insight">{t(`methodology.dataQuality.ratings.${data.data_quality_notes.official_data_reliability}` as const)}</span>
               </div>
               <div className="flex justify-between">
                 <span>{t('methodology.dataQuality.wealthEstimates')}</span>
-                <span className="chip-neutral">{data.data_quality_notes.wealth_estimate_reliability}</span>
+                <span className="chip-neutral">{t(`methodology.dataQuality.ratings.${data.data_quality_notes.wealth_estimate_reliability}` as const)}</span>
               </div>
             </div>
           </motion.div>
@@ -101,7 +101,7 @@ export function MethodologySection() {
           >
             <h4 className="font-semibold mb-4">{t('methodology.dataQuality.knownLimitations')}</h4>
             <ul className="space-y-2 text-sm text-muted-foreground">
-              {data.data_quality_notes.known_limitations.map((lim, i) => (
+              {(t('methodology.dataQuality.knownLimitationsItems', { returnObjects: true }) as string[]).map((lim, i) => (
                 <li key={i}>• {lim}</li>
               ))}
             </ul>

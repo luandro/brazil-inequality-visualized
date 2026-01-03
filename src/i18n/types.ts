@@ -29,9 +29,11 @@ export interface TranslationKeys {
       livingInPoverty: string;
       inExtremePoverty: string;
       incomeGini: string;
+      ultraWealthy: string;
       povertyTooltip: string;
       extremePovertyTooltip: string;
       giniTooltip: string;
+      ultraWealthyTooltip: string;
     };
     socialPrograms: {
       title: string;
@@ -108,6 +110,7 @@ export interface TranslationKeys {
     title: string;
     description: string;
     measurementBasis: string;
+    measurementBasisText: string;
     keyStatistics: {
       title: string;
       povertyRate: string;
@@ -187,6 +190,7 @@ export interface TranslationKeys {
     title: string;
     description: string;
     measurementNotes: string;
+    measurementNotesText: string;
     wealthInequality: {
       title: string;
       wealthGini: string;
@@ -212,6 +216,8 @@ export interface TranslationKeys {
       dataTitle: string;
       additionalNotes: string;
       yearOverYear: string;
+      contextTitle: string;
+      notesText: string;
       context: string;
     };
     wealthGapVisualized: {
@@ -232,7 +238,8 @@ export interface TranslationKeys {
     baseline: {
       title: string;
       dataTitle: string;
-      povertyLine: string;
+      povertyLineDaily: string;
+      povertyLineMonthly: string;
       povertyRate: string;
       inPoverty: string;
       millionaires: string;
@@ -248,6 +255,8 @@ export interface TranslationKeys {
       povertyGap: string;
       services: string;
       regionalFund: string;
+      millionaires: string;
+      billionaires: string;
     };
     results: {
       title: string;
@@ -266,12 +275,15 @@ export interface TranslationKeys {
     title: string;
     fieldName: string;
     reasonRemoved: string;
+    rationale: string;
+    fields: Record<string, { name: string; reason: string }>;
   };
   methodology: {
     title: string;
     description: string;
     lastUpdated: string;
     dataCurrency: string;
+    dataCurrencyText: string;
     sourceCatalog: {
       title: string;
       id: string;
@@ -282,6 +294,12 @@ export interface TranslationKeys {
       officialData: string;
       wealthEstimates: string;
       knownLimitations: string;
+      ratings: {
+        high: string;
+        medium: string;
+        low: string;
+      };
+      knownLimitationsItems: string[];
     };
   };
   common: {
@@ -298,6 +316,7 @@ export interface TranslationKeys {
     reduction: string;
     percentagePoints: string;
     decrease: string;
+    visitSource: string;
   };
   charts: {
     high: string;

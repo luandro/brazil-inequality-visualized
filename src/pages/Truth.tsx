@@ -354,7 +354,7 @@ export default function Truth() {
               </div>
               <div className="flex flex-wrap gap-3">
                 <span className="chip-deficit">
-                  ${poverty.poverty_lines.extreme_poverty_daily_usd_ppp.toFixed(2)}{t('truth.sectionB.perDayPPP')}
+                  US$ {poverty.poverty_lines.extreme_poverty_daily_usd_ppp.toFixed(2)}{t('truth.sectionB.perDayPPP')}
                 </span>
                 <span className="chip-deficit">
                   R${poverty.poverty_lines.extreme_poverty_monthly_brl}{t('truth.sectionB.perMonth')}
@@ -372,7 +372,7 @@ export default function Truth() {
               </div>
               <div className="flex flex-wrap gap-3">
                 <span className="chip-neutral">
-                  ${poverty.poverty_lines.poverty_daily_usd_ppp.toFixed(2)}{t('truth.sectionB.perDayPPP')}
+                  US$ {poverty.poverty_lines.poverty_daily_usd_ppp.toFixed(2)}{t('truth.sectionB.perDayPPP')}
                 </span>
                 <span className="chip-neutral">
                   R${poverty.poverty_lines.poverty_monthly_brl}{t('truth.sectionB.perMonth')}
