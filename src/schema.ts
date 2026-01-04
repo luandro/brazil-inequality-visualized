@@ -72,7 +72,9 @@ export const PovertySectionSchema = z.object({
 export const MinimumWageSectionSchema = z.object({
   wage_2024_brl: z.number().positive(),
   wage_2025_brl: z.number().positive(),
+  wage_2026_brl: z.number().positive(),
   effective_date_2025: ISODateString,
+  effective_date_2026: ISODateString,
   population_affected_millions: z.number().min(0),
   source_ids: z.array(NonEmptyString).min(1),
 });

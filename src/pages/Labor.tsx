@@ -190,24 +190,24 @@ export default function Labor() {
               
               <div className="grid grid-cols-2 gap-4 mb-6">
                 <div className="p-4 bg-muted/50 rounded-lg">
-                  <p className="text-sm text-muted-foreground mb-1">2024</p>
-                  <p className="text-2xl font-bold">R$ {minimum_wage.wage_2024_brl.toLocaleString()}</p>
+                  <p className="text-sm text-muted-foreground mb-1">2025</p>
+                  <p className="text-2xl font-bold">R$ {minimum_wage.wage_2025_brl.toLocaleString()}</p>
                 </div>
                 <div className="p-4 bg-secondary/10 rounded-lg">
-                  <p className="text-sm text-muted-foreground mb-1">2025</p>
-                  <p className="text-2xl font-bold text-secondary">R$ {minimum_wage.wage_2025_brl.toLocaleString()}</p>
+                  <p className="text-sm text-muted-foreground mb-1">2026</p>
+                  <p className="text-2xl font-bold text-secondary">R$ {minimum_wage.wage_2026_brl.toLocaleString()}</p>
                 </div>
               </div>
 
               <div className="flex items-center gap-2 text-sm text-muted-foreground">
                 <TrendingUp className="w-4 h-4 text-secondary" />
                 <span>
-                  {t('labor.minimumWage.increase')} R$ {(minimum_wage.wage_2025_brl - minimum_wage.wage_2024_brl).toLocaleString()}
-                  ({(((minimum_wage.wage_2025_brl - minimum_wage.wage_2024_brl) / minimum_wage.wage_2024_brl) * 100).toFixed(1)}%)
+                  {t('labor.minimumWage.increase')} R$ {(minimum_wage.wage_2026_brl - minimum_wage.wage_2025_brl).toLocaleString()}
+                  ({(((minimum_wage.wage_2026_brl - minimum_wage.wage_2025_brl) / minimum_wage.wage_2025_brl) * 100).toFixed(1)}%)
                 </span>
               </div>
               <p className="text-sm text-muted-foreground mt-2">
-                {t('labor.minimumWage.effectiveDate')} {new Date(minimum_wage.effective_date_2025).toLocaleDateString(i18n.language, {
+                {t('labor.minimumWage.effectiveDate')} {new Date(minimum_wage.effective_date_2026).toLocaleDateString(i18n.language, {
                   year: 'numeric',
                   month: 'long',
                   day: 'numeric'
@@ -266,8 +266,8 @@ export default function Labor() {
               </div>
               <div className="text-center">
                 <DollarSign className="w-8 h-8 text-secondary mx-auto mb-2" />
-                <p className="text-2xl font-bold">R${minimum_wage.wage_2025_brl}</p>
-                <p className="text-sm text-muted-foreground">{t('labor.atAGlance.minWage2025')}</p>
+                <p className="text-2xl font-bold">R${minimum_wage.wage_2026_brl}</p>
+                <p className="text-sm text-muted-foreground">{t('labor.atAGlance.minWage2026')}</p>
               </div>
             </div>
           </div>

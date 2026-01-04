@@ -2,7 +2,7 @@
   "metadata": {
     "title": "Brazil Inequality Dataset",
     "description": "Comprehensive data on poverty, labor, and wealth inequality in Brazil, compiled from official sources including IBGE, World Bank, and Forbes.",
-    "last_updated": "2024-12-15",
+    "last_updated": "2026-01-04",
     "data_currency": "Data reflects 2023-2024 statistics with noted exceptions",
     "population_total_millions": 203.1,
     "currency": "BRL"
@@ -54,6 +54,13 @@
       "name": "Decreto do Salário Mínimo 2025",
       "publisher": "Governo Federal do Brasil",
       "year": 2025,
+      "url": "https://www.gov.br/",
+      "notes": "Official minimum wage legislation"
+    },
+    "govt_minimum_wage_2026": {
+      "name": "Decreto do Salário Mínimo 2026",
+      "publisher": "Governo Federal do Brasil",
+      "year": 2026,
       "url": "https://www.gov.br/",
       "notes": "Official minimum wage legislation"
     },
@@ -151,9 +158,11 @@
   "minimum_wage": {
     "wage_2024_brl": 1412,
     "wage_2025_brl": 1518,
+    "wage_2026_brl": 1621,
     "effective_date_2025": "2025-01-01",
+    "effective_date_2026": "2026-01-01",
     "population_affected_millions": 59.3,
-    "source_ids": ["govt_minimum_wage_2025", "ibge_pnad_2023"]
+    "source_ids": ["govt_minimum_wage_2025", "govt_minimum_wage_2026", "ibge_pnad_2023"]
   },
   "labor_market": {
     "employed_population_millions": 101.8,

@@ -105,20 +105,20 @@ export function LaborSection() {
             
             <div className="grid grid-cols-2 gap-4 mb-6">
               <div className="p-4 bg-muted/50 rounded-lg">
-                <p className="text-sm text-muted-foreground mb-1">2024</p>
-                <p className="text-2xl font-bold">R$ {minimum_wage.wage_2024_brl.toLocaleString()}</p>
+                <p className="text-sm text-muted-foreground mb-1">2025</p>
+                <p className="text-2xl font-bold">R$ {minimum_wage.wage_2025_brl.toLocaleString()}</p>
               </div>
               <div className="p-4 bg-secondary/10 rounded-lg">
-                <p className="text-sm text-muted-foreground mb-1">2025</p>
-                <p className="text-2xl font-bold text-secondary">R$ {minimum_wage.wage_2025_brl.toLocaleString()}</p>
+                <p className="text-sm text-muted-foreground mb-1">2026</p>
+                <p className="text-2xl font-bold text-secondary">R$ {minimum_wage.wage_2026_brl.toLocaleString()}</p>
               </div>
             </div>
 
             <div className="flex items-center gap-2 text-sm text-muted-foreground">
               <TrendingUp className="w-4 h-4 text-secondary" />
               <span>
-                {t('labor.minimumWage.increase')} R$ {(minimum_wage.wage_2025_brl - minimum_wage.wage_2024_brl).toLocaleString()}
-                ({(((minimum_wage.wage_2025_brl - minimum_wage.wage_2024_brl) / minimum_wage.wage_2024_brl) * 100).toFixed(1)}%)
+                {t('labor.minimumWage.increase')} R$ {(minimum_wage.wage_2026_brl - minimum_wage.wage_2025_brl).toLocaleString()}
+                ({(((minimum_wage.wage_2026_brl - minimum_wage.wage_2025_brl) / minimum_wage.wage_2025_brl) * 100).toFixed(1)}%)
               </span>
             </div>
           </div>
