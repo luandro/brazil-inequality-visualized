@@ -175,7 +175,8 @@
       "description": "Poverty and extreme poverty rates across racial groups in Brazil.",
       "chartTitle": "Poverty by Racial Group",
       "poverty": "Poverty",
-      "extreme": "Extreme"
+      "extreme": "Extreme",
+      "illustrationLabel": "Racial inequality visualization showing parallel paths of opportunity"
     }
   },
   "labor": {
@@ -385,7 +386,7 @@
     "povertyLabel": "Poverty:",
     "extremeLabel": "Extreme:",
     "regionalPovertyDesc": "Regional poverty rates show the percentage of population living below the poverty line in each major Brazilian region.",
-    "racialPovertyDesc": "Racial distribution of poverty uses Brazilian census racial categories (cor ou raça). Categories include White (Branco), Black (Preto), Mixed (Pardo), and Indigenous groups.",
+    "racialPovertyDesc": "Racial distribution of poverty uses Brazilian census racial categories (cor ou raça). Categories include White (Branco), Black (Negro), Mixed (Pardo), and Indigenous groups.",
     "regions": {
       "northeast": "Northeast",
       "north": "North",

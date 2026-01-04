@@ -2,6 +2,7 @@ export { InequalitySlope } from './InequalitySlope';
 export { PovertyWaterline } from './PovertyWaterline';
 export { SafetyNet } from './SafetyNet';
 export { FragmentedGround } from './FragmentedGround';
+export { ParallelPaths } from './ParallelPaths';
 export { UnevenDoors } from './UnevenDoors';
 export { WorkforceGears } from './WorkforceGears';
 export { WealthStack } from './WealthStack';

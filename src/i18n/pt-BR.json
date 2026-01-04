@@ -175,7 +175,8 @@
       "description": "Taxas de pobreza e pobreza extrema entre grupos raciais no Brasil.",
       "chartTitle": "Pobreza por Grupo Racial",
       "poverty": "Pobreza",
-      "extreme": "Extrema"
+      "extreme": "Extrema",
+      "illustrationLabel": "Visualização da desigualdade racial mostrando caminhos paralelos de oportunidade"
     }
   },
   "labor": {
@@ -385,7 +386,7 @@
     "povertyLabel": "Pobreza:",
     "extremeLabel": "Extrema:",
     "regionalPovertyDesc": "As taxas de pobreza regionais mostram a porcentagem da população vivendo abaixo da linha de pobreza em cada grande região brasileira.",
-    "racialPovertyDesc": "A distribuição racial da pobreza usa categorias do censo brasileiro (cor ou raça). As categorias incluem Branco, Preto, Pardo e Indígena.",
+    "racialPovertyDesc": "A distribuição racial da pobreza usa categorias do censo brasileiro (cor ou raça). As categorias incluem Brancos, Negros, Pardos e Indígenas.",
     "regions": {
       "northeast": "Nordeste",
       "north": "Norte",
@@ -394,10 +395,10 @@
       "south": "Sul"
     },
     "racialGroups": {
-      "white": "Branco",
-      "black": "Negro",
-      "mixed": "Pardo",
-      "indigenous": "Indígena"
+      "white": "Brancos",
+      "black": "Negros",
+      "mixed": "Pardos",
+      "indigenous": "Indígenas"
     }
   },
   "notFound": {

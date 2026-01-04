@@ -4,7 +4,7 @@ import { useData } from '@/context/DataContext';
 import { RacialChart } from '@/components/charts/RacialChart';
 import { SourceDrawer } from '@/components/ui/SourceDrawer';
 import { NarrativeSection } from '../NarrativeSection';
-import { UnevenDoors } from '@/components/illustrations';
+import { ParallelPaths } from '@/components/illustrations';
 
 export function RacialSection() {
   const { t } = useTranslation();
@@ -14,10 +14,13 @@ export function RacialSection() {
   // Map racial groups to translation keys
   const racialGroupKeyMap: Record<string, string> = {
     'White (Branco)': 'charts.racialGroups.white',
-    'Black (Preto)': 'charts.racialGroups.black',
+    'Black (Negro)': 'charts.racialGroups.black',
     'Mixed (Pardo)': 'charts.racialGroups.mixed',
     'Indigenous': 'charts.racialGroups.indigenous',
   };
+  const racialGroupLabels = Object.fromEntries(
+    Object.entries(racialGroupKeyMap).map(([group, key]) => [group, t(key)])
+  );
 
   if (!data) return null;
 
@@ -26,7 +29,11 @@ export function RacialSection() {
   return (
     <NarrativeSection id="racial" ariaLabel="Racial Inequality" className="py-16 md:py-24 bg-gradient-to-b from-purple-50/30 to-transparent dark:from-purple-950/10">
       <div className="container-wide">
-        <UnevenDoors />
+        <ParallelPaths
+          data={poverty.racial_distribution}
+          labels={racialGroupLabels}
+          ariaLabel={t('poverty.racialDistribution.illustrationLabel')}
+        />
 
         <motion.div
           initial={{ opacity: 0, y: 20 }}

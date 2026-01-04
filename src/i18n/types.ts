@@ -148,6 +148,7 @@ export interface TranslationKeys {
       chartTitle: string;
       poverty: string;
       extreme: string;
+      illustrationLabel: string;
     };
   };
   labor: {

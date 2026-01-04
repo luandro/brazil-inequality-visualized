@@ -136,7 +136,7 @@
         "source_ids": ["ibge_pnad_2023"]
       },
       {
-        "group": "Black (Preto)",
+        "group": "Black (Negro)",
         "poverty_rate_percentage": 37.4,
         "extreme_poverty_rate_percentage": 9.1,
         "source_ids": ["ibge_pnad_2023"]

@@ -15,7 +15,7 @@ export function RacialChart({ data, title }: RacialChartProps) {
   // Map racial groups to translation keys
   const racialGroupKeyMap: Record<string, string> = {
     'White (Branco)': 'charts.racialGroups.white',
-    'Black (Preto)': 'charts.racialGroups.black',
+    'Black (Negro)': 'charts.racialGroups.black',
     'Mixed (Pardo)': 'charts.racialGroups.mixed',
     'Indigenous': 'charts.racialGroups.indigenous',
   };
